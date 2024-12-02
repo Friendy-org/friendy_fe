@@ -1,0 +1,16 @@
+# ninja log v5
+0	21	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+0	1772	1733142868411751008	CMakeFiles/appmodules.dir/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	e15dd3cdcc93fa1a
+1	1906	1733142868562496678	CMakeFiles/appmodules.dir/OnLoad.cpp.o	7d83f717f5feaa7a
+1907	2019	1733142868678299117	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/build/intermediates/cxx/Debug/3x365e2w/obj/x86/libappmodules.so	2d340ba20e3a34a7
+0	7	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+0	7	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+0	8	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+0	14	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+1	23	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+2	24	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+0	7	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+1	7	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+1	7	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+1	18	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23
+0	8	0	/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/x86/CMakeFiles/cmake.verify_globs	218a504a24fbeb23

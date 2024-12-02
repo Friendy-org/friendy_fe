@@ -1,0 +1,3 @@
+/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/armeabi-v7a/CMakeFiles/appmodules.dir
+/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/sunghyunwook/Documents/Project/friendy_fe/android/app/.cxx/Debug/3x365e2w/armeabi-v7a/CMakeFiles/rebuild_cache.dir
