@@ -68,6 +68,7 @@ local.properties
 *.iml
 /packages/react-native/android/*
 !/packages/react-native/android/README.md
+android/app/.cxx/
 
 # Node
 node_modules
