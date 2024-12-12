@@ -1,8 +1,151 @@
 {
-  "root": "/Users/sunghyunwook/Documents/Project/friendy_fe",
-  "reactNativePath": "/Users/sunghyunwook/Documents/Project/friendy_fe/node_modules/react-native",
+  "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe",
+  "reactNativePath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native",
   "reactNativeVersion": "0.76",
-  "dependencies": {},
+  "dependencies": {
+    "@react-native-community/masked-view": {
+      "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/@react-native-community/masked-view",
+      "name": "@react-native-community/masked-view",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/@react-native-community/masked-view/RNCMaskedView.podspec",
+          "version": "0.1.11",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/@react-native-community/masked-view/android",
+          "packageImportPath": "import org.reactnative.maskedview.RNCMaskedViewPackage;",
+          "packageInstance": "new RNCMaskedViewPackage()",
+          "buildTypes": [],
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/@react-native-community/masked-view/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-gesture-handler": {
+      "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-gesture-handler",
+      "name": "react-native-gesture-handler",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
+          "version": "2.21.2",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-gesture-handler/android",
+          "packageImportPath": "import com.swmansion.gesturehandler.RNGestureHandlerPackage;",
+          "packageInstance": "new RNGestureHandlerPackage()",
+          "buildTypes": [],
+          "libraryName": "rngesturehandler_codegen",
+          "componentDescriptors": [
+            "RNGestureHandlerButtonComponentDescriptor",
+            "RNGestureHandlerRootViewComponentDescriptor"
+          ],
+          "cmakeListsPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-reanimated": {
+      "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-reanimated",
+      "name": "react-native-reanimated",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-reanimated/RNReanimated.podspec",
+          "version": "3.16.5",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-reanimated/android",
+          "packageImportPath": "import com.swmansion.reanimated.ReanimatedPackage;",
+          "packageInstance": "new ReanimatedPackage()",
+          "buildTypes": [],
+          "libraryName": "rnreanimated",
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-safe-area-context": {
+      "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-safe-area-context",
+      "name": "react-native-safe-area-context",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
+          "version": "5.0.0",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-safe-area-context/android",
+          "packageImportPath": "import com.th3rdwave.safeareacontext.SafeAreaContextPackage;",
+          "packageInstance": "new SafeAreaContextPackage()",
+          "buildTypes": [],
+          "libraryName": "safeareacontext",
+          "componentDescriptors": [
+            "RNCSafeAreaProviderComponentDescriptor",
+            "RNCSafeAreaViewComponentDescriptor"
+          ],
+          "cmakeListsPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-screens": {
+      "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-screens",
+      "name": "react-native-screens",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-screens/RNScreens.podspec",
+          "version": "4.3.0",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-screens/android",
+          "packageImportPath": "import com.swmansion.rnscreens.RNScreensPackage;",
+          "packageInstance": "new RNScreensPackage()",
+          "buildTypes": [],
+          "libraryName": "rnscreens",
+          "componentDescriptors": [
+            "RNSFullWindowOverlayComponentDescriptor",
+            "RNSScreenContainerComponentDescriptor",
+            "RNSScreenNavigationContainerComponentDescriptor",
+            "RNSScreenStackHeaderConfigComponentDescriptor",
+            "RNSScreenStackHeaderSubviewComponentDescriptor",
+            "RNSScreenStackComponentDescriptor",
+            "RNSSearchBarComponentDescriptor",
+            "RNSScreenComponentDescriptor",
+            "RNSScreenFooterComponentDescriptor",
+            "RNSScreenContentWrapperComponentDescriptor",
+            "RNSModalScreenComponentDescriptor"
+          ],
+          "cmakeListsPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    }
+  },
   "commands": [
     {
       "name": "bundle",
@@ -160,7 +303,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "/Users/sunghyunwook/Documents/Project/friendy_fe"
+          "default": "/Users/bok-wonbin/Documents/GitHub/friendy_fe"
         },
         {
           "name": "--platform <string>",
@@ -211,7 +354,8 @@
         },
         {
           "name": "--terminal <string>",
-          "description": "Launches the Metro Bundler in a new window using the specified terminal path."
+          "description": "Launches the Metro Bundler in a new window using the specified terminal path.",
+          "default": "Apple_Terminal"
         },
         {
           "name": "--binary-path <string>",
@@ -370,7 +514,8 @@
         },
         {
           "name": "--terminal <string>",
-          "description": "Launches the Metro Bundler in a new window using the specified terminal path."
+          "description": "Launches the Metro Bundler in a new window using the specified terminal path.",
+          "default": "Apple_Terminal"
         },
         {
           "name": "--appId <string>",
@@ -445,7 +590,7 @@
   "assets": [],
   "project": {
     "ios": {
-      "sourceDir": "/Users/sunghyunwook/Documents/Project/friendy_fe/ios",
+      "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/ios",
       "xcodeProject": {
         "name": "friendy_fe.xcodeproj",
         "path": ".",
@@ -454,7 +599,7 @@
       "assets": []
     },
     "android": {
-      "sourceDir": "/Users/sunghyunwook/Documents/Project/friendy_fe/android",
+      "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/android",
       "appName": "app",
       "packageName": "com.friendy_fe",
       "applicationId": "com.friendy_fe",
