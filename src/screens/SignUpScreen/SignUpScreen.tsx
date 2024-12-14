@@ -4,16 +4,19 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/NavigationTypes';
 import InputField from '../../components/_common/molecules/InputField/InputField';
 import Button from '../../components/_common/atoms/Button/Button';
+import DotIndicator from '../../components/_common/molecules/DotIndicator/DotIndicator';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
 export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   const [email, setEmail] = useState('');
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
 
   const handlePress = () => {
     setStep(step + 1);
   };
+
+  console.log(step);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -24,6 +27,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         onChangeText={setEmail}
       />
       <Button onPress={handlePress}>다음</Button>
+      <DotIndicator totalStep={step + 1} step={step} />
     </View>
   );
 }
