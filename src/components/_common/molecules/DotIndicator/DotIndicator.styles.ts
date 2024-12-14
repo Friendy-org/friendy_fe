@@ -5,7 +5,6 @@ const Wrapper = styled.View`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin: 10px 0 10px 0;
 `;
 
 const S = {
