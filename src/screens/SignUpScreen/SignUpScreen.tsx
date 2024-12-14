@@ -3,11 +3,17 @@ import { View, Text } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/NavigationTypes';
 import InputField from '../../components/_common/molecules/InputField/InputField';
+import Button from '../../components/_common/atoms/Button/Button';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
 export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   const [email, setEmail] = useState('');
+  const [step, setStep] = useState(0);
+
+  const handlePress = () => {
+    setStep(step + 1);
+  };
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -17,6 +23,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         value={email}
         onChangeText={setEmail}
       />
+      <Button onPress={handlePress}>다음</Button>
     </View>
   );
 }
