@@ -9,8 +9,8 @@ const Wrapper = styled.View`
 `;
 
 const PinInput = styled.TextInput`
-  width: 49;
-  height: 56;
+  width: 49px;
+  height: 56px;
   border: 1px solid #717d96;
   border-radius: 17px;
 `;
