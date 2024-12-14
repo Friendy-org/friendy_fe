@@ -6,6 +6,7 @@ import InputField from '../../components/_common/molecules/InputField/InputField
 import Button from '../../components/_common/atoms/Button/Button';
 import DotIndicator from '../../components/_common/molecules/DotIndicator/DotIndicator';
 import EmailVerifyField from '../../components/EmailVerifyField/EmailVerifyField';
+import S from './SignUpScreen.styles';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -20,16 +21,27 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   console.log(step);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>회원가입</Text>
-      {/* <InputField
-        label='이메일을 입력해 주세요.'
-        value={email}
-        onChangeText={setEmail}
-      /> */}
-      <EmailVerifyField email='boksungkim@gmail.com' />
-      <Button onPress={handlePress}>다음</Button>
-      <DotIndicator totalStep={step + 1} step={step} />
-    </View>
+    <S.Layout>
+      <S.SignUpContainer>
+        <S.Title>회원가입</S.Title>
+        <S.InnerForm>
+          {step === 1 && (
+            <InputField
+              label='이메일을 입력해 주세요.'
+              value={email}
+              onChangeText={setEmail}
+            />
+          )}
+
+          {step === 2 && <EmailVerifyField email={email} />}
+        </S.InnerForm>
+        <S.ActionContainer>
+          <Button onPress={handlePress}>다음</Button>
+          <S.IndicatorContainer>
+            <DotIndicator totalStep={step + 1} step={step} />
+          </S.IndicatorContainer>
+        </S.ActionContainer>
+      </S.SignUpContainer>
+    </S.Layout>
   );
 }
