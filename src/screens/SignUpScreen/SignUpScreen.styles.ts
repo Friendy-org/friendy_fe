@@ -17,7 +17,11 @@ const Title = styled.Text`
   font-size: 24px;
 `;
 
-const InnerForm = styled.View``;
+const InnerForm = styled.View`
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+`;
 
 const ActionContainer = styled.View``;
 
