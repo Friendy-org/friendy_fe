@@ -1,5 +1,5 @@
 import S from './EmailVerifyField.styles';
-import PinCodeInput from './PinCodeInput/PinCodeInput';
+import PinCodeInput from '../_common/molecules/PinCodeInput/PinCodeInput';
 
 interface EmailVerifyFieldProps {
   email: string;
