@@ -21,6 +21,7 @@ const InnerForm = styled.View`
   display: flex;
   flex: 1;
   justify-content: space-around;
+  padding: 20px 0;
 `;
 
 const ActionContainer = styled.View``;
