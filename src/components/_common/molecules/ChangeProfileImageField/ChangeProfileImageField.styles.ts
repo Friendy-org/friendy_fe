@@ -10,6 +10,7 @@ const ChangeProfileImageButton = styled.TouchableOpacity``;
 const ButtonText = styled.Text`
   color: #009235;
   font-size: 14px;
+  margin-top: 14px;
 `;
 
 const S = {
