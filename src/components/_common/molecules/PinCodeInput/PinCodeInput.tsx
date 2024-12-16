@@ -12,6 +12,7 @@ export default function PinCodeInput({
   setVerifyCode,
 }: PinCodeInputProps) {
   const [pinValues, setPinValues] = useState(Array(pinLength).fill(''));
+  const [focusIndex, setFocusIndex] = useState<number | null>(null);
   const inputRefs = useRef<TextInput[]>([]);
 
   const handleChange = (index: number, value: string) => {
@@ -43,6 +44,9 @@ export default function PinCodeInput({
           maxLength={1}
           value={value}
           hasValue={!!value}
+          isFocus={focusIndex === index}
+          onFocus={() => setFocusIndex(index)}
+          onBlur={() => setFocusIndex(null)}
           onChangeText={text => handleChange(index, text)}
           onKeyPress={({ nativeEvent }) => {
             if (nativeEvent.key === 'Backspace') {
