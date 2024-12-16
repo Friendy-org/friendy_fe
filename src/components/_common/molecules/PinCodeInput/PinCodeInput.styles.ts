@@ -8,10 +8,10 @@ const Wrapper = styled.View`
   margin: 6px 0 15px 0;
 `;
 
-const PinInput = styled.TextInput`
+const PinInput = styled.TextInput<{ hasValue: boolean }>`
   width: 49px;
   height: 56px;
-  border: 1px solid #717d96;
+  border: 1px solid ${({ hasValue }) => (hasValue ? '#38A5CD' : '#717d96')};
   border-radius: 17px;
 `;
 
