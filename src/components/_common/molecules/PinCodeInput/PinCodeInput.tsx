@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { TextInput } from 'react-native';
 import S from './PinCodeInput.styles';
 
 interface PinCodeInputProps {
@@ -42,6 +42,7 @@ export default function PinCodeInput({
           keyboardType='numeric'
           maxLength={1}
           value={value}
+          hasValue={!!value}
           onChangeText={text => handleChange(index, text)}
           onKeyPress={({ nativeEvent }) => {
             if (nativeEvent.key === 'Backspace') {
