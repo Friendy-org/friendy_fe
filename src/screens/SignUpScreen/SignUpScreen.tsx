@@ -52,11 +52,13 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
               label='비밀번호'
               value={password}
               onChangeText={setPassword}
+              isPassword={true}
             />
             <InputField
               label='비밀번호 확인'
               value={confirmPassword}
               onChangeText={setConfirmPassword}
+              isPassword={true}
             />
             <DateInputField selectedDate={date} onChangeDate={setDate} />
           </S.InnerForm>
