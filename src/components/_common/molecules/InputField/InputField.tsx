@@ -2,6 +2,7 @@ import { useState } from 'react';
 import S from './InputField.styles';
 import IconButton from '../../atoms/IconButton/IconButton';
 import Icon from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface InputFieldProps {
   label: string;
@@ -32,6 +33,7 @@ export default function InputField({
           value={value}
           onChangeText={onChangeText}
           secureTextEntry={!isShow}
+          isError={!!error}
         />
         {isPassword && value && (
           <S.EyeIcon>
@@ -45,7 +47,12 @@ export default function InputField({
           </S.EyeIcon>
         )}
       </S.InputWrapper>
-      {error && <S.ErrorText>{error}</S.ErrorText>}
+      {error && (
+        <S.Footer>
+          <AntDesign name='exclamationcircleo' size={13} color={'#757575'} />
+          <S.ErrorText>{error}</S.ErrorText>
+        </S.Footer>
+      )}
     </S.Wrapper>
   );
 }
