@@ -1,30 +1,24 @@
-import { useState } from 'react';
+import { ReactNode } from 'react';
 import S from './InputField.styles';
-import IconButton from '../../atoms/IconButton/IconButton';
-import Icon from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface InputFieldProps {
   label: string;
   value: string;
   onChangeText: (text: string) => void;
-  isPassword?: boolean;
+  isShow?: boolean;
   error?: string;
+  children?: ReactNode;
 }
 
 export default function InputField({
   label,
   value,
   onChangeText,
-  isPassword = false,
+  isShow = true,
   error,
+  children,
 }: InputFieldProps) {
-  const [isShow, setIsShow] = useState(!isPassword);
-
-  const handlePress = () => {
-    setIsShow(prev => !prev);
-  };
-
   return (
     <S.Wrapper>
       <S.Label>{label}</S.Label>
@@ -35,17 +29,7 @@ export default function InputField({
           secureTextEntry={!isShow}
           isError={!!error}
         />
-        {isPassword && value && (
-          <S.EyeIcon>
-            <IconButton onPress={handlePress}>
-              {isShow ? (
-                <Icon name='eye' size={20} />
-              ) : (
-                <Icon name='eye-off' size={20} />
-              )}
-            </IconButton>
-          </S.EyeIcon>
-        )}
+        {children}
       </S.InputWrapper>
       {error && (
         <S.Footer>
