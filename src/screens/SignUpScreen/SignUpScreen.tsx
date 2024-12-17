@@ -8,6 +8,7 @@ import EmailVerifyField from '../../components/EmailVerifyField/EmailVerifyField
 import ChangeProfileImageField from '../../components/_common/molecules/ChangeProfileImageField/ChangeProfileImageField';
 import S from './SignUpScreen.styles';
 import DateInputField from '../../components/_common/molecules/DateInputField/DateInputField';
+import PasswordInput from '../../components/PasswordInput/PasswordInput';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -48,17 +49,15 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
               value={nickname}
               onChangeText={setNickname}
             />
-            <InputField
+            <PasswordInput
               label='비밀번호'
               value={password}
               onChangeText={setPassword}
-              isPassword={true}
             />
-            <InputField
+            <PasswordInput
               label='비밀번호 확인'
               value={confirmPassword}
               onChangeText={setConfirmPassword}
-              isPassword={true}
             />
             <DateInputField selectedDate={date} onChangeDate={setDate} />
           </S.InnerForm>
