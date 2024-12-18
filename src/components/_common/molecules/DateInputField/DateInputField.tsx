@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from '../../atoms/Button/Button';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { format } from 'date-fns';
 import S from './DateInputField.styled';
