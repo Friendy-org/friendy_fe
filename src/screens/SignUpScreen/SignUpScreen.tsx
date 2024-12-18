@@ -10,6 +10,11 @@ import S from './SignUpScreen.styles';
 import DateInputField from '../../components/_common/molecules/DateInputField/DateInputField';
 import PasswordInput from '../../components/PasswordInput/PasswordInput';
 import useForm from '../../hooks/utils/useForm';
+import {
+  validateEmail,
+  validateNickname,
+  validatePassword,
+} from '../../validations/userValidators';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -24,25 +29,6 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   });
   const [date, setDate] = useState(new Date());
   const [step, setStep] = useState(1);
-
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-      throw new Error('이메일을 확인해 주세요.');
-    }
-  };
-
-  const validateNickname = (nickname: string) => {
-    if (nickname.length < 8 || nickname.length > 30) {
-      throw new Error('닉네임 길이가 맞지 않습니다.');
-    }
-  };
-
-  const validatePassword = (password: string) => {
-    if (password.length < 8 || password.length > 16) {
-      throw new Error('비밀번호 길이가 맞지 않습니다.');
-    }
-  };
 
   const onSubmitStep1 = (data: typeof formData) => {
     console.log('Step 1 data:', data);
