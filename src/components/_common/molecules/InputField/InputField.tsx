@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 interface InputFieldProps {
   label: string;
   value: string;
-  onChangeText: (text: string) => void;
+  onChange: (text: string) => void;
   isShow?: boolean;
   error?: string;
   children?: ReactNode;
@@ -14,7 +14,7 @@ interface InputFieldProps {
 export default function InputField({
   label,
   value,
-  onChangeText,
+  onChange,
   isShow = true,
   error,
   children,
@@ -25,7 +25,7 @@ export default function InputField({
       <S.InputWrapper>
         <S.Input
           value={value}
-          onChangeText={onChangeText}
+          onChangeText={onChange}
           secureTextEntry={!isShow}
           isError={!!error}
         />

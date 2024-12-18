@@ -7,14 +7,14 @@ import S from './PasswordInput.styles';
 interface PasswordInputProps {
   label: string;
   value: string;
-  onChangeText: (text: string) => void;
+  onChange: (text: string) => void;
   error?: string;
 }
 
 export default function PasswordInput({
   label,
   value,
-  onChangeText,
+  onChange,
   error,
 }: PasswordInputProps) {
   const [isShow, setIsShow] = useState(false);
@@ -27,7 +27,7 @@ export default function PasswordInput({
     <InputField
       label={label}
       value={value}
-      onChangeText={onChangeText}
+      onChange={onChange}
       isShow={isShow}
       error={error}
     >
