@@ -9,55 +9,44 @@ import ChangeProfileImageField from '../../components/_common/molecules/ChangePr
 import S from './SignUpScreen.styles';
 import DateInputField from '../../components/_common/molecules/DateInputField/DateInputField';
 import PasswordInput from '../../components/PasswordInput/PasswordInput';
+import useForm from '../../hooks/utils/useForm';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
 export default function SignUpScreen({ navigation }: SignUpScreenProps) {
-  const [email, setEmail] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [password, setPassword] = useState('');
+  const { formData, register, errors, handleSubmit } = useForm({
+    initialValues: {
+      email: '',
+      nickname: '',
+      password: '',
+      confirmPassword: '',
+    },
+  });
   const [date, setDate] = useState(new Date());
-  const [confirmPassword, setConfirmPassword] = useState('');
-
   const [step, setStep] = useState(1);
 
   const handlePress = () => {
     setStep(step + 1);
   };
 
-  console.log(step);
-
   return (
     <S.Layout>
       <S.SignUpContainer>
         <S.Title>회원가입</S.Title>
         {step === 1 && (
-          <InputField
-            label='이메일을 입력해 주세요.'
-            value={email}
-            onChangeText={setEmail}
-          />
+          <InputField label='이메일을 입력해 주세요.' {...register('email')} />
         )}
 
-        {step === 2 && <EmailVerifyField email={email} />}
+        {step === 2 && <EmailVerifyField email={formData.email} />}
 
         {step === 3 && (
           <S.InnerForm>
             <ChangeProfileImageField buttonText='프로필 사진 선택' />
-            <InputField
-              label='닉네임'
-              value={nickname}
-              onChangeText={setNickname}
-            />
-            <PasswordInput
-              label='비밀번호'
-              value={password}
-              onChangeText={setPassword}
-            />
+            <InputField label='닉네임' {...register('nickname')} />
+            <PasswordInput label='비밀번호' {...register('password')} />
             <PasswordInput
               label='비밀번호 확인'
-              value={confirmPassword}
-              onChangeText={setConfirmPassword}
+              {...register('confirmPassword')}
             />
             <DateInputField selectedDate={date} onChangeDate={setDate} />
           </S.InnerForm>
