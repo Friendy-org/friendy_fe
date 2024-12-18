@@ -5,15 +5,16 @@ interface UseFormProps<T> {
 }
 
 interface RegisterOptions {
-  validate?: (value: string) => string | undefined;
+  validate?: (value: string) => void;
 }
 
 export default function useForm<T>({ initialValues }: UseFormProps<T>) {
   const [formData, setFormData] = useState<T>(initialValues);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
   const validations = useState<
-    Partial<Record<keyof T, (value: string) => string | undefined>>
+    Partial<Record<keyof T, (value: string) => void>>
   >({})[0];
+  let hasError = false;
 
   const validateAndSetErrors = ({
     value,
@@ -21,7 +22,7 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
     inputName,
   }: {
     value: string;
-    validate?: (data: string) => string | undefined;
+    validate?: (data: string) => void;
     inputName: string;
   }) => {
     if (!validate) {
@@ -32,8 +33,15 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
       validate(value);
       setErrors(prev => ({ ...prev, [inputName]: '' }));
     } catch (err) {
-      if (err) {
-        setErrors(prev => ({ ...prev, [inputName]: err }));
+      console.log(err);
+      if (err instanceof Error) {
+        hasError = true;
+        setErrors(prev => ({ ...prev, [inputName]: err.message })); // Error 객체의 message만 저장
+      } else {
+        setErrors(prev => ({
+          ...prev,
+          [inputName]: '유효성 검사 중 오류가 발생했습니다.',
+        }));
       }
     }
   };
@@ -43,8 +51,6 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
   };
 
   const handleSubmit = (onSubmit: (data: T) => void) => {
-    let hasError = false;
-
     for (const fieldName in formData) {
       if (Object.prototype.hasOwnProperty.call(formData, fieldName)) {
         const name = fieldName as keyof T;
@@ -53,10 +59,6 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
           validate: validations[name],
           inputName: name as string,
         });
-
-        if (errors[name]) {
-          hasError = true;
-        }
       }
     }
 
