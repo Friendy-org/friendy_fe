@@ -1,6 +1,6 @@
 import styled from '@emotion/native';
 
-const Wrapper = styled.View`
+const VerificationContainer = styled.View`
   display: flex;
   width: 100%;
 `;
@@ -23,7 +23,7 @@ const ResendLink = styled.Text`
 const Timer = styled.Text``;
 
 const S = {
-  Wrapper,
+  VerificationContainer,
   Label,
   InfoWrapper,
   ResendLink,
