@@ -20,7 +20,7 @@ import EmailVerificationStep2 from '../../components/EmailVerification/EmailVeri
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
 export default function SignUpScreen({ navigation }: SignUpScreenProps) {
-  const { formData, register, errors, handleSubmit } = useForm({
+  const { formData, register, handleSubmit } = useForm({
     initialValues: {
       email: '',
       nickname: '',
@@ -34,17 +34,11 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   const nextStep = () => setStep(prev => prev + 1);
 
   const handlePress = (func: any) => {
-    handleSubmit(async () => {
-      try {
-        await func();
+    const hasError = handleSubmit(async () => await func());
 
-        if (Object.values(errors).some(error => error)) {
-          nextStep();
-        }
-      } catch (err) {
-        console.error('Error during func execution:', err);
-      }
-    });
+    if (!hasError) {
+      nextStep();
+    }
   };
 
   const handleSignUp = () => {
