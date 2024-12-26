@@ -11,9 +11,7 @@ interface RegisterOptions {
 export default function useForm<T>({ initialValues }: UseFormProps<T>) {
   const [formData, setFormData] = useState<T>(initialValues);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
-  const validations = useState<
-    Partial<Record<keyof T, (value: string) => void>>
-  >({})[0];
+  const validations = useState<Partial<Record<keyof T, (value: string) => void>>>({})[0];
   let hasError = false;
 
   const validateAndSetErrors = ({
@@ -50,7 +48,7 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (onSubmit: (data: T) => void) => {
+  const handleSubmit = (onSubmit: () => void) => {
     for (const fieldName in formData) {
       if (Object.prototype.hasOwnProperty.call(formData, fieldName)) {
         const name = fieldName as keyof T;
@@ -63,8 +61,10 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
     }
 
     if (!hasError) {
-      onSubmit(formData);
+      onSubmit();
     }
+
+    return hasError;
   };
 
   const register = (name: keyof T, options?: RegisterOptions) => {
