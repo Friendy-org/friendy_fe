@@ -16,6 +16,7 @@ export default function EmailVerificationStep1({
   handlePress,
 }: EmailVerificationStep1Props) {
   const handleStep1Submit = () => {
+    // todo: 이메일 인증 api
     console.log('Step 1 complete');
   };
 

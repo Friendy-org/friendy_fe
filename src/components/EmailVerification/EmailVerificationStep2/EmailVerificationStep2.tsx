@@ -1,3 +1,4 @@
+import React from 'react';
 import PinCodeInput from '../../_common/molecules/PinCodeInput/PinCodeInput';
 import S from './EmailVerificationStep2.styles';
 import Button from '../../_common/atoms/Button/Button';
@@ -9,6 +10,7 @@ interface EmailVerificationStep2Props {
 
 export default function EmailVerificationStep2({ email, nextStep }: EmailVerificationStep2Props) {
   const handleStep2Submit = () => {
+    // todo: 이메일 인증번호 검증 api
     console.log('Step 2 complete');
   };
 
