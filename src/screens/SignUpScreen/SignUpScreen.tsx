@@ -85,7 +85,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         )}
       </S.SignUpContainer>
       <S.IndicatorContainer>
-        {step !== 3 && <DotIndicator totalStep={step + 1} step={step} />}
+        {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
       </S.IndicatorContainer>
     </S.Layout>
   );
