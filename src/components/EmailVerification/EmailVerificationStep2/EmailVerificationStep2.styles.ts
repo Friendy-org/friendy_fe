@@ -3,6 +3,7 @@ import styled from '@emotion/native';
 const VerificationContainer = styled.View`
   display: flex;
   width: 100%;
+  margin-bottom: 50px;
 `;
 
 const Label = styled.Text`
