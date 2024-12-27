@@ -3,6 +3,7 @@ import styled from '@emotion/native';
 const Wrapper = styled.View`
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
 `;
 
 const ChangeProfileImageButton = styled.TouchableOpacity``;

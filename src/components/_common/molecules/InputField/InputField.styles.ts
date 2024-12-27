@@ -4,6 +4,7 @@ const Wrapper = styled.View`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 50px;
 `;
 
 const Label = styled.Text``;

@@ -16,6 +16,7 @@ import {
 } from '../../validations/userValidators';
 import EmailVerificationStep1 from '../../components/EmailVerification/EmailVerificationStep1/EmailVerificationStep1';
 import EmailVerificationStep2 from '../../components/EmailVerification/EmailVerificationStep2/EmailVerificationStep2';
+import { Platform } from 'react-native';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -47,7 +48,10 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
 
   return (
     <S.Layout>
-      <S.SignUpContainer>
+      <S.SignUpContainer
+        keyboardShouldPersistTaps='handled'
+        contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
+      >
         <S.Title>회원가입</S.Title>
         {step === 1 && (
           <EmailVerificationStep1

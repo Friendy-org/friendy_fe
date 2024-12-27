@@ -1,4 +1,5 @@
 import styled from '@emotion/native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Layout = styled.View`
   width: 100%;
@@ -6,11 +7,7 @@ const Layout = styled.View`
   padding: 46px;
 `;
 
-const SignUpContainer = styled.View`
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-`;
+const SignUpContainer = styled(ScrollView)``;
 
 const Title = styled.Text`
   font-size: 24px;
@@ -18,12 +15,8 @@ const Title = styled.Text`
 
 const InnerForm = styled.View`
   display: flex;
-  flex: 1;
-  justify-content: space-around;
-  padding: 20px 0;
+  padding: 40px 0;
 `;
-
-const ActionContainer = styled.View``;
 
 const IndicatorContainer = styled.View`
   padding: 10px 0 10px 0;
@@ -34,7 +27,6 @@ const S = {
   SignUpContainer,
   Title,
   InnerForm,
-  ActionContainer,
   IndicatorContainer,
 };
 
