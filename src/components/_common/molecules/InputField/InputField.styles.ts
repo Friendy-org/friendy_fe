@@ -19,6 +19,7 @@ const Input = styled.TextInput<{ isError: boolean }>`
   border: 1px solid ${({ isError }) => (isError ? '#FF3B30' : '#717d96')};
   border-radius: 25px;
   margin: 5px 0 5px 0;
+  padding: 0 20px;
 `;
 
 const Footer = styled.View`
