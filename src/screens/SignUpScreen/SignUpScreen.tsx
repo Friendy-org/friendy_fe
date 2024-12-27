@@ -42,6 +42,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   };
 
   const handleSignUp = () => {
+    // todo: 회원가입 api
     console.log('SignUp complete');
   };
 
