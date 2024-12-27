@@ -1,3 +1,5 @@
+// todo: 유효성 검사 상세하게
+
 export const validateEmail = (email: string) => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailRegex.test(email)) {

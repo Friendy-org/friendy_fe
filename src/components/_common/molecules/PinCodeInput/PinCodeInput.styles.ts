@@ -14,6 +14,9 @@ const PinInput = styled.TextInput<{ hasValue: boolean; isFocus: boolean }>`
   border-width: 1px;
   border-radius: 17px;
   border-color: ${({ hasValue, isFocus }) => (hasValue || isFocus ? '#38A5CD' : '#717d96')};
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
 `;
 
 const S = {
