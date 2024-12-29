@@ -51,6 +51,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
       <S.SignUpContainer
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
+        bounces={false}
       >
         <S.Title>회원가입</S.Title>
         {step === 1 && (
