@@ -13,8 +13,7 @@ export default function RootScreen({ navigation }: RootScreenProps) {
     }
 
     const handleLoginPressed = () => {
-        // todo: 로그인 화면 이동
-        console.log('Login Pressed');
+        navigation.navigate('Login');
     }
     const handleSignUpPressed = () => {
         navigation.navigate('SignUp');
