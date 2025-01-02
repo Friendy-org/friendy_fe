@@ -1,10 +1,10 @@
 import styled from '@emotion/native';
 
-const Wrapper = styled.View`
+const Wrapper = styled.View<{ marginBottom?: number }>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: ${ props => props.marginBottom ? props.marginBottom : 0}px;
 `;
 
 const Label = styled.Text``;

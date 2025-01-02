@@ -68,14 +68,17 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
             <S.InnerForm>
               <ChangeProfileImageField buttonText='프로필 사진 선택' />
               <InputField
+                marginBottom={30}
                 label='닉네임'
                 {...register('nickname', { validate: validateNickname })}
               />
               <PasswordInput
+                marginBottom={30}
                 label='비밀번호'
                 {...register('password', { validate: validatePassword })}
               />
               <PasswordInput
+                marginBottom={30}
                 label='비밀번호 확인'
                 {...register('confirmPassword', { validate: validatePassword })}
               />
