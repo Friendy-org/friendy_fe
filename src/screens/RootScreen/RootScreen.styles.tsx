@@ -8,7 +8,7 @@ const Layout = styled.View`
     align-items: center;
 
     width: 100%;
-    height: 60%;
+    height: 70%;
     margin: auto;
 `;
 
@@ -29,11 +29,12 @@ const imgLogo = styled.Image`
 const title = styled.Text`
     font-size: 22px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 15px;
 `;
 
-const myButton = styled(Button)<{ marginBottom?: number }>`
-    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}px;
+const marginedButton = styled.View<{ margin?: number }>`
+    margin: ${props => props.margin ? props.margin : 0}px;
+    width: 100%;
 `;
 
 const S = {
@@ -41,7 +42,7 @@ const S = {
     imgLogo,
     Container,
     title,
-    myButton
+    marginedButton
 };
 
 export default S;

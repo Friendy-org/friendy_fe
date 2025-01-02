@@ -27,7 +27,9 @@ export default function RootScreen({ navigation }: RootScreenProps) {
                 <S.title>Friendy</S.title>
             </S.Container>
             <S.Container>
-                <S.myButton onPress={() => handlePress(handleLoginPressed)} marginBottom={20}>로그인</S.myButton>
+                <S.marginedButton margin={15}> 
+                    <Button onPress={() => handlePress(handleLoginPressed)}>로그인</Button>
+                </S.marginedButton>
                 <LinkedText onPress={() => handlePress(handleSignUpPressed)}>회원가입</LinkedText>
             </S.Container>
         </S.Layout>
