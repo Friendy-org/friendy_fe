@@ -8,6 +8,7 @@ interface PasswordInputProps {
   label: string;
   value: string;
   onChange: (text: string) => void;
+  marginBottom?: number;
   error?: string;
 }
 
@@ -15,6 +16,7 @@ export default function PasswordInput({
   label,
   value,
   onChange,
+  marginBottom,
   error,
 }: PasswordInputProps) {
   const [isShow, setIsShow] = useState(false);
@@ -30,6 +32,7 @@ export default function PasswordInput({
       onChange={onChange}
       isShow={isShow}
       error={error}
+      marginBottom={marginBottom}
     >
       {value && (
         <S.EyeIcon>

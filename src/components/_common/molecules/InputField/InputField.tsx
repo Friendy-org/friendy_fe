@@ -6,6 +6,7 @@ interface InputFieldProps {
   label: string;
   value: string;
   onChange: (text: string) => void;
+  marginBottom?: number;
   isShow?: boolean;
   error?: string;
   children?: ReactNode;
@@ -15,12 +16,13 @@ export default function InputField({
   label,
   value,
   onChange,
+  marginBottom,
   isShow = true,
   error,
   children,
 }: InputFieldProps) {
   return (
-    <S.Wrapper>
+    <S.Wrapper marginBottom={marginBottom ? marginBottom : 0}>
       <S.Label>{label}</S.Label>
       <S.InputWrapper>
         <S.Input
