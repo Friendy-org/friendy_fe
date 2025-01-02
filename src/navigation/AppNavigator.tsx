@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import RootScreen from '../screens/RootScreen/RootScreen';
+import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import { RootStackParamList } from '../types/NavigationTypes';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -15,6 +16,7 @@ export default function AppNavigator() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name='Root' component={RootScreen} />
+        <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='SignUp' component={SignUpScreen} />
       </Stack.Navigator>
     </NavigationContainer>
