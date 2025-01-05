@@ -18,3 +18,9 @@ export const validatePassword = (password: string) => {
     throw new Error('비밀번호 길이가 맞지 않습니다.');
   }
 };
+
+export const validateNull = (value: string) => {
+  if (!value) {
+    throw new Error('필수 입력 항목입니다.');
+  }
+};
