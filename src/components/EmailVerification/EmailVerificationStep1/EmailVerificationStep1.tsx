@@ -1,6 +1,7 @@
 import React from 'react';
 import InputField from '../../_common/molecules/InputField/InputField';
 import Button from '../../_common/atoms/Button/Button';
+import S from './EmailVerificationStep1.styles';
 
 interface EmailVerificationStep1Props {
   emailRegister: {
@@ -21,9 +22,11 @@ export default function EmailVerificationStep1({
   };
 
   return (
-    <>
-      <InputField label='이메일을 입력해 주세요.' {...emailRegister} />
-      <Button onPress={() => handlePress(handleStep1Submit)}>다음</Button>
-    </>
+    <S.AppContainer>
+      <S.Layout>
+        <InputField label='이메일을 입력해 주세요.' {...emailRegister} />
+        <Button onPress={() => handlePress(handleStep1Submit)}>다음</Button>
+      </S.Layout>
+    </S.AppContainer>
   );
 }

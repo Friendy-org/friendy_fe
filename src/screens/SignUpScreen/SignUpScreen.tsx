@@ -53,7 +53,6 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
         bounces={false}
       >
-        <S.Title>회원가입</S.Title>
         {step === 1 && (
           <EmailVerificationStep1
             emailRegister={register('email', { validate: validateEmail })}
@@ -64,7 +63,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         {step === 2 && <EmailVerificationStep2 email={formData.email} nextStep={nextStep} />}
 
         {step === 3 && (
-          <>
+          <S.ProfileSettingsContainer>
             <S.InnerForm>
               <ChangeProfileImageField buttonText='프로필 사진 선택' />
               <InputField
@@ -85,12 +84,14 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
               <DateInputField selectedDate={date} onChangeDate={setDate} />
             </S.InnerForm>
             <Button onPress={() => handlePress(handleSignUp)}>완료</Button>
-          </>
+          </S.ProfileSettingsContainer>
         )}
       </S.SignUpContainer>
-      <S.IndicatorContainer>
-        {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
-      </S.IndicatorContainer>
+      {step <= 2 && 
+        <S.IndicatorContainer>
+          {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
+        </S.IndicatorContainer>
+      }
     </S.Layout>
   );
 }
