@@ -16,18 +16,12 @@ const InfoWrapper = styled.View`
   justify-content: space-between;
 `;
 
-const ResendLink = styled.Text`
-  color: #38a5cd;
-  text-decoration: underline;
-`;
-
 const Timer = styled.Text``;
 
 const S = {
   VerificationContainer,
   Label,
   InfoWrapper,
-  ResendLink,
   Timer,
 };
 
