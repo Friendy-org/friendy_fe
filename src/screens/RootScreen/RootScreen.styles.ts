@@ -19,30 +19,30 @@ const Container = styled.View`
     align-items: center;
 `
 
-const imgLogo = styled.Image`
+const ImgLogo = styled.Image`
     width: 206px;
     height: 206px;
     border-radius: 50%;
     background-color: #dddddd;
 `;
 
-const title = styled.Text`
+const Title = styled.Text`
     font-size: 22px;
     font-weight: bold;
     margin-top: 15px;
 `;
 
-const marginedButton = styled.View<{ margin?: number }>`
+const MarginedButton = styled.View<{ margin?: number }>`
     margin: ${props => props.margin ? props.margin : 0}px;
     width: 100%;
 `;
 
 const S = {
     Layout,
-    imgLogo,
+    ImgLogo,
     Container,
-    title,
-    marginedButton
+    Title,
+    MarginedButton
 };
 
 export default S;
