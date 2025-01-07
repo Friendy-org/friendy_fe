@@ -1,9 +1,24 @@
 import styled from '@emotion/native';
 
+const AppContainer = styled.View`
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column-reverse;
+`;
+
+const Layout = styled.View`
+  width: 100%;
+  height: 70%;
+
+  display: flex;
+  justify-content: space-between;
+`;
+
 const VerificationContainer = styled.View`
   display: flex;
   width: 100%;
-  margin-bottom: 50px;
 `;
 
 const Label = styled.Text`
@@ -19,6 +34,8 @@ const InfoWrapper = styled.View`
 const Timer = styled.Text``;
 
 const S = {
+  AppContainer,
+  Layout,
   VerificationContainer,
   Label,
   InfoWrapper,
