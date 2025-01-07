@@ -1,5 +1,12 @@
 import styled from '@emotion/native';
 
+const AppContainer = styled.View`
+    background-color: white;
+
+    width: 100%;
+    height: 100%;
+`;
+
 const Layout = styled.View`
     display: flex;
     flex-direction: column;
@@ -22,6 +29,7 @@ const Section = styled.View`
 `;
 
 const S = {
+    AppContainer,
     Layout,
     Title,
     Section

@@ -20,17 +20,19 @@ export default function RootScreen({ navigation }: RootScreenProps) {
     }
 
     return (
-        <S.Layout>
-            <S.Container>
-                <S.ImgLogo></S.ImgLogo>
-                <S.Title>Friendy</S.Title>
-            </S.Container>
-            <S.Container>
-                <S.MarginedButton margin={15}> 
-                    <Button onPress={() => handlePress(handleLoginPressed)}>로그인</Button>
-                </S.MarginedButton>
-                <LinkedText onPress={() => handlePress(handleSignUpPressed)}>회원가입</LinkedText>
-            </S.Container>
-        </S.Layout>
+        <S.AppContainer>
+            <S.Layout>
+                <S.Container>
+                    <S.ImgLogo></S.ImgLogo>
+                    <S.Title>Friendy</S.Title>
+                </S.Container>
+                <S.Container>
+                    <S.MarginedButton margin={15}> 
+                        <Button onPress={() => handlePress(handleLoginPressed)}>로그인</Button>
+                    </S.MarginedButton>
+                    <LinkedText onPress={() => handlePress(handleSignUpPressed)}>회원가입</LinkedText>
+                </S.Container>
+            </S.Layout>
+        </S.AppContainer>
     );
 }
