@@ -22,13 +22,13 @@ export default function RootScreen({ navigation }: RootScreenProps) {
     return (
         <S.Layout>
             <S.Container>
-                <S.imgLogo></S.imgLogo>
-                <S.title>Friendy</S.title>
+                <S.ImgLogo></S.ImgLogo>
+                <S.Title>Friendy</S.Title>
             </S.Container>
             <S.Container>
-                <S.marginedButton margin={15}> 
+                <S.MarginedButton margin={15}> 
                     <Button onPress={() => handlePress(handleLoginPressed)}>로그인</Button>
-                </S.marginedButton>
+                </S.MarginedButton>
                 <LinkedText onPress={() => handlePress(handleSignUpPressed)}>회원가입</LinkedText>
             </S.Container>
         </S.Layout>
