@@ -34,7 +34,7 @@ export default function LoginScreen({ navigation }: RootScreenProps) {
 
     return (
         <S.Layout>
-            <S.title>로그인</S.title>
+            <S.Title>로그인</S.Title>
             <S.Section>
                 <InputField 
                     label={'이메일'}
