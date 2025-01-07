@@ -33,22 +33,24 @@ export default function LoginScreen({ navigation }: RootScreenProps) {
     }
 
     return (
-        <S.Layout>
-            <S.Title>로그인</S.Title>
-            <S.Section>
-                <InputField 
-                    label={'이메일'}
-                    marginBottom={14}
-                    {...register('email', {validate: validateNull})}
-                ></InputField>
-                <PasswordInput
-                    label={'비밀번호'}
-                    marginBottom={30}
-                    {...register('password', {validate: validateNull})}
-                ></PasswordInput>
-                <LinkedText onPress={handleForgotPassword}>비밀번호가 기억나지 않나요?</LinkedText>
-            </S.Section>
-            <Button onPress={() => {handlePress(handleLogin)}}>완료</Button>
-        </S.Layout>
+        <S.AppContainer>
+            <S.Layout>
+                <S.Title>로그인</S.Title>
+                <S.Section>
+                    <InputField 
+                        label={'이메일'}
+                        marginBottom={14}
+                        {...register('email', {validate: validateNull})}
+                    ></InputField>
+                    <PasswordInput
+                        label={'비밀번호'}
+                        marginBottom={30}
+                        {...register('password', {validate: validateNull})}
+                    ></PasswordInput>
+                    <LinkedText onPress={handleForgotPassword}>비밀번호가 기억나지 않나요?</LinkedText>
+                </S.Section>
+                <Button onPress={() => {handlePress(handleLogin)}}>완료</Button>
+            </S.Layout>
+        </S.AppContainer>
     );
 };

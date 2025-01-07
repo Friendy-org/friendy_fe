@@ -1,5 +1,11 @@
 import styled from '@emotion/native';
-import Button from '../../components/_common/atoms/Button/Button';
+
+const AppContainer = styled.View`
+    background-color: white;
+
+    width: 100%;
+    height: 100%;
+`;
 
 const Layout = styled.View`
     display: flex;
@@ -38,6 +44,7 @@ const MarginedButton = styled.View<{ margin?: number }>`
 `;
 
 const S = {
+    AppContainer,
     Layout,
     ImgLogo,
     Container,
