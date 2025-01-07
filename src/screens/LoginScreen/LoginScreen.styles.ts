@@ -10,7 +10,7 @@ const Layout = styled.View`
     align-items: start;
 `
 
-const title = styled.Text`
+const Title = styled.Text`
     margin: 0px 10px;
     font-size: 24px;
 `;
@@ -23,7 +23,7 @@ const Section = styled.View`
 
 const S = {
     Layout,
-    title,
+    Title,
     Section
 }
 
