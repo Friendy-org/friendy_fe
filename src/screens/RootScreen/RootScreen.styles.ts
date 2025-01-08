@@ -28,7 +28,7 @@ const Container = styled.View`
 const ImgLogo = styled.Image`
     width: 206px;
     height: 206px;
-    border-radius: 50%;
+    border-radius: 103px;
     background-color: #dddddd;
 `;
 
