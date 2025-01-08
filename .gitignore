@@ -159,3 +159,7 @@ vendor/
 
 # Jest Integration
 /jest/integration/build/
+
+# Amulators
+android/
+ios/
