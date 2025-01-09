@@ -1,8 +1,26 @@
 import React from 'react';
 import AppNavigator from './navigation/AppNavigator';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const App = () => {
-  return <AppNavigator />;
-};
+export default function App() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        throwOnError: true,
+        retry: 0,
+      },
+      mutations: {
+        onError: error => {
+          console.log('에러');
+          console.log(error);
+        },
+      },
+    },
+  });
 
-export default App;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppNavigator />
+    </QueryClientProvider>
+  );
+}

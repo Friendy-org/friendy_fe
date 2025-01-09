@@ -27,7 +27,8 @@ export default function useSignUp() {
         password,
         birthDate,
       }),
-    onSuccess: () => {
+    onSuccess: data => {
+      console.log('백엔드 응답 데이터:', data);
       navigation.navigate('Login');
     },
   });

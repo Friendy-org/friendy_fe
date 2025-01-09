@@ -13,10 +13,17 @@ const signUp = async ({
   password: string;
   birthDate: string;
 }) => {
-  apiClient.post({
+  const response = await apiClient.post({
     path: '/signup',
-    body: { title: 'New Todo', completed: false },
+    body: {
+      email,
+      nickname,
+      password,
+      birthDate,
+    },
   });
+
+  return response;
 };
 
 export default signUp;

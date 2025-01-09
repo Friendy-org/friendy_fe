@@ -16,6 +16,7 @@ import {
 } from '../../validations/userValidators';
 import EmailVerificationStep1 from '../../components/EmailVerification/EmailVerificationStep1/EmailVerificationStep1';
 import EmailVerificationStep2 from '../../components/EmailVerification/EmailVerificationStep2/EmailVerificationStep2';
+import useSignUp from '../../hooks/useSignUp';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -30,6 +31,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   });
   const [date, setDate] = useState(new Date());
   const [step, setStep] = useState(1);
+  const { signUpMutate } = useSignUp();
 
   const nextStep = () => setStep(prev => prev + 1);
 
@@ -42,8 +44,12 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   };
 
   const handleSignUp = () => {
-    // todo: 회원가입 api
-    console.log('SignUp complete');
+    signUpMutate.mutate({
+      email: formData.email,
+      nickname: formData.nickname,
+      password: formData.password,
+      birthDate: date.toISOString().split('T')[0],
+    });
   };
 
   return (
@@ -87,11 +93,11 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
           </S.ProfileSettingsContainer>
         )}
       </S.SignUpContainer>
-      {step <= 2 && 
+      {step <= 2 && (
         <S.IndicatorContainer>
           {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
         </S.IndicatorContainer>
-      }
+      )}
     </S.Layout>
   );
 }
