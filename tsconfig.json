@@ -1,3 +1,12 @@
 {
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "customConditions": ["react-native"]
+  },
   "extends": "@react-native/typescript-config/tsconfig.json"
 }
