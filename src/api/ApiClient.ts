@@ -4,46 +4,46 @@ type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 type BodyHashMap = Record<string, any>;
 
-interface BaseAPIClientParams {
+interface BaseApiClientParams {
   path: string;
 }
 
-interface APIClientParamsWithBody extends BaseAPIClientParams {
+interface ApiClientParamsWithBody extends BaseApiClientParams {
   body?: BodyHashMap;
 }
 
-interface APIClientType {
-  get<T>(params: BaseAPIClientParams): Promise<T>;
-  post<T>(params: APIClientParamsWithBody): Promise<T>;
-  patch<T>(params: APIClientParamsWithBody): Promise<T>;
-  put<T>(params: APIClientParamsWithBody): Promise<T>;
-  delete(params: BaseAPIClientParams): Promise<void>;
+interface ApiClientType {
+  get<T>(params: BaseApiClientParams): Promise<T>;
+  post<T>(params: ApiClientParamsWithBody): Promise<T>;
+  patch<T>(params: ApiClientParamsWithBody): Promise<T>;
+  put<T>(params: ApiClientParamsWithBody): Promise<T>;
+  delete(params: BaseApiClientParams): Promise<void>;
 }
 
-export default class APIClient implements APIClientType {
+export default class ApiClient implements ApiClientType {
   private baseURL: string;
 
   constructor(baseURL: string) {
-    this.baseURL = baseURL;
+    this.baseURL = process.env.API_URL + baseURL;
   }
 
-  async get<T>(params: BaseAPIClientParams): Promise<T> {
+  async get<T>(params: BaseApiClientParams): Promise<T> {
     return this.request<T>({ method: 'GET', ...params });
   }
 
-  async post<T>(params: APIClientParamsWithBody & { isFormData?: boolean }): Promise<T> {
+  async post<T>(params: ApiClientParamsWithBody & { isFormData?: boolean }): Promise<T> {
     return this.request<T>({ method: 'POST', ...params });
   }
 
-  async patch<T>(params: APIClientParamsWithBody): Promise<T> {
+  async patch<T>(params: ApiClientParamsWithBody): Promise<T> {
     return this.request<T>({ method: 'PATCH', ...params });
   }
 
-  async put<T>(params: APIClientParamsWithBody): Promise<T> {
+  async put<T>(params: ApiClientParamsWithBody): Promise<T> {
     return this.request<T>({ method: 'PUT', ...params });
   }
 
-  async delete(params: BaseAPIClientParams): Promise<void> {
+  async delete(params: BaseApiClientParams): Promise<void> {
     return this.request<void>({ method: 'DELETE', ...params });
   }
 
