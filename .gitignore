@@ -76,6 +76,9 @@ node_modules
 .nvm
 package-lock.json
 
+# Environment variables
+.env
+
 # OS X
 .DS_Store
 
