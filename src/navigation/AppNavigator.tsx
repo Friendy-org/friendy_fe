@@ -15,20 +15,22 @@ export default function AppNavigator() {
         initialRouteName='Root'
         screenOptions={{
           headerBackButtonDisplayMode: 'minimal',
-          headerShadowVisible: false
+          headerShadowVisible: false,
         }}
       >
-        <Stack.Screen name='Root' component={RootScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name='Login' component={LoginScreen}
+        <Stack.Screen name='Root' component={RootScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name='Login'
+          component={LoginScreen}
           options={{
-            title: '로그인'
+            title: '로그인',
           }}
         />
-        <Stack.Screen name='SignUp' component={SignUpScreen}
+        <Stack.Screen
+          name='SignUp'
+          component={SignUpScreen}
           options={{
-            title: '회원 가입'
+            title: '회원 가입',
           }}
         />
       </Stack.Navigator>
