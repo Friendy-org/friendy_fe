@@ -23,13 +23,15 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
     const hasError = handleSubmit(async () => await func());
     if (!hasError) {
       // Todo: navigate to main screen
-      navigation.navigate({ name: 'Root', params: undefined });
+      navigation.navigate('Root');
     }
   };
+
   const handleLogin = () => {
     // Todo: login API
     console.log('Login complete');
   };
+
   const handleForgotPassword = () => {
     // Todo: navigate to forgot password screen
   };
