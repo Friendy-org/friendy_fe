@@ -95,6 +95,7 @@ export default class ApiClient implements ApiClientType {
     isFormData?: boolean;
   }): Promise<T> {
     const url = this.baseURL + path;
+    //console.log(url); -> todo: 주석 없애면 api 에러나는 문제 해결 (비동기 처리 시점? 관련으로 추정)
     const response = await fetch(url, this.getRequestInit({ method, body, isFormData }));
 
     if (!response.ok) {

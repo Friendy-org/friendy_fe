@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import ApiError from '../../api/ApiError';
+import fieldMappings from '../../constants/errorFieldMappings';
 
 interface UseFormProps<T> {
   initialValues: T;
@@ -34,7 +36,7 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
       console.log(err);
       if (err instanceof Error) {
         hasError = true;
-        setErrors(prev => ({ ...prev, [inputName]: err.message })); // Error 객체의 message만 저장
+        setErrors(prev => ({ ...prev, [inputName]: err.message }));
       } else {
         setErrors(prev => ({
           ...prev,
@@ -61,7 +63,17 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
     }
 
     if (!hasError) {
-      onSubmit();
+      try {
+        await onSubmit();
+      } catch (error) {
+        hasError = true;
+        if (error instanceof ApiError) {
+          const inputName = fieldMappings[error.message] || 'form';
+          setErrors(prev => ({ ...prev, [inputName]: error.message }));
+        } else {
+          console.error('예상치 못한 에러 발생:', error);
+        }
+      }
     }
 
     return hasError;
