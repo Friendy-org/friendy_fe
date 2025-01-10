@@ -11,7 +11,6 @@ export default function App() {
       },
       mutations: {
         onError: error => {
-          console.log('에러');
           console.log(error);
         },
       },
