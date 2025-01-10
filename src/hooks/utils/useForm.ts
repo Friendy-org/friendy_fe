@@ -48,7 +48,7 @@ export default function useForm<T>({ initialValues }: UseFormProps<T>) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (onSubmit: () => void) => {
+  const handleSubmit = async (onSubmit: () => Promise<void>) => {
     for (const fieldName in formData) {
       if (Object.prototype.hasOwnProperty.call(formData, fieldName)) {
         const name = fieldName as keyof T;

@@ -35,16 +35,16 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
 
   const nextStep = () => setStep(prev => prev + 1);
 
-  const handlePress = (func: any) => {
-    const hasError = handleSubmit(async () => await func());
+  const handlePress = async (func: any) => {
+    const hasError = await handleSubmit(async () => await func());
 
     if (!hasError) {
       nextStep();
     }
   };
 
-  const handleSignUp = () => {
-    signUpMutate.mutate({
+  const handleSignUp = async () => {
+    await signUpMutate.mutateAsync({
       email: formData.email,
       nickname: formData.nickname,
       password: formData.password,
