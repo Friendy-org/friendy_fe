@@ -13,7 +13,7 @@ const signUp = async ({
   password: string;
   birthDate: string;
 }) => {
-  const response = await apiClient.post({
+  await apiClient.post({
     path: '/signup',
     body: {
       email,
@@ -22,8 +22,6 @@ const signUp = async ({
       birthDate,
     },
   });
-
-  return response;
 };
 
 export default signUp;
