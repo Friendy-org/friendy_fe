@@ -32,7 +32,7 @@ export default function ResetPasswordScreen({ navigation }: ResetPasswordScreenP
 
   const handleResetPassword = async () => {
     // Todo: 비밀번호 재설정 API
-    navigation.navigate('Login');
+    navigation.goBack();
   };
 
   return (
