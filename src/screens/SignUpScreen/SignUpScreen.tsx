@@ -93,11 +93,9 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
           </S.ProfileSettingsContainer>
         )}
       </S.SignUpContainer>
-      {step <= 2 && (
-        <S.IndicatorContainer>
-          {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
-        </S.IndicatorContainer>
-      )}
+      <S.IndicatorContainer>
+        {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
+      </S.IndicatorContainer>
     </S.Layout>
   );
 }

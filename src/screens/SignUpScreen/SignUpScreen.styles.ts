@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 const Layout = styled.View`
   width: 100%;
   height: 100%;
-  padding: 0px 40px;
+  padding: 0px 40px 40px 40px;
 
   background-color: white;
 `;
@@ -12,7 +12,9 @@ const Layout = styled.View`
 const SignUpContainer = styled(ScrollView)``;
 
 const ProfileSettingsContainer = styled.View`
-  margin-bottom: 40px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
 `;
 
 const InnerForm = styled.View`
@@ -22,7 +24,6 @@ const InnerForm = styled.View`
 
 const IndicatorContainer = styled.View`
   padding: 10px 0 10px 0;
-  margin-bottom: 40px;
 `;
 
 const S = {
