@@ -8,7 +8,10 @@ const Layout = styled.View`
   background-color: white;
 `;
 
-const MainContainer = styled(ScrollView)``;
+const MainContainer = styled.View`
+  display: flex;
+  flex-grow: 1;
+`;
 
 const ResetPasswordContainer = styled.View`
   display: flex;
