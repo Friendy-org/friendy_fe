@@ -5,6 +5,7 @@ import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import RootScreen from '../screens/RootScreen/RootScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import { RootStackParamList } from '../types/NavigationTypes';
+import ResetPasswordScreen from '../screens/ResetPasswordScreen/ResetPasswordScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -30,7 +31,14 @@ export default function AppNavigator() {
           name='SignUp'
           component={SignUpScreen}
           options={{
-            title: '회원 가입',
+            title: '회원가입',
+          }}
+        />
+        <Stack.Screen
+          name='ResetPassword'
+          component={ResetPasswordScreen}
+          options={{
+            title: '비밀번호 재설정',
           }}
         />
       </Stack.Navigator>
