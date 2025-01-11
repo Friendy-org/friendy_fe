@@ -33,7 +33,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   };
 
   const handleForgotPassword = () => {
-    // Todo: navigate to forgot password screen
+    navigation.navigate('ResetPassword');
   };
 
   return (
