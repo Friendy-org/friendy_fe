@@ -8,6 +8,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/NavigationTypes';
 import useForm from '../../hooks/utils/useForm';
 import { validateNull } from '../../validations/userValidators';
+import useLogin from '../../hooks/useLogin';
 
 export type LoginScreenProps = StackScreenProps<RootStackParamList, 'Login'>;
 
@@ -18,18 +19,17 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
       password: '',
     },
   });
+  const { loginMutate } = useLogin();
 
   const handlePress = (func: any) => {
     const hasError = handleSubmit(async () => await func());
-    if (!hasError) {
-      // Todo: navigate to main screen
-      navigation.navigate('Root');
-    }
   };
 
-  const handleLogin = () => {
-    // Todo: login API
-    console.log('Login complete');
+  const handleLogin = async () => {
+    await loginMutate.mutateAsync({
+      email: formData.email,
+      password: formData.password,
+    });
   };
 
   const handleForgotPassword = () => {
