@@ -37,11 +37,7 @@ export default function ResetPasswordScreen({ navigation }: ResetPasswordScreenP
 
   return (
     <S.Layout>
-      <S.MainContainer
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}
-        bounces={false}
-      >
+      <S.MainContainer>
         {step === 1 && (
           <EmailInputStep
             emailRegister={register('email', { validate: validateEmail })}
