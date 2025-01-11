@@ -92,10 +92,10 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
             <Button onPress={() => handlePress(handleSignUp)}>완료</Button>
           </S.ProfileSettingsContainer>
         )}
+        <S.IndicatorContainer>
+          {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
+        </S.IndicatorContainer>
       </S.SignUpContainer>
-      <S.IndicatorContainer>
-        {step < 3 && <DotIndicator totalStep={step + 1} step={step} />}
-      </S.IndicatorContainer>
     </S.Layout>
   );
 }

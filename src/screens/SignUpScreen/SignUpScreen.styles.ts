@@ -4,8 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 const Layout = styled.View`
   width: 100%;
   height: 100%;
-  padding: 0px 40px 40px 40px;
-
+  padding: 0px 40px;
   background-color: white;
 `;
 
@@ -24,6 +23,7 @@ const InnerForm = styled.View`
 
 const IndicatorContainer = styled.View`
   padding: 10px 0 10px 0;
+  margin-bottom: 40px;
 `;
 
 const S = {
