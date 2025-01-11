@@ -1,9 +1,9 @@
 import React from 'react';
 import InputField from '../../_common/molecules/InputField/InputField';
 import Button from '../../_common/atoms/Button/Button';
-import S from './EmailVerificationStep1.styles';
+import S from './EmailInputStep.styles';
 
-interface EmailVerificationStep1Props {
+interface EmailInputStepProps {
   emailRegister: {
     value: string;
     onChange: (value: string) => void;
@@ -12,10 +12,7 @@ interface EmailVerificationStep1Props {
   handlePress: (func: any) => void;
 }
 
-export default function EmailVerificationStep1({
-  emailRegister,
-  handlePress,
-}: EmailVerificationStep1Props) {
+export default function EmailInputStep({ emailRegister, handlePress }: EmailInputStepProps) {
   const handleStep1Submit = async () => {
     // todo: 이메일 인증 api
     console.log('Step 1 complete');

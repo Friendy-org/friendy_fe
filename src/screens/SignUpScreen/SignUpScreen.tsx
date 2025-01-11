@@ -14,8 +14,8 @@ import {
   validateNickname,
   validatePassword,
 } from '../../validations/userValidators';
-import EmailVerificationStep1 from '../../components/EmailVerification/EmailVerificationStep1/EmailVerificationStep1';
-import EmailVerificationStep2 from '../../components/EmailVerification/EmailVerificationStep2/EmailVerificationStep2';
+import EmailInputStep from '../../components/EmailVerification/EmailInputStep/EmailInputStep';
+import VerificationCodeStep from '../../components/EmailVerification/VerificationCodeStep/VerificationCodeStep';
 import useSignUp from '../../hooks/useSignUp';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
@@ -56,17 +56,17 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
     <S.Layout>
       <S.SignUpContainer
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
+        contentContainerStyle={{ flexGrow: 1 }}
         bounces={false}
       >
         {step === 1 && (
-          <EmailVerificationStep1
+          <EmailInputStep
             emailRegister={register('email', { validate: validateEmail })}
             handlePress={handlePress}
           />
         )}
 
-        {step === 2 && <EmailVerificationStep2 email={formData.email} nextStep={nextStep} />}
+        {step === 2 && <VerificationCodeStep email={formData.email} nextStep={nextStep} />}
 
         {step === 3 && (
           <S.ProfileSettingsContainer>
