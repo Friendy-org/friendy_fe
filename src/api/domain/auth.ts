@@ -1,6 +1,6 @@
 import ApiClient from "../ApiClient";
 
-const apiClient = new ApiClient('');
+const apiClient = new ApiClient('/auth');
 
 const login = async ({
   email,
@@ -10,7 +10,7 @@ const login = async ({
   password: string;
 }) => {
   await apiClient.post({
-    path: '/auth/login',
+    path: '/login',
     body: {
       email,
       password,
@@ -18,4 +18,4 @@ const login = async ({
   });
 }
 
-export { login };
+export default login;
