@@ -2,7 +2,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../types/NavigationTypes";
 import { useNavigation } from "@react-navigation/native";
 import { useMutation } from "@tanstack/react-query";
-import { login } from "../api/domain/auth";
+import login from "../api/domain/auth";
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 

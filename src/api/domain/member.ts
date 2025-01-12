@@ -24,4 +24,4 @@ const signUp = async ({
   });
 };
 
-export { signUp };
+export default signUp;
