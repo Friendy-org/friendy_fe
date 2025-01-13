@@ -66,7 +66,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
           />
         )}
 
-        {step === 2 && <VerificationCodeStep email={formData.email} nextStep={nextStep} />}
+        {step === 2 && <VerificationCodeStep email={formData.email} handlePress={handlePress} />}
 
         {step === 3 && (
           <S.ProfileSettingsContainer>
