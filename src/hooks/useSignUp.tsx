@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
-import signUp from '../api/domain/member';
 import { RootStackParamList } from '../types/NavigationTypes';
 import { StackNavigationProp } from '@react-navigation/stack';
+import memberApis from '../api/domain/member';
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 
@@ -21,7 +21,7 @@ export default function useSignUp() {
       password: string;
       birthDate: string;
     }) =>
-      signUp({
+      memberApis.signUp({
         email,
         nickname,
         password,
