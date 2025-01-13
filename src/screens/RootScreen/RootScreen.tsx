@@ -1,17 +1,13 @@
 import React from 'react';
 import S from './RootScreen.styles';
 import Button from '../../components/_common/atoms/Button/Button';
-import LinkedText from '../../components/_common/atoms/LinkedText/LinkedText';
+import LinkedButton from '../../components/_common/atoms/LinkedButton/LinkedButton';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/NavigationTypes';
 
 export type RootScreenProps = StackScreenProps<RootStackParamList, 'Root'>;
 
 export default function RootScreen({ navigation }: RootScreenProps) {
-  const handlePress = (func: any) => {
-    func();
-  };
-
   const handleLoginPressed = () => {
     navigation.navigate('Login');
   };
@@ -28,9 +24,9 @@ export default function RootScreen({ navigation }: RootScreenProps) {
         </S.Container>
         <S.Container>
           <S.MarginedButton margin={15}>
-            <Button onPress={() => handlePress(handleLoginPressed)}>로그인</Button>
+            <Button onPress={handleLoginPressed}>로그인</Button>
           </S.MarginedButton>
-          <LinkedText onPress={() => handlePress(handleSignUpPressed)}>회원가입</LinkedText>
+          <LinkedButton onPress={handleSignUpPressed}>회원가입</LinkedButton>
         </S.Container>
       </S.Layout>
     </S.AppContainer>
