@@ -1,10 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
-import sendEmail from '../api/domain/email';
+import emailApis from '../api/domain/email';
 
 export default function useEmail() {
-  const sendEmailMutate = useMutation({
+  const sendCodeMutate = useMutation({
     mutationFn: ({ email }: { email: string }) =>
-      sendEmail({
+      emailApis.sendCode({
         email,
       }),
     onSuccess: () => {
@@ -12,5 +12,5 @@ export default function useEmail() {
     },
   });
 
-  return { sendEmailMutate };
+  return { sendCodeMutate };
 }

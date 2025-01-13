@@ -14,10 +14,10 @@ interface EmailInputStepProps {
 }
 
 export default function EmailInputStep({ emailRegister, handlePress }: EmailInputStepProps) {
-  const { sendEmailMutate } = useEmail();
+  const { sendCodeMutate } = useEmail();
 
   const handleSubmit = async () => {
-    await sendEmailMutate.mutateAsync({
+    await sendCodeMutate.mutateAsync({
       email: emailRegister.value,
     });
   };
