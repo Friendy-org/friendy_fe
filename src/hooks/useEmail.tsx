@@ -12,5 +12,16 @@ export default function useEmail() {
     },
   });
 
-  return { sendCodeMutate };
+  const verifyCodeMutate = useMutation({
+    mutationFn: ({ email, password }: { email: string; password: string }) =>
+      emailApis.verifyCode({
+        email,
+        password,
+      }),
+    onSuccess: () => {
+      console.log('인증코드 검증 성공');
+    },
+  });
+
+  return { sendCodeMutate, verifyCodeMutate };
 }
