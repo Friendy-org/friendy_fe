@@ -23,6 +23,12 @@ const Label = styled.Text`
   width: 100%;
 `;
 
+const ErrorText = styled.Text`
+  color: #ff3b30;
+  font-size: 14px;
+  margin-bottom: 15px;
+`;
+
 const InfoWrapper = styled.View`
   display: flex;
   flex-direction: row;
@@ -34,6 +40,7 @@ const Timer = styled.Text``;
 const S = {
   AppContainer,
   Layout,
+  ErrorText,
   VerificationContainer,
   Label,
   InfoWrapper,
