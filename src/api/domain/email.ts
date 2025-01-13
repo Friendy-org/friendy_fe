@@ -9,10 +9,10 @@ const emailApis = {
       body: { email },
     }),
 
-  verifyCode: async ({ email, password }: { email: string; password: string }) =>
+  verifyCode: async ({ email, authCode }: { email: string; authCode: string }) =>
     await apiClient.post({
       path: '/verify-code',
-      body: { email, password },
+      body: { email, authCode },
     }),
 };
 

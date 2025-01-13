@@ -13,10 +13,10 @@ export default function useEmail() {
   });
 
   const verifyCodeMutate = useMutation({
-    mutationFn: ({ email, password }: { email: string; password: string }) =>
+    mutationFn: ({ email, authCode }: { email: string; authCode: string }) =>
       emailApis.verifyCode({
         email,
-        password,
+        authCode,
       }),
     onSuccess: () => {
       console.log('인증코드 검증 성공');
