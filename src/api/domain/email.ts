@@ -8,6 +8,12 @@ const emailApis = {
       path: '/send-code',
       body: { email },
     }),
+
+  verifyCode: async ({ email, password }: { email: string; password: string }) =>
+    await apiClient.post({
+      path: '/verify-code',
+      body: { email, password },
+    }),
 };
 
 export default emailApis;
