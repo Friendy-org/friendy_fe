@@ -3,7 +3,7 @@ import S from './LoginScreen.styles';
 import Button from '../../components/_common/atoms/Button/Button';
 import InputField from '../../components/_common/molecules/InputField/InputField';
 import PasswordInput from '../../components/PasswordInput/PasswordInput';
-import LinkedText from '../../components/_common/atoms/LinkedText/LinkedText';
+import LinkedButton from '../../components/_common/atoms/LinkedButton/LinkedButton';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/NavigationTypes';
 import useForm from '../../hooks/utils/useForm';
@@ -50,7 +50,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
             marginBottom={30}
             {...register('password', { validate: validateNull })}
           ></PasswordInput>
-          <LinkedText onPress={handleForgotPassword}>비밀번호가 기억나지 않나요?</LinkedText>
+          <LinkedButton onPress={handleForgotPassword}>비밀번호가 기억나지 않나요?</LinkedButton>
         </S.Section>
         <Button
           onPress={() => {
