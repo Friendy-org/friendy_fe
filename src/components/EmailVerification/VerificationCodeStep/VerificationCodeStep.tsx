@@ -17,22 +17,11 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
   const { sendCodeMutate, verifyCodeMutate } = useEmail();
 
   const handleSubmit = async () => {
-    await verifyCodeMutate.mutateAsync({
-      email: email,
-      authCode: authCode,
-    });
-  };
-
-  const handleResend = async () => {
-    console.log('resend');
-    await sendCodeMutate.mutateAsync({
-      email: email,
-    });
-  };
-
-  const handlePress = async (func: any) => {
     try {
-      await func();
+      await verifyCodeMutate.mutateAsync({
+        email: email,
+        authCode: authCode,
+      });
       nextStep();
     } catch (error) {
       if (error instanceof ApiError) {
@@ -41,6 +30,12 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
         console.error('예상치 못한 에러 발생:', error);
       }
     }
+  };
+
+  const handleResend = async () => {
+    await sendCodeMutate.mutateAsync({
+      email: email,
+    });
   };
 
   return (
@@ -55,7 +50,7 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
             <S.Timer>5:00</S.Timer>
           </S.InfoWrapper>
         </S.VerificationContainer>
-        <Button onPress={() => handlePress(handleSubmit)}>다음</Button>
+        <Button onPress={handleSubmit}>다음</Button>
       </S.Layout>
     </S.AppContainer>
   );
