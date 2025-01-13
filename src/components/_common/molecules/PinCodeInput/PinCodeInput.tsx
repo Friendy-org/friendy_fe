@@ -4,13 +4,10 @@ import S from './PinCodeInput.styles';
 
 interface PinCodeInputProps {
   pinLength: number;
-  setVerifyCode?: (code: string) => void;
+  setAuthCode?: (code: string) => void;
 }
 
-export default function PinCodeInput({
-  pinLength,
-  setVerifyCode,
-}: PinCodeInputProps) {
+export default function PinCodeInput({ pinLength, setAuthCode }: PinCodeInputProps) {
   const [pinValues, setPinValues] = useState(Array(pinLength).fill(''));
   const [focusIndex, setFocusIndex] = useState<number | null>(null);
   const inputRefs = useRef<TextInput[]>([]);
@@ -19,6 +16,10 @@ export default function PinCodeInput({
     const newPinValues = [...pinValues];
     newPinValues[index] = value;
     setPinValues(newPinValues);
+
+    if (setAuthCode) {
+      setAuthCode(newPinValues.join(''));
+    }
 
     if (value && index < pinLength - 1) {
       inputRefs.current[index + 1]?.focus();

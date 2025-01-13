@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PinCodeInput from '../../_common/molecules/PinCodeInput/PinCodeInput';
 import S from './VerificationCodeStep.styles';
 import Button from '../../_common/atoms/Button/Button';
 import LinkedText from '../../_common/atoms/LinkedText/LinkedText';
+import useEmail from '../../../hooks/useEmail';
 
 interface VerificationCodeStepProps {
   email: string;
-  nextStep: () => void;
+  handlePress: (func: any) => void;
 }
 
-export default function VerificationCodeStep({ email, nextStep }: VerificationCodeStepProps) {
-  const handleStep2Submit = () => {
-    // todo: 이메일 인증번호 검증 api
-    console.log('Step 2 complete');
+export default function VerificationCodeStep({ email, handlePress }: VerificationCodeStepProps) {
+  const [authCode, setAuthCode] = useState('');
+  const { verifyCodeMutate } = useEmail();
+
+  const handleSubmit = async () => {
+    await verifyCodeMutate.mutateAsync({
+      email: email,
+      authCode: authCode,
+    });
   };
 
   const handleResend = () => {
@@ -20,23 +26,16 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
     console.log('Resend email');
   };
 
-  const handlePress = (func: any) => {
-    func();
-    nextStep();
-  };
-
-  // Todo: 타이머 로직
-
   return (
     <S.AppContainer>
       <S.Layout>
         <S.VerificationContainer>
           <S.Label>{email}으로 전송된 인증 코드 6자리를 입력해 주세요.</S.Label>
-          <PinCodeInput pinLength={6} />
+          <PinCodeInput pinLength={6} setAuthCode={setAuthCode} />
           <S.InfoWrapper>
             <LinkedText
               onPress={() => {
-                handlePress(handleResend);
+                // handlePress(handleResend);
               }}
             >
               인증 코드가 오지 않나요?
@@ -46,7 +45,7 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
         </S.VerificationContainer>
         <Button
           onPress={() => {
-            handlePress(handleStep2Submit);
+            handlePress(handleSubmit);
           }}
         >
           다음
