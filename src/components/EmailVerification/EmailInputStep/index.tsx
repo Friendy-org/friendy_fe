@@ -1,8 +1,8 @@
 import React from 'react';
-import InputField from '../../_common/molecules/InputField/InputField';
-import Button from '../../_common/atoms/Button/Button';
-import S from './EmailInputStep.styles';
-import useEmail from '../../../hooks/useEmail';
+import S from './style';
+import useEmail from '@hooks/useEmail';
+import InputField from '@components/_common/molecules/InputField';
+import Button from '@components/_common/atoms/Button';
 
 interface EmailInputStepProps {
   emailRegister: {

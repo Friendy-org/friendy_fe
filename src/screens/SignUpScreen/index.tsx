@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import useSignUp from '@hooks/useSignUp';
+import useForm from '@hooks/utils/useForm';
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../types/NavigationTypes';
-import InputField from '../../components/_common/molecules/InputField/InputField';
-import Button from '../../components/_common/atoms/Button/Button';
-import DotIndicator from '../../components/_common/molecules/DotIndicator/DotIndicator';
-import ChangeProfileImageField from '../../components/_common/molecules/ChangeProfileImageField/ChangeProfileImageField';
-import S from './SignUpScreen.styles';
-import DateInputField from '../../components/_common/molecules/DateInputField/DateInputField';
-import PasswordInput from '../../components/PasswordInput/PasswordInput';
-import useForm from '../../hooks/utils/useForm';
-import {
-  validateEmail,
-  validateNickname,
-  validatePassword,
-} from '../../validations/userValidators';
-import EmailInputStep from '../../components/EmailVerification/EmailInputStep/EmailInputStep';
-import VerificationCodeStep from '../../components/EmailVerification/VerificationCodeStep/VerificationCodeStep';
-import useSignUp from '../../hooks/useSignUp';
+import React, { useState } from 'react';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import S from './style';
+import EmailInputStep from '@components/EmailVerification/EmailInputStep';
+import { validateEmail, validateNickname, validatePassword } from 'src/validations/userValidators';
+import VerificationCodeStep from '@components/EmailVerification/VerificationCodeStep';
+import ChangeProfileImageField from '@components/_common/molecules/ChangeProfileImageField';
+import InputField from '@components/_common/molecules/InputField';
+import PasswordInput from '@components/PasswordInput';
+import DateInputField from '@components/_common/molecules/DateInputField';
+import Button from '@components/_common/atoms/Button';
+import DotIndicator from '@components/_common/molecules/DotIndicator';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 

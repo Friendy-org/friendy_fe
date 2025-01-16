@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import S from './Button.styles';
+import S from './style';
 
 interface ButtonProps {
   onPress: () => void;

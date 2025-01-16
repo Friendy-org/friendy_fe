@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PinCodeInput from '../../_common/molecules/PinCodeInput/PinCodeInput';
-import S from './VerificationCodeStep.styles';
-import Button from '../../_common/atoms/Button/Button';
-import LinkedText from '../../_common/atoms/LinkedButton/LinkedButton';
-import useEmail from '../../../hooks/useEmail';
-import ApiError from '../../../api/ApiError';
+import S from './style';
+import useEmail from '@hooks/useEmail';
+import ApiError from '@api/ApiError';
+import PinCodeInput from '@components/_common/molecules/PinCodeInput';
+import LinkedButton from '@components/_common/atoms/LinkedButton';
+import Button from '@components/_common/atoms/Button';
 
 interface VerificationCodeStepProps {
   email: string;
@@ -46,7 +46,7 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
           <PinCodeInput pinLength={6} setAuthCode={setAuthCode} />
           {error && <S.ErrorText>{error}</S.ErrorText>}
           <S.InfoWrapper>
-            <LinkedText onPress={handleResend}>인증 코드가 오지 않나요?</LinkedText>
+            <LinkedButton onPress={handleResend}>인증 코드가 오지 않나요?</LinkedButton>
             <S.Timer>5:00</S.Timer>
           </S.InfoWrapper>
         </S.VerificationContainer>

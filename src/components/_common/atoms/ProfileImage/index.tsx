@@ -1,4 +1,4 @@
-import S from './ProfileImage.styles';
+import S from './style';
 
 interface ProfileImageProps {
   imageUrl?: string;

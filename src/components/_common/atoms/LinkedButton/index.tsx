@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import S from './LinkedButton.styles';
+import S from './style';
 
 interface LinkedButtonProps {
   onPress: () => void;

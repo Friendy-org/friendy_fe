@@ -1,5 +1,5 @@
+import emailApis from '@api/domain/email';
 import { useMutation } from '@tanstack/react-query';
-import emailApis from '../api/domain/email';
 
 export default function useEmail() {
   const sendCodeMutate = useMutation({

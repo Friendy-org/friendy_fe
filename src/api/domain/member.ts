@@ -1,4 +1,4 @@
-import ApiClient from '../ApiClient';
+import ApiClient from '@api/ApiClient';
 
 const apiClient = new ApiClient('');
 

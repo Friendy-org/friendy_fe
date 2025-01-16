@@ -1,5 +1,5 @@
-import S from './DotIndicator.styles';
-import Dot from '../../atoms/Dot/Dot';
+import Dot from '@components/_common/atoms/Dot';
+import S from './style';
 
 interface DotIndicatorProps {
   totalStep: number;
@@ -10,11 +10,7 @@ export default function DotIndicator({ totalStep, step }: DotIndicatorProps) {
   return (
     <S.Wrapper>
       {Array.from({ length: totalStep }).map((_, index) => (
-        <Dot
-          key={index}
-          isActive={index === step}
-          isLast={index === totalStep - 1}
-        />
+        <Dot key={index} isActive={index === step} isLast={index === totalStep - 1} />
       ))}
     </S.Wrapper>
   );

@@ -1,9 +1,8 @@
-import React from 'react';
-import S from './RootScreen.styles';
-import Button from '../../components/_common/atoms/Button/Button';
-import LinkedButton from '../../components/_common/atoms/LinkedButton/LinkedButton';
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../types/NavigationTypes';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import S from './style';
+import Button from '@components/_common/atoms/Button';
+import LinkedButton from '@components/_common/atoms/LinkedButton';
 
 export type RootScreenProps = StackScreenProps<RootStackParamList, 'Root'>;
 

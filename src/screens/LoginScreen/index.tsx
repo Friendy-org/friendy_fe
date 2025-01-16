@@ -1,14 +1,14 @@
-import React from 'react';
-import S from './LoginScreen.styles';
-import Button from '../../components/_common/atoms/Button/Button';
-import InputField from '../../components/_common/molecules/InputField/InputField';
-import PasswordInput from '../../components/PasswordInput/PasswordInput';
-import LinkedButton from '../../components/_common/atoms/LinkedButton/LinkedButton';
+import useLogin from '@hooks/useLogin';
+import useForm from '@hooks/utils/useForm';
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../types/NavigationTypes';
-import useForm from '../../hooks/utils/useForm';
-import { validateNull } from '../../validations/userValidators';
-import useLogin from '../../hooks/useLogin';
+import React from 'react';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import S from './style';
+import InputField from '@components/_common/molecules/InputField';
+import PasswordInput from '@components/PasswordInput';
+import LinkedButton from '@components/_common/atoms/LinkedButton';
+import Button from '@components/_common/atoms/Button';
+import { validateNull } from 'src/validations/userValidators';
 
 export type LoginScreenProps = StackScreenProps<RootStackParamList, 'Login'>;
 

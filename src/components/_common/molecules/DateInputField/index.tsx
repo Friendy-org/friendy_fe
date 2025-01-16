@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { format } from 'date-fns';
-import S from './DateInputField.styled';
+import S from './style';
 
 interface DateInputFieldProps {
   selectedDate: Date;
   onChangeDate: (date: Date) => void;
 }
 
-export default function DateInputField({
-  selectedDate,
-  onChangeDate,
-}: DateInputFieldProps) {
+export default function DateInputField({ selectedDate, onChangeDate }: DateInputFieldProps) {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {

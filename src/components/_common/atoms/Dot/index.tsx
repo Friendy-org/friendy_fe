@@ -1,4 +1,4 @@
-import S from './Dot.styles';
+import S from './style';
 
 interface DotProps {
   isActive: boolean;

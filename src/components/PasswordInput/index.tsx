@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import InputField from '../_common/molecules/InputField/InputField';
-import IconButton from '../_common/atoms/IconButton/IconButton';
 import Icon from 'react-native-vector-icons/Feather';
-import S from './PasswordInput.styles';
+import S from './style';
+import InputField from '@components/_common/molecules/InputField';
+import IconButton from '@components/_common/atoms/IconButton';
 
 interface PasswordInputProps {
   label: string;
@@ -37,11 +37,7 @@ export default function PasswordInput({
       {value && (
         <S.EyeIcon>
           <IconButton onPress={handlePress}>
-            {isShow ? (
-              <Icon name='eye' size={20} />
-            ) : (
-              <Icon name='eye-off' size={20} />
-            )}
+            {isShow ? <Icon name='eye' size={20} /> : <Icon name='eye-off' size={20} />}
           </IconButton>
         </S.EyeIcon>
       )}

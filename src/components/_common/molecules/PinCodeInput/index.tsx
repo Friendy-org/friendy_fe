@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { TextInput } from 'react-native';
-import S from './PinCodeInput.styles';
+import S from './style';
 
 interface PinCodeInputProps {
   pinLength: number;

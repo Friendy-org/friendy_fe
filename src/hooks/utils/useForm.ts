@@ -1,6 +1,6 @@
+import ApiError from '@api/ApiError';
+import fieldMappings from '@constants/errorFieldMappings';
 import { useState } from 'react';
-import ApiError from '../../api/ApiError';
-import fieldMappings from '../../constants/errorFieldMappings';
 
 interface UseFormProps<T> {
   initialValues: T;

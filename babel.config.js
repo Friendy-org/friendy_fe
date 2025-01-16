@@ -8,5 +8,31 @@ module.exports = {
         path: '.env',
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: ['./'],
+        extensions: [
+          '.ios.ts',
+          '.android.ts',
+          '.ts',
+          '.ios.tsx',
+          '.android.tsx',
+          '.tsx',
+          '.jsx',
+          '.js',
+          '.json',
+        ],
+        alias: {
+          '@api': './src/api',
+          '@assets': './src/assets',
+          '@components': './src/components',
+          '@constants': './src/constants',
+          '@hooks': './src/hooks',
+          '@screens': './src/screens',
+          '@navigation': './src/navigation',
+        },
+      },
+    ],
   ],
 };

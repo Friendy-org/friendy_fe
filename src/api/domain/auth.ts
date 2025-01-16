@@ -1,5 +1,5 @@
-import ApiClient from '../ApiClient';
-import tokenService from '../services/tokenService';
+import ApiClient from '@api/ApiClient';
+import tokenService from '@api/services/tokenService';
 
 const apiClient = new ApiClient('/auth');
 

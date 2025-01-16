@@ -1,6 +1,6 @@
 import React from 'react';
-import AppNavigator from './navigation/AppNavigator';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AppNavigator from '@navigation/AppNavigator';
 
 export default function App() {
   const queryClient = new QueryClient({

@@ -1,5 +1,5 @@
-import ProfileImage from '../../atoms/ProfileImage/ProfileImage';
-import S from './ChangeProfileImageField.styles';
+import ProfileImage from '@components/_common/atoms/ProfileImage';
+import S from './style';
 
 interface ChangeProfileImageFieldProps {
   imageUrl?: string;
