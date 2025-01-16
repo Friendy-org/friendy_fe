@@ -1,4 +1,5 @@
 import ApiError from './ApiError';
+import tokenService from './services/tokenService';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
@@ -6,6 +7,7 @@ type BodyHashMap = Record<string, any>;
 
 interface BaseApiClientParams {
   path: string;
+  requiresAuth?: boolean;
 }
 
 interface ApiClientParamsWithBody extends BaseApiClientParams {
@@ -47,18 +49,27 @@ export default class ApiClient implements ApiClientType {
     return this.request<void>({ method: 'DELETE', ...params });
   }
 
-  private getRequestInit({
+  private async getRequestInit({
     method,
     body,
+    requiresAuth = true,
     isFormData = false,
   }: {
     method: Method;
     body?: BodyHashMap;
+    requiresAuth?: boolean;
     isFormData?: boolean;
   }) {
     const headers: HeadersInit = {
       Accept: 'application/json',
     };
+
+    if (requiresAuth) {
+      const accessToken = await await tokenService.getAccessToken();
+      headers['Authorization'] = `${accessToken}`;
+      const refreshToken = await tokenService.getRefreshToken();
+      headers['Authorization-Refresh'] = `${refreshToken}`;
+    }
 
     const requestInit: RequestInit = {
       method,
@@ -87,16 +98,21 @@ export default class ApiClient implements ApiClientType {
     path,
     method,
     body,
+    requiresAuth,
     isFormData,
   }: {
     path: string;
     method: Method;
     body?: BodyHashMap;
+    requiresAuth?: boolean;
     isFormData?: boolean;
   }): Promise<T> {
     const url = this.baseURL + path;
     //console.log(url); -> todo: 주석 없애면 api 에러나는 문제 해결 (비동기 처리 시점? 관련으로 추정)
-    const response = await fetch(url, this.getRequestInit({ method, body, isFormData }));
+    const response = await fetch(
+      url,
+      await this.getRequestInit({ method, body, requiresAuth, isFormData })
+    );
 
     if (!response.ok) {
       const json = await response.json();
