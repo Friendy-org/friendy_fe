@@ -72,6 +72,30 @@
         }
       }
     },
+    "react-native-encrypted-storage": {
+      "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-encrypted-storage",
+      "name": "react-native-encrypted-storage",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-encrypted-storage/react-native-encrypted-storage.podspec",
+          "version": "4.0.3",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-encrypted-storage/android",
+          "packageImportPath": "import com.emeraldsanto.encryptedstorage.RNEncryptedStoragePackage;",
+          "packageInstance": "new RNEncryptedStoragePackage()",
+          "buildTypes": [],
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-encrypted-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
     "react-native-gesture-handler": {
       "root": "/Users/bok-wonbin/Documents/GitHub/friendy_fe/node_modules/react-native-gesture-handler",
       "name": "react-native-gesture-handler",
