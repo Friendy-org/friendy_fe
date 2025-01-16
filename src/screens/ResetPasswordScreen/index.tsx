@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import Button from '../../components/_common/atoms/Button/Button';
-import EmailInputStep from '../../components/EmailVerification/EmailInputStep/EmailInputStep';
-import VerificationCodeStep from '../../components/EmailVerification/VerificationCodeStep/VerificationCodeStep';
-import useForm from '../../hooks/utils/useForm';
-import { validateEmail, validatePassword } from '../../validations/userValidators';
-import S from './ResetPasswordScreen.styles';
-import PasswordInput from '../../components/PasswordInput/PasswordInput';
+import useForm from '@hooks/utils/useForm';
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../types/NavigationTypes';
+import { useState } from 'react';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import S from './style';
+import EmailInputStep from '@components/EmailVerification/EmailInputStep';
+import { validateEmail, validatePassword } from 'src/validations/userValidators';
+import VerificationCodeStep from '@components/EmailVerification/VerificationCodeStep';
+import PasswordInput from '@components/PasswordInput';
+import Button from '@components/_common/atoms/Button';
 
 export type ResetPasswordScreenProps = StackScreenProps<RootStackParamList, 'ResetPassword'>;
 

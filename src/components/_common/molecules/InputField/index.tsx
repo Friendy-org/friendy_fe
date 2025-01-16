@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import S from './InputField.styles';
+import S from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface InputFieldProps {

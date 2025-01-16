@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../types/NavigationTypes';
 import { StackNavigationProp } from '@react-navigation/stack';
-import memberApis from '../api/domain/member';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import memberApis from '@api/domain/member';
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 

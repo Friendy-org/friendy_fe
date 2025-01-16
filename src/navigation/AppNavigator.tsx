@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
-import RootScreen from '../screens/RootScreen/RootScreen';
-import LoginScreen from '../screens/LoginScreen/LoginScreen';
-import { RootStackParamList } from '../types/NavigationTypes';
-import ResetPasswordScreen from '../screens/ResetPasswordScreen/ResetPasswordScreen';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import RootScreen from '@screens/RootScreen';
+import LoginScreen from '@screens/LoginScreen';
+import SignUpScreen from '@screens/SignUpScreen';
+import ResetPasswordScreen from '@screens/ResetPasswordScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
