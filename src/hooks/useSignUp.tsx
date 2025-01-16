@@ -29,6 +29,7 @@ export default function useSignUp() {
       }),
     onSuccess: () => {
       console.log('회원가입 성공');
+      navigation.goBack();
       navigation.navigate('Login');
     },
   });
