@@ -22,7 +22,7 @@ export default function ResetPasswordScreen({ navigation }: ResetPasswordScreenP
   const [step, setStep] = useState(1);
   const nextStep = () => setStep(prev => prev + 1);
 
-  const handlePress = async (func: any) => {
+  const handlePress = async (func: () => Promise<void>) => {
     const hasError = await handleSubmit(async () => await func());
 
     if (!hasError) {

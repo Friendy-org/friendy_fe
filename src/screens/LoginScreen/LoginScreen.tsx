@@ -21,7 +21,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   });
   const { loginMutate } = useLogin();
 
-  const handlePress = async (func: any) => {
+  const handlePress = async (func: () => Promise<void>) => {
     const hasError = await handleSubmit(async () => await func());
   };
 
