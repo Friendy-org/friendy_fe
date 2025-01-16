@@ -22,6 +22,7 @@ const memberApis = {
         password,
         birthDate,
       },
+      requiresAuth: false,
     }),
 };
 
