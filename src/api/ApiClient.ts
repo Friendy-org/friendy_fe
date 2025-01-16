@@ -15,11 +15,11 @@ interface ApiClientParamsWithBody extends BaseApiClientParams {
 }
 
 interface ApiClientType {
-  get<T>(params: BaseApiClientParams): Promise<T>;
-  post<T>(params: ApiClientParamsWithBody): Promise<T>;
-  patch<T>(params: ApiClientParamsWithBody): Promise<T>;
-  put<T>(params: ApiClientParamsWithBody): Promise<T>;
-  delete(params: BaseApiClientParams): Promise<void>;
+  get<T>(params: BaseApiClientParams): Promise<{ body: T; headers: Headers }>;
+  post<T>(params: ApiClientParamsWithBody): Promise<{ body: T; headers: Headers }>;
+  patch<T>(params: ApiClientParamsWithBody): Promise<{ body: T; headers: Headers }>;
+  put<T>(params: ApiClientParamsWithBody): Promise<{ body: T; headers: Headers }>;
+  delete(params: BaseApiClientParams): Promise<{ body: null; headers: Headers }>;
 }
 
 export default class ApiClient implements ApiClientType {
@@ -29,24 +29,26 @@ export default class ApiClient implements ApiClientType {
     this.baseURL = process.env.API_URL + baseURL;
   }
 
-  async get<T>(params: BaseApiClientParams): Promise<T> {
+  async get<T>(params: BaseApiClientParams): Promise<{ body: T; headers: Headers }> {
     return this.request<T>({ method: 'GET', ...params });
   }
 
-  async post<T>(params: ApiClientParamsWithBody & { isFormData?: boolean }): Promise<T> {
+  async post<T>(
+    params: ApiClientParamsWithBody & { isFormData?: boolean }
+  ): Promise<{ body: T; headers: Headers }> {
     return this.request<T>({ method: 'POST', ...params });
   }
 
-  async patch<T>(params: ApiClientParamsWithBody): Promise<T> {
+  async patch<T>(params: ApiClientParamsWithBody): Promise<{ body: T; headers: Headers }> {
     return this.request<T>({ method: 'PATCH', ...params });
   }
 
-  async put<T>(params: ApiClientParamsWithBody): Promise<T> {
+  async put<T>(params: ApiClientParamsWithBody): Promise<{ body: T; headers: Headers }> {
     return this.request<T>({ method: 'PUT', ...params });
   }
 
-  async delete(params: BaseApiClientParams): Promise<void> {
-    return this.request<void>({ method: 'DELETE', ...params });
+  async delete(params: BaseApiClientParams): Promise<{ body: null; headers: Headers }> {
+    return this.request<null>({ method: 'DELETE', ...params });
   }
 
   private async getRequestInit({
@@ -106,7 +108,7 @@ export default class ApiClient implements ApiClientType {
     body?: BodyHashMap;
     requiresAuth?: boolean;
     isFormData?: boolean;
-  }): Promise<T> {
+  }): Promise<{ body: T; headers: Headers }> {
     const url = this.baseURL + path;
     //console.log(url); -> todo: 주석 없애면 api 에러나는 문제 해결 (비동기 처리 시점? 관련으로 추정)
     const response = await fetch(
@@ -121,9 +123,11 @@ export default class ApiClient implements ApiClientType {
 
     const contentType = response.headers.get('Content-Type');
     if (contentType?.includes('application/json')) {
-      return response.json();
+      const jsonBody = await response.json();
+      return { body: jsonBody, headers: response.headers };
     }
 
-    return response.text() as T;
+    const textBody = await response.text();
+    return { body: textBody as T, headers: response.headers };
   }
 }

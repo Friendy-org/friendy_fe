@@ -36,6 +36,18 @@ const tokenService = {
     await EncryptedStorage.removeItem(REFRESH_TOKEN_KEY);
   },
 
+  saveTokensFromResponse: async (headers: Headers): Promise<void> => {
+    const accessToken = headers.get('authorization');
+    const refreshToken = headers.get('authorization-refresh');
+
+    if (!accessToken || !refreshToken) {
+      throw new Error('토큰이 누락되었습니다.');
+    }
+
+    await tokenService.setAccessToken(accessToken);
+    await tokenService.setRefreshToken(refreshToken);
+  },
+
   clearTokens: async (): Promise<void> => {
     await tokenService.removeAccessToken();
     await tokenService.removeRefreshToken();
