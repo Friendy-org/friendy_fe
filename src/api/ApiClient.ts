@@ -67,7 +67,7 @@ export default class ApiClient implements ApiClientType {
     };
 
     if (requiresAuth) {
-      const accessToken = await await tokenService.getAccessToken();
+      const accessToken = await tokenService.getAccessToken();
       headers['Authorization'] = `${accessToken}`;
       const refreshToken = await tokenService.getRefreshToken();
       headers['Authorization-Refresh'] = `${refreshToken}`;
