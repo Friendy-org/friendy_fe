@@ -1,7 +1,10 @@
 import emailApis from '@api/domain/email';
+import { useToast } from '@contexts/ToastContext';
 import { useMutation } from '@tanstack/react-query';
 
 export default function useEmail() {
+  const { error } = useToast();
+
   const sendCodeMutate = useMutation({
     mutationFn: ({ email }: { email: string }) =>
       emailApis.sendCode({
@@ -9,6 +12,10 @@ export default function useEmail() {
       }),
     onSuccess: () => {
       console.log('인증코드 전송 성공');
+    },
+    onError: err => {
+      console.log(err);
+      error(err.message);
     },
   });
 
