@@ -1,6 +1,7 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AppNavigator from '@navigation/AppNavigator';
+import ToastProvider from '@contexts/ToastContext';
 
 export default function App() {
   const queryClient = new QueryClient({
@@ -19,7 +20,9 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AppNavigator />
+      <ToastProvider>
+        <AppNavigator />
+      </ToastProvider>
     </QueryClientProvider>
   );
 }
