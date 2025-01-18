@@ -13,6 +13,11 @@ export default function PinCodeInput({ pinLength, setAuthCode }: PinCodeInputPro
   const inputRefs = useRef<TextInput[]>([]);
 
   const handleChange = (index: number, value: string) => {
+    if (value.length > 1) {
+      handlePaste(value);
+      return;
+    }
+
     const newPinValues = [...pinValues];
     newPinValues[index] = value;
     setPinValues(newPinValues);
@@ -36,13 +41,22 @@ export default function PinCodeInput({ pinLength, setAuthCode }: PinCodeInputPro
     }
   };
 
+  const handlePaste = (value: string) => {
+    const newPinValues = value.split('').slice(0, pinLength);
+    while (newPinValues.length < pinLength) {
+      newPinValues.push('');
+    }
+    setPinValues(newPinValues);
+    setAuthCode?.(newPinValues.join(''));
+  };
+
   return (
     <S.Wrapper>
       {pinValues.map((value, index) => (
         <S.PinInput
           key={index}
           keyboardType='numeric'
-          maxLength={1}
+          maxLength={pinLength}
           value={value}
           hasValue={!!value}
           isFocus={focusIndex === index}
