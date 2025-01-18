@@ -28,6 +28,7 @@ module.exports = {
           '@assets': './src/assets',
           '@components': './src/components',
           '@constants': './src/constants',
+          '@contexts': './src/contexts',
           '@hooks': './src/hooks',
           '@screens': './src/screens',
           '@navigation': './src/navigation',
