@@ -31,8 +31,8 @@ export default function PinCodeInput({ pinLength, setAuthCode }: PinCodeInputPro
     }
   };
 
-  const handleBackspace = (index: number, value: string) => {
-    if (value === '' && index > 0) {
+  const handleBackspace = (index: number) => {
+    if (index > 0) {
       const newPinValues = [...pinValues];
       newPinValues[index] = '';
       setPinValues(newPinValues);
@@ -65,7 +65,7 @@ export default function PinCodeInput({ pinLength, setAuthCode }: PinCodeInputPro
           onChangeText={text => handleChange(index, text)}
           onKeyPress={({ nativeEvent }) => {
             if (nativeEvent.key === 'Backspace') {
-              handleBackspace(index, value);
+              handleBackspace(index);
             }
           }}
           ref={el => {
