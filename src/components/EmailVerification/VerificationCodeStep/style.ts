@@ -35,8 +35,6 @@ const InfoWrapper = styled.View`
   justify-content: space-between;
 `;
 
-const Timer = styled.Text``;
-
 const S = {
   AppContainer,
   Layout,
@@ -44,7 +42,6 @@ const S = {
   VerificationContainer,
   Label,
   InfoWrapper,
-  Timer,
 };
 
 export default S;
