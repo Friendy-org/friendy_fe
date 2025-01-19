@@ -1,20 +1,12 @@
 import IconButton from '@components/_common/atoms/IconButton';
 import React from 'react';
 import S from './style';
-import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 
-interface HeaderBarProps extends MaterialTopTabBarProps {
+interface HeaderBarProps {
   showEditButton?: boolean;
-  transparent?: boolean;
 }
 
-export default function HeaderBar({
-  state,
-  descriptors,
-  navigation,
-  showEditButton = false,
-}: HeaderBarProps) {
-  console.log(state.routes);
+export default function HeaderBar({ showEditButton = false }: HeaderBarProps) {
   return (
     <S.HeaderContainer>
       <S.ButtonWrapper>
