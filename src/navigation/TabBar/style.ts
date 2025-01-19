@@ -4,7 +4,6 @@ const TabContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
   height: 70px;
   background-color: #ffffff;
 `;
