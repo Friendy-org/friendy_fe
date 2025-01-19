@@ -11,7 +11,13 @@ const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
   return (
-    <Tab.Navigator initialRouteName='Map' tabBar={props => <TabBar {...props} />}>
+    <Tab.Navigator
+      initialRouteName='Map'
+      tabBar={props => <TabBar {...props} />}
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Tab.Screen name='Explore' component={ExploreScreen} options={{ tabBarLabel: 'Explore' }} />
       <Tab.Screen name='Feed' component={FeedScreen} options={{ tabBarLabel: 'Feed' }} />
       <Tab.Screen name='Map' component={MapScreen} options={{ tabBarLabel: 'Map' }} />
