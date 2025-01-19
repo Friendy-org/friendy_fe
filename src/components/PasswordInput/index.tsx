@@ -35,11 +35,7 @@ export default function PasswordInput({
     >
       {value && (
         <S.EyeIcon>
-          <IconButton
-            onPress={handlePress}
-            iconName={isShow ? 'eye' : 'eye-off'}
-            iconSize={20}
-          ></IconButton>
+          <IconButton onPress={handlePress} iconName={isShow ? 'eye' : 'eye-off'} iconSize={20} />
         </S.EyeIcon>
       )}
     </InputField>
