@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Icon from 'react-native-vector-icons/Feather';
 import S from './style';
 import InputField from '@components/_common/molecules/InputField';
 import IconButton from '@components/_common/atoms/IconButton';
@@ -36,9 +35,11 @@ export default function PasswordInput({
     >
       {value && (
         <S.EyeIcon>
-          <IconButton onPress={handlePress}>
-            {isShow ? <Icon name='eye' size={20} /> : <Icon name='eye-off' size={20} />}
-          </IconButton>
+          <IconButton
+            onPress={handlePress}
+            iconName={isShow ? 'eye' : 'eye-off'}
+            iconSize={20}
+          ></IconButton>
         </S.EyeIcon>
       )}
     </InputField>

@@ -1,12 +1,15 @@
 import styled from '@emotion/native';
 
-const IconButton = styled.TouchableOpacity`
-  width: 20px;
-  height: 20px;
-`;
+const IconButtonWrapper = styled.TouchableOpacity``;
+
+const IconButton = styled.View``;
+
+const Label = styled.Text``;
 
 const S = {
+  IconButtonWrapper,
   IconButton,
+  Label,
 };
 
 export default S;
