@@ -17,8 +17,7 @@ export default function useLogin() {
       }),
     onSuccess: () => {
       console.log('로그인 성공');
-      // Todo: navigate to Home
-      navigation.navigate('Root');
+      navigation.navigate('Main');
     },
   });
 
