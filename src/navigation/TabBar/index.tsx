@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import IconButton from '@components/_common/atoms/IconButton';
 import S from './style';
