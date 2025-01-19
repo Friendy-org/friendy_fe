@@ -1,39 +1,47 @@
 import React from 'react';
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import IconButton from '@components/_common/atoms/IconButton';
 import S from './style';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import { useNavigation } from '@react-navigation/native';
 
-const icons: Record<string, string> = {
-  Explore: 'search',
-  Feed: 'heart',
-  Map: 'globe',
-  DM: 'send',
-  Profile: 'user',
-};
+type TabName = keyof RootStackParamList;
 
-export default function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+const tabs: { name: TabName; icon: string }[] = [
+  { name: 'Explore', icon: 'search' },
+  { name: 'Feed', icon: 'heart' },
+  { name: 'Map', icon: 'globe' },
+  { name: 'DM', icon: 'send' },
+  { name: 'Profile', icon: 'user' },
+];
+
+type NavigationProp = StackNavigationProp<RootStackParamList>;
+
+interface TabBarProps {
+  activeTab: TabName;
+}
+
+export default function TabBar({ activeTab }: TabBarProps) {
+  const navigation = useNavigation<NavigationProp>();
+
+  const handlePress = (tabName: TabName) => {
+    if (activeTab !== tabName) {
+      navigation.navigate(tabName);
+    }
+  };
+
   return (
     <S.TabContainer>
-      {state.routes.map((route, index) => {
-        const isFocused = state.index === index;
-
-        const onPress = () => {
-          if (!isFocused) {
-            navigation.navigate(route.name);
-          }
-        };
-
-        return (
-          <IconButton
-            key={route.key}
-            onPress={onPress}
-            iconName={icons[route.name] || 'default-icon'}
-            iconSize={25}
-            color={isFocused ? '#009235' : '#000000'}
-            label={route.name}
-          />
-        );
-      })}
+      {tabs.map(({ name, icon }) => (
+        <IconButton
+          key={name}
+          onPress={() => handlePress(name)}
+          iconName={icon}
+          iconSize={25}
+          color={activeTab === name ? '#009235' : '#000000'}
+          label={name}
+        />
+      ))}
     </S.TabContainer>
   );
 }

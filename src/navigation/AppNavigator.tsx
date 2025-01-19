@@ -7,7 +7,11 @@ import LoginScreen from '@screens/LoginScreen';
 import SignUpScreen from '@screens/SignUpScreen';
 import ResetPasswordScreen from '@screens/ResetPasswordScreen';
 import tokenService from '@api/services/tokenService';
-import BottomTabNavigator from './BottomTabNavigator';
+import ExploreScreen from '@screens/ExploreScreen';
+import FeedScreen from '@screens/FeedScreen';
+import MapScreen from '@screens/MapScreen';
+import DMScreen from '@screens/DMScreen';
+import ProfileScreen from '@screens/ProfileScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -17,7 +21,7 @@ export default function AppNavigator() {
   useEffect(() => {
     const checkToken = async () => {
       const token = await tokenService.getAccessToken();
-      setInitialRoute(token ? 'Main' : 'Root');
+      setInitialRoute(token ? 'Map' : 'Root');
     };
 
     checkToken();
@@ -34,6 +38,7 @@ export default function AppNavigator() {
         screenOptions={{
           headerBackButtonDisplayMode: 'minimal',
           headerShadowVisible: false,
+          animation: 'fade',
         }}
       >
         <Stack.Screen name='Root' component={RootScreen} options={{ headerShown: false }} />
@@ -58,7 +63,17 @@ export default function AppNavigator() {
             title: '비밀번호 재설정',
           }}
         />
-        <Stack.Screen name='Main' component={BottomTabNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name='Explore' component={ExploreScreen} />
+        <Stack.Screen name='Feed' component={FeedScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='Map' component={MapScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name='DM'
+          component={DMScreen}
+          options={{
+            title: 'DM',
+          }}
+        />
+        <Stack.Screen name='Profile' component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
