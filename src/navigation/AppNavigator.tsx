@@ -6,6 +6,7 @@ import RootScreen from '@screens/RootScreen';
 import LoginScreen from '@screens/LoginScreen';
 import SignUpScreen from '@screens/SignUpScreen';
 import ResetPasswordScreen from '@screens/ResetPasswordScreen';
+import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -41,6 +42,7 @@ export default function AppNavigator() {
             title: '비밀번호 재설정',
           }}
         />
+        <Stack.Screen name='Main' component={TabNavigator} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
