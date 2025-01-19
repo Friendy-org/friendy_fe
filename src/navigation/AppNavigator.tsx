@@ -7,7 +7,7 @@ import LoginScreen from '@screens/LoginScreen';
 import SignUpScreen from '@screens/SignUpScreen';
 import ResetPasswordScreen from '@screens/ResetPasswordScreen';
 import tokenService from '@api/services/tokenService';
-import TabNavigator from './TabNavigator';
+import BottomTabNavigator from './BottomTabNavigator';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -58,7 +58,7 @@ export default function AppNavigator() {
             title: '비밀번호 재설정',
           }}
         />
-        <Stack.Screen name='Main' component={TabNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name='Main' component={BottomTabNavigator} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
