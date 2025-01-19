@@ -17,7 +17,7 @@ export default function useLogin() {
       }),
     onSuccess: () => {
       console.log('로그인 성공');
-      navigation.navigate('Main');
+      navigation.navigate('Map');
     },
   });
 

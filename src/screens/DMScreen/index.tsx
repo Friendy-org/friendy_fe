@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native';
+import MainLayout from '@screens/MainLayout';
+import { Text } from 'react-native';
 
 export default function DMScreen() {
   return (
-    <View>
+    <MainLayout location='DM'>
       <Text>DMScreen</Text>
-    </View>
+    </MainLayout>
   );
 }
