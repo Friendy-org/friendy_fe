@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import S from './style';
 
@@ -20,7 +19,7 @@ export default function IconButton({
   return (
     <S.IconButtonWrapper onPress={onPress}>
       <Icon name={iconName} size={iconSize} color={color} />
-      <S.Label>{label}</S.Label>
+      {label && <S.Label color={color}>{label}</S.Label>}
     </S.IconButtonWrapper>
   );
 }
