@@ -1,6 +1,8 @@
 import styled from '@emotion/native';
 
-const PostCardContainer = styled.View``;
+const PostCardContainer = styled.View`
+  background-color: #ffff;
+`;
 
 const PostHeader = styled.View`
   display: flex;
@@ -14,11 +16,11 @@ const ButtonWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
   gap: 18px;
+  height: 44px;
 `;
 
 const ContentWrapper = styled.View`
   display: flex;
-  justify-content: space-between;
   flex: 1;
   margin-right: 20px;
 `;
@@ -33,7 +35,11 @@ const PostFooter = styled.View`
   justify-content: space-between;
   padding: 12px 20px;
   width: 100%;
-  height: 70px;
+`;
+
+const Wrapper = styled.View`
+  width: 26px;
+  height: 44px;
 `;
 
 const S = {
@@ -43,6 +49,7 @@ const S = {
   ContentWrapper,
   Date,
   PostFooter,
+  Wrapper,
 };
 
 export default S;
