@@ -14,6 +14,7 @@ export default function ImageSlider({ imageUrls }: ImageSliderProps) {
         dotStyle={S.dotStyle}
         activeDotStyle={S.activeDotStyle}
         paginationStyle={S.paginationStyle}
+        loop={false}
       >
         {imageUrls.map((url, index) => (
           <S.SliderImage key={index} source={{ uri: url }} resizeMode='cover' />
