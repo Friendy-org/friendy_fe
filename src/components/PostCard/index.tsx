@@ -6,6 +6,7 @@ import IconButton from '@components/_common/atoms/IconButton';
 import ExpandableText from '@components/_common/atoms/ExpandableText';
 
 interface PostCardProps {
+  profileImageUrl?: string;
   name: string;
   location: string;
   imageUrls: string[];
@@ -17,6 +18,7 @@ interface PostCardProps {
 }
 
 export default function PostCard({
+  profileImageUrl,
   name,
   location,
   imageUrls,
@@ -29,7 +31,7 @@ export default function PostCard({
   return (
     <S.PostCardContainer>
       <S.PostHeader>
-        <AuthorInfo name={name} location={location} />
+        <AuthorInfo profileImageUrl={profileImageUrl} name={name} location={location} />
         <S.ButtonWrapper>
           <IconButton iconName='more-vertical' iconSize={20} />
         </S.ButtonWrapper>
