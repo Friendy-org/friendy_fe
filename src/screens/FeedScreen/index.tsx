@@ -1,6 +1,7 @@
 import PostCard from '@components/PostCard';
 import HeaderBar from '@navigation/HeaderBar';
 import MainLayout from '@screens/MainLayout';
+import S from './style';
 
 export default function FeedScreen() {
   const imageUrls = [
@@ -12,18 +13,23 @@ export default function FeedScreen() {
   return (
     <MainLayout location='Feed'>
       <HeaderBar showEditButton={true} />
-      <PostCard
-        name='복성김'
-        location='대한민국'
-        imageUrls={imageUrls}
-        content={
-          '게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용'
-        }
-        date='2024.10.12'
-        like='905'
-        comment='422'
-        share='99'
-      />
+      <S.FeedContainer showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }}>
+        {Array.from({ length: 10 }, (_, index) => (
+          <PostCard
+            key={index}
+            name='복성김'
+            location='대한민국'
+            imageUrls={imageUrls}
+            content={
+              '게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용 게시글 내용'
+            }
+            date='2024.10.12'
+            like='905'
+            comment='422'
+            share='99'
+          />
+        ))}
+      </S.FeedContainer>
     </MainLayout>
   );
 }

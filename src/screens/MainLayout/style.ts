@@ -2,12 +2,13 @@ import styled from '@emotion/native';
 
 const MainContainer = styled.View`
   display: flex;
-  flex-grow: 1;
+  flex: 1;
 `;
 
 const ContentWrapper = styled.View`
   display: flex;
-  flex-grow: 1;
+  flex: 1;
+  background-color: #ffff;
 `;
 
 const S = {
