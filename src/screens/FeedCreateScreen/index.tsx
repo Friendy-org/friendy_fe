@@ -1,6 +1,7 @@
 import ImageUploader from '@components/ImageUploader';
 import S from './style';
 import { useState } from 'react';
+import ContentInput from '@components/ContentInput';
 
 export default function FeedCreateScreen() {
   const [images, setImages] = useState<string[]>([]);
@@ -11,6 +12,10 @@ export default function FeedCreateScreen() {
       <S.ImageForm hasImages={images.length > 0}>
         <ImageUploader images={images} setImages={setImages} />
       </S.ImageForm>
+      <S.ContentWrapper>
+        <S.ContentLabel>본문</S.ContentLabel>
+        <ContentInput />
+      </S.ContentWrapper>
     </S.Layout>
   );
 }
