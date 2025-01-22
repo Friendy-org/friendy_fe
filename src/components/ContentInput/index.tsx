@@ -46,10 +46,10 @@ export default function ContentInput() {
         const isLast = index === valueInfos.length - 1;
 
         return isHashtag ? (
-          <S.HashtagText key={index}>
-            {content}
+          <Text key={index}>
+            <S.HashtagText>{content}</S.HashtagText>
             {!isLast && <Text> </Text>}
-          </S.HashtagText>
+          </Text>
         ) : (
           <S.NormalText key={index}>
             {content}
