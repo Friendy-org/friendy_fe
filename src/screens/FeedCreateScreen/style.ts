@@ -18,10 +18,22 @@ const ImageLabel = styled.Text`
   font-size: 13px;
 `;
 
+const ContentWrapper = styled.View`
+  padding: 0 30px;
+  margin-top: 15px;
+  max-height: 265px;
+`;
+
+const ContentLabel = styled.Text`
+  margin-bottom: 5px;
+`;
+
 const S = {
   Layout,
   ImageForm,
   ImageLabel,
+  ContentWrapper,
+  ContentLabel,
 };
 
 export default S;
