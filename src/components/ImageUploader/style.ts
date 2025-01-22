@@ -1,9 +1,6 @@
 import styled from '@emotion/native';
 
-const Container = styled.View<{ hasImages: boolean }>`
-  padding-right: 30px;
-  padding-left: ${({ hasImages }) => (hasImages ? '0px' : '30px')};
-`;
+const Container = styled.View``;
 
 const ImageWrapper = styled.View`
   position: relative;
