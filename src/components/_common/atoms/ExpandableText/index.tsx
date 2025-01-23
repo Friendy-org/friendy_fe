@@ -3,15 +3,22 @@ import { TouchableOpacity } from 'react-native';
 import S from './style';
 
 interface ExpandableTextProps {
+  onPress?: () => void;
+  isExpand: boolean;
   content: string;
   maxLines: number;
 }
 
-export default function ExpandableText({ content, maxLines }: ExpandableTextProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+export default function ExpandableText({
+  onPress,
+  isExpand,
+  content,
+  maxLines,
+}: ExpandableTextProps) {
+  const [isExpanded, setIsExpanded] = useState(isExpand);
 
   return (
-    <S.TextWrapper>
+    <S.TextWrapper onPress={isExpanded ? onPress : () => setIsExpanded(true)}>
       <S.Content numberOfLines={isExpanded ? undefined : maxLines} ellipsizeMode='clip'>
         {content}
       </S.Content>
