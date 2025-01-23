@@ -17,6 +17,7 @@ export default function FeedScreen() {
         {Array.from({ length: 10 }, (_, index) => (
           <PostCard
             key={index}
+            postId={index}
             name='복성김'
             location='대한민국'
             imageUrls={imageUrls}

@@ -6,6 +6,7 @@ export type RootStackParamList = {
   Explore: undefined;
   Feed: undefined;
   FeedCreate: undefined;
+  FeedDetail: { postId: number };
   Map: undefined;
   DM: undefined;
   Profile: undefined;

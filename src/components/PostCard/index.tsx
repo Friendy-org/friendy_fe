@@ -4,9 +4,13 @@ import ImageSlider from '@components/_common/molecules/ImageSlider';
 import S from './style';
 import IconButton from '@components/_common/atoms/IconButton';
 import ExpandableText from '@components/_common/atoms/ExpandableText';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'src/types/NavigationTypes';
+import { useNavigation } from '@react-navigation/native';
 
 interface PostCardProps {
   profileImageUrl?: string;
+  postId: number;
   name: string;
   location: string;
   imageUrls: string[];
@@ -17,8 +21,11 @@ interface PostCardProps {
   share: string;
 }
 
+type NavigationProp = StackNavigationProp<RootStackParamList>;
+
 export default function PostCard({
   profileImageUrl,
+  postId,
   name,
   location,
   imageUrls,
@@ -28,6 +35,14 @@ export default function PostCard({
   comment,
   share,
 }: PostCardProps) {
+  const navigation = useNavigation<NavigationProp>();
+
+  const handleComment = () => {
+    navigation.navigate('FeedDetail', {
+      postId: postId,
+    });
+  };
+
   return (
     <S.PostCardContainer>
       <S.PostHeader>
@@ -44,7 +59,12 @@ export default function PostCard({
         </S.ContentWrapper>
         <S.ButtonWrapper>
           <IconButton iconName='heart' iconSize={26} label={like} />
-          <IconButton iconName='message-square' iconSize={26} label={comment} />
+          <IconButton
+            onPress={handleComment}
+            iconName='message-square'
+            iconSize={26}
+            label={comment}
+          />
           <IconButton iconName='send' iconSize={26} label={share} />
         </S.ButtonWrapper>
       </S.PostFooter>
