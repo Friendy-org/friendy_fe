@@ -50,7 +50,7 @@ export default function PostCard({
   return (
     <S.PostCardContainer>
       <S.PostHeader>
-        <AuthorInfo profileImageUrl={profileImageUrl} name={name} location={location} />
+        <AuthorInfo profileImageUrl={profileImageUrl} name={name} content={location} />
         <S.ButtonWrapper>
           <IconButton iconName='more-vertical' iconSize={20} />
         </S.ButtonWrapper>
