@@ -19,6 +19,7 @@ interface PostCardProps {
   like: string;
   comment: string;
   share: string;
+  isExpand?: boolean;
 }
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
@@ -34,13 +35,16 @@ export default function PostCard({
   like,
   comment,
   share,
+  isExpand = false,
 }: PostCardProps) {
   const navigation = useNavigation<NavigationProp>();
 
-  const handleComment = () => {
-    navigation.navigate('FeedDetail', {
-      postId: postId,
-    });
+  const handleNavigateToDetail = () => {
+    if (!isExpand) {
+      navigation.navigate('FeedDetail', {
+        postId: postId,
+      });
+    }
   };
 
   return (
@@ -54,13 +58,18 @@ export default function PostCard({
       <ImageSlider imageUrls={imageUrls} />
       <S.PostFooter>
         <S.ContentWrapper>
-          <ExpandableText content={content} maxLines={1} />
+          <ExpandableText
+            onPress={handleNavigateToDetail}
+            isExpand={isExpand}
+            content={content}
+            maxLines={1}
+          />
           <S.Date>{date}</S.Date>
         </S.ContentWrapper>
         <S.ButtonWrapper>
           <IconButton iconName='heart' iconSize={26} label={like} />
           <IconButton
-            onPress={handleComment}
+            onPress={handleNavigateToDetail}
             iconName='message-square'
             iconSize={26}
             label={comment}

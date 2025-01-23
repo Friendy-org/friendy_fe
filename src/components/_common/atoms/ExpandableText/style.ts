@@ -1,6 +1,6 @@
 import styled from '@emotion/native';
 
-const TextWrapper = styled.View`
+const TextWrapper = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
