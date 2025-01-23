@@ -13,6 +13,7 @@ import MapScreen from '@screens/MapScreen';
 import DMScreen from '@screens/DMScreen';
 import ProfileScreen from '@screens/ProfileScreen';
 import FeedCreateScreen from '@screens/FeedCreateScreen';
+import FeedDetailScreen from '@screens/FeedDetailScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -73,6 +74,7 @@ export default function AppNavigator() {
             title: '게시글 생성',
           }}
         />
+        <Stack.Screen name='FeedDetail' component={FeedDetailScreen} />
         <Stack.Screen name='Map' component={MapScreen} options={{ headerShown: false }} />
         <Stack.Screen
           name='DM'
