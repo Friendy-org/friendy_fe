@@ -4,6 +4,7 @@ import MainLayout from '@screens/MainLayout';
 import { Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { RootStackParamList } from 'src/types/NavigationTypes';
+import Comment from './Comment';
 
 interface FeedDetailScreenProps {
   route: RouteProp<RootStackParamList, 'FeedDetail'>;
@@ -18,7 +19,7 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
   ];
 
   const comments = Array.from({ length: 10 }, (_, index) => ({
-    id: `comment-${index}`,
+    id: index,
     text: `Comment ${index + 1}`,
   }));
 
@@ -40,11 +41,15 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
           />
         }
         data={comments}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={{ padding: 10, borderBottomWidth: 1, borderColor: '#ddd' }}>
-            <Text>{item.text}</Text>
-          </View>
+          <Comment
+            commentId={item.id}
+            authorName='김복성'
+            content='나 블핑 로제인데 이거 개추 눌렀다 🔥🔥'
+            like='193'
+            comment='422'
+          />
         )}
       />
     </MainLayout>
