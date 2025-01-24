@@ -1,10 +1,10 @@
 import PostCard from '@components/PostCard';
 import { RouteProp } from '@react-navigation/native';
 import MainLayout from '@screens/MainLayout';
-import { Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { RootStackParamList } from 'src/types/NavigationTypes';
-import Comment from './Comment';
+import S from './style';
+import CommentList from './CommentList';
 
 interface FeedDetailScreenProps {
   route: RouteProp<RootStackParamList, 'FeedDetail'>;
@@ -43,13 +43,16 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
         data={comments}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-          <Comment
-            commentId={item.id}
-            authorName='김복성'
-            content='나 블핑 로제인데 이거 개추 눌렀다 🔥🔥'
-            like='193'
-            comment='422'
-          />
+          <S.CommentWrapper>
+            <CommentList
+              commentId={item.id}
+              authorName='김복성'
+              content='나 블핑 로제인데 이거 개추 눌렀다 🔥🔥'
+              like='193'
+              comment='422'
+              reply={3}
+            />
+          </S.CommentWrapper>
         )}
       />
     </MainLayout>
