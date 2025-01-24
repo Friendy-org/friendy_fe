@@ -1,5 +1,4 @@
-import IconButton from '@components/_common/atoms/IconButton';
-import AuthorInfo from '@components/_common/molecules/AuthorInfo';
+import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import S from './style';
 import { useState } from 'react';
@@ -49,21 +48,27 @@ export default function CommentList({
         comment={comment}
       />
       {!isExpanded && (
-        <TouchableOpacity onPress={handleReply}>
-          <S.ReadMoreText>답글 ${reply}개 더 보기</S.ReadMoreText>
-        </TouchableOpacity>
+        <S.TextWrapper onPress={handleReply}>
+          <S.ReadMoreText>답글 {reply}개 더 보기</S.ReadMoreText>
+        </S.TextWrapper>
       )}
-      {isExpanded &&
-        replies.map(reply => (
-          <Comment
-            key={reply.id}
-            commentId={reply.id}
-            authorName={reply.authorName}
-            content={reply.content}
-            like={reply.like}
-            comment={reply.comment}
-          />
-        ))}
+      {isExpanded && (
+        <>
+          <S.Divider />
+          <S.ReplyContainer>
+            {replies.map(reply => (
+              <Comment
+                key={reply.id}
+                commentId={reply.id}
+                authorName={reply.authorName}
+                content={reply.content}
+                like={reply.like}
+                comment={reply.comment}
+              />
+            ))}
+          </S.ReplyContainer>
+        </>
+      )}
     </S.CommentContainer>
   );
 }
