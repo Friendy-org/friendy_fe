@@ -1,6 +1,6 @@
 import styled from '@emotion/native';
 
-const CommentContainer = styled.View`
+const CommentWrapper = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,7 +15,7 @@ const ButtonWrapper = styled.View`
 `;
 
 const S = {
-  CommentContainer,
+  CommentWrapper,
   ButtonWrapper,
 };
 
