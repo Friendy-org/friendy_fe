@@ -38,6 +38,7 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
             comment='422'
             share='99'
             isExpand={true}
+            commentIcon={false}
           />
         }
         data={comments}

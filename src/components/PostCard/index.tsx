@@ -20,6 +20,7 @@ interface PostCardProps {
   comment: string;
   share: string;
   isExpand?: boolean;
+  commentIcon?: boolean;
 }
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
@@ -36,6 +37,7 @@ export default function PostCard({
   comment,
   share,
   isExpand = false,
+  commentIcon = true,
 }: PostCardProps) {
   const navigation = useNavigation<NavigationProp>();
 
@@ -68,12 +70,14 @@ export default function PostCard({
         </S.ContentWrapper>
         <S.ButtonWrapper>
           <IconButton iconName='heart' iconSize={26} label={like} />
-          <IconButton
-            onPress={handleNavigateToDetail}
-            iconName='message-square'
-            iconSize={26}
-            label={comment}
-          />
+          {commentIcon && (
+            <IconButton
+              onPress={handleNavigateToDetail}
+              iconName='message-square'
+              iconSize={26}
+              label={comment}
+            />
+          )}
           <IconButton iconName='send' iconSize={26} label={share} />
         </S.ButtonWrapper>
       </S.PostFooter>
