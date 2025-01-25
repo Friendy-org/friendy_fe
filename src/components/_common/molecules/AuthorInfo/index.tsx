@@ -1,7 +1,7 @@
 import React from 'react';
-import S from './style';
+import S, { AuthorInfoStyleProps } from './style';
 
-interface AuthorInfoProps {
+interface AuthorInfoProps extends AuthorInfoStyleProps {
   profileImageUrl?: string;
   name: string;
   content: string;
@@ -11,13 +11,14 @@ export default function AuthorInfo({
   profileImageUrl = 'https://i.namu.wiki/i/w7GkIKr6Qac-0SCYEn7DdYBpkpZed9FaVNTBFE7aIQvm7p39bo7gs2Pb1ZWfX3dPVd0JmA3oX50T5kl-MU7wfw.webp',
   name,
   content,
+  size = 'md',
 }: AuthorInfoProps) {
   return (
     <S.Container>
-      <S.ProfileImage source={{ uri: profileImageUrl }} />
+      <S.ProfileImage size={size} source={{ uri: profileImageUrl }} />
       <S.InfoWrapper>
-        <S.Name>{name}</S.Name>
-        <S.Location>{content}</S.Location>
+        <S.Name size={size}>{name}</S.Name>
+        <S.Content>{content}</S.Content>
       </S.InfoWrapper>
     </S.Container>
   );
