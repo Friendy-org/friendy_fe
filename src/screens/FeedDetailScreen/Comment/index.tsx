@@ -21,7 +21,7 @@ export default function Comment({
 }: CommentProps) {
   return (
     <S.CommentWrapper>
-      <AuthorInfo profileImageUrl={profileImageUrl} name={authorName} content={content} />
+      <AuthorInfo size='sm' profileImageUrl={profileImageUrl} name={authorName} content={content} />
       <S.CommentActions>
         <S.ButtonWrapper>
           <IconButton iconName='heart' iconSize={18} label={like} />
