@@ -22,10 +22,13 @@ export default function Comment({
   return (
     <S.CommentWrapper>
       <AuthorInfo profileImageUrl={profileImageUrl} name={authorName} content={content} />
-      <S.ButtonWrapper>
-        <IconButton iconName='heart' iconSize={18} label={like} />
-        <IconButton iconName='message-square' iconSize={18} label={comment} />
-      </S.ButtonWrapper>
+      <S.CommentActions>
+        <S.ButtonWrapper>
+          <IconButton iconName='heart' iconSize={18} label={like} />
+          <IconButton iconName='message-square' iconSize={18} label={comment} />
+        </S.ButtonWrapper>
+        <IconButton iconName='more-vertical' iconSize={18} />
+      </S.CommentActions>
     </S.CommentWrapper>
   );
 }
