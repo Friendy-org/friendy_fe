@@ -1,5 +1,26 @@
 import styled from '@emotion/native';
 
+export type IconButtonSize = 'sm' | 'md';
+
+export interface IconButtonStyleProps {
+  size?: IconButtonSize;
+}
+
+const sizeStyles = {
+  sm: `
+    font-size: 9px;
+  `,
+  md: `
+    font-size: 12px;
+  `,
+};
+
+const Label = styled.Text<IconButtonStyleProps & { color?: string }>`
+  color: ${({ color }) => color || '#000000'};
+  margin-top: 4px;
+  ${({ size }) => (size ? sizeStyles[size] : sizeStyles['md'])};
+`;
+
 const IconButtonWrapper = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
@@ -7,17 +28,8 @@ const IconButtonWrapper = styled.TouchableOpacity`
   flex-grow: 1;
 `;
 
-const IconButton = styled.View``;
-
-const Label = styled.Text<{ color?: string }>`
-  font-size: 12px;
-  color: ${({ color }) => color || '#000000'};
-  margin-top: 4px;
-`;
-
 const S = {
   IconButtonWrapper,
-  IconButton,
   Label,
 };
 
