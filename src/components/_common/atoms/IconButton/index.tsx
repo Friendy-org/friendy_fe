@@ -1,7 +1,7 @@
 import Icon from 'react-native-vector-icons/Feather';
-import S from './style';
+import S, { IconButtonStyleProps } from './style';
 
-interface IconButtonProps {
+interface IconButtonProps extends IconButtonStyleProps {
   onPress?: () => void;
   iconName: string;
   iconSize: number;
@@ -15,11 +15,16 @@ export default function IconButton({
   iconSize,
   color = '#000',
   label,
+  size = 'md',
 }: IconButtonProps) {
   return (
     <S.IconButtonWrapper onPress={onPress}>
       <Icon name={iconName} size={iconSize} color={color} />
-      {label && <S.Label color={color}>{label}</S.Label>}
+      {label && (
+        <S.Label size={size} color={color}>
+          {label}
+        </S.Label>
+      )}
     </S.IconButtonWrapper>
   );
 }
