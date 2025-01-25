@@ -7,7 +7,7 @@ const CommentContainer = styled.View`
   border: 1px solid #b0b0b0;
   border-radius: 28px;
   margin: 6px 14px;
-  padding: 10px 25px 10px 10px;
+  padding: 10px 20px 10px 8px;
   min-height: 56px;
 `;
 
