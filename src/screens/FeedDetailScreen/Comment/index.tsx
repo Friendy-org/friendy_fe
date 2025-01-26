@@ -24,10 +24,10 @@ export default function Comment({
       <AuthorInfo size='sm' profileImageUrl={profileImageUrl} name={authorName} content={content} />
       <S.CommentActions>
         <S.ButtonWrapper>
-          <IconButton iconName='heart' iconSize={18} label={like} size='sm' />
-          <IconButton iconName='message-square' iconSize={18} label={comment} size='sm' />
+          <IconButton iconName='heart' iconSize={22} label={like} size='sm' />
+          <IconButton iconName='message-square' iconSize={22} label={comment} size='sm' />
         </S.ButtonWrapper>
-        <IconButton iconName='more-vertical' iconSize={18} size='md' />
+        <IconButton iconName='more-vertical' iconSize={22} size='md' />
       </S.CommentActions>
     </S.CommentWrapper>
   );
