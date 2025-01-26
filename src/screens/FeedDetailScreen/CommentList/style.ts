@@ -28,7 +28,7 @@ const ReplyContainer = styled.View`
 `;
 
 const Divider = styled.View`
-  height: 0.8px;
+  height: 0.3px;
   background-color: #b0b0b0;
   margin: 12px 0;
 `;
