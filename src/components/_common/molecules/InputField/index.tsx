@@ -3,7 +3,7 @@ import S from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface InputFieldProps {
-  label: string;
+  label?: string;
   value: string;
   onChange: (text: string) => void;
   marginBottom?: number;
@@ -23,7 +23,7 @@ export default function InputField({
 }: InputFieldProps) {
   return (
     <S.Wrapper marginBottom={marginBottom ? marginBottom : 0}>
-      <S.Label>{label}</S.Label>
+      {label && <S.Label>{label}</S.Label>}
       <S.InputWrapper>
         <S.Input
           value={value}
