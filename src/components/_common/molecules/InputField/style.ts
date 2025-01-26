@@ -4,7 +4,7 @@ const Wrapper = styled.View<{ marginBottom?: number }>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: ${ props => props.marginBottom ? props.marginBottom : 0}px;
+  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)}px;
 `;
 
 const Label = styled.Text``;

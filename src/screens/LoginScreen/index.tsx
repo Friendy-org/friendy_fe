@@ -26,11 +26,10 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   };
 
   const handleLogin = async () => {
-    // await loginMutate.mutateAsync({
-    //   email: formData.email,
-    //   password: formData.password,
-    // });
-    navigation.navigate('Map');
+    await loginMutate.mutateAsync({
+      email: formData.email,
+      password: formData.password,
+    });
   };
 
   const handleForgotPassword = () => {

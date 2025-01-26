@@ -5,6 +5,9 @@ import { FlatList } from 'react-native-gesture-handler';
 import { RootStackParamList } from 'src/types/NavigationTypes';
 import S from './style';
 import CommentList from './CommentList';
+import InputField from '@components/_common/molecules/InputField';
+import { useState } from 'react';
+import IconButton from '@components/_common/atoms/IconButton';
 
 interface FeedDetailScreenProps {
   route: RouteProp<RootStackParamList, 'FeedDetail'>;
@@ -12,6 +15,8 @@ interface FeedDetailScreenProps {
 
 export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
   const { postId } = route.params;
+  const [commentInput, setCommentInput] = useState('');
+
   const imageUrls = [
     'https://www.adobe.com/kr/creativecloud/photography/hub/features/roc/media_126f51234e424100112aecb4f61e26b3a2afc74d8.jpeg?width=750&format=jpeg&optimize=medium',
     'https://media.istockphoto.com/id/520700958/ko/%EC%82%AC%EC%A7%84/%EC%95%84%EB%A6%84%EB%8B%A4%EC%9A%B4-%EA%BD%83-%EB%B0%B0%EA%B2%BD%EA%B8%B0%EC%88%A0.jpg?s=612x612&w=0&k=20&c=gJx5-O9U1qXKZqKwv4KunrBae7RDNRcdse1nOdSk_0w=',
@@ -56,6 +61,14 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
           </S.CommentWrapper>
         )}
       />
+      <S.CommentInputWrapper>
+        <S.InputWrapper>
+          <InputField value={commentInput} onChange={setCommentInput} />
+        </S.InputWrapper>
+        <S.ButtonWrapper>
+          <IconButton iconName='send' iconSize={26} />
+        </S.ButtonWrapper>
+      </S.CommentInputWrapper>
     </MainLayout>
   );
 }
