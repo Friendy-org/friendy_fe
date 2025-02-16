@@ -51,7 +51,9 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
             <Timer />
           </S.InfoWrapper>
         </S.VerificationContainer>
-        <Button onPress={handleSubmit}>다음</Button>
+        <Button size='fillContainer' color='primary' shape='round' onPress={handleSubmit}>
+          다음
+        </Button>
       </S.Layout>
     </S.AppContainer>
   );

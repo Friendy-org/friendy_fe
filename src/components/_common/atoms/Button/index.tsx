@@ -1,15 +1,23 @@
 import { ReactNode } from 'react';
-import S from './style';
+import S, { ButtonStyleProps } from './style';
 
-interface ButtonProps {
+interface ButtonProps extends ButtonStyleProps {
   onPress: () => void;
   children: ReactNode;
 }
 
-export default function Button({ onPress, children }: ButtonProps) {
+export default function Button({
+  onPress,
+  children,
+  size = 'fillContainer',
+  color = 'primary',
+  shape = 'default',
+}: ButtonProps) {
   return (
-    <S.Button onPress={onPress}>
-      <S.ButtonText>{children}</S.ButtonText>
+    <S.Button size={size} color={color} shape={shape} onPress={onPress}>
+      <S.Text size={size} color={color}>
+        {children}
+      </S.Text>
     </S.Button>
   );
 }

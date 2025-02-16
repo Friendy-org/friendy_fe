@@ -23,7 +23,9 @@ export default function RootScreen({ navigation }: RootScreenProps) {
         </S.Container>
         <S.Container>
           <S.MarginedButton margin={15}>
-            <Button onPress={handleLoginPressed}>로그인</Button>
+            <Button size='fillContainer' color='primary' shape='round' onPress={handleLoginPressed}>
+              로그인
+            </Button>
           </S.MarginedButton>
           <LinkedButton onPress={handleSignUpPressed}>회원가입</LinkedButton>
         </S.Container>
