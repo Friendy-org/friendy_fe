@@ -7,12 +7,12 @@ import S from './style';
 import EmailInputStep from '@components/EmailVerification/EmailInputStep';
 import { validateEmail, validateNickname, validatePassword } from 'src/validations/userValidators';
 import VerificationCodeStep from '@components/EmailVerification/VerificationCodeStep';
-import ChangeProfileImageField from '@components/_common/molecules/ChangeProfileImageField';
 import InputField from '@components/_common/molecules/InputField';
 import PasswordInput from '@components/PasswordInput';
 import DateInputField from '@components/_common/molecules/DateInputField';
 import Button from '@components/_common/atoms/Button';
 import DotIndicator from '@components/_common/molecules/DotIndicator';
+import UserProfile from '@components/_common/molecules/UserProfile';
 
 export type SignUpScreenProps = StackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -67,7 +67,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         {step === 3 && (
           <S.ProfileSettingsContainer>
             <S.InnerForm>
-              <ChangeProfileImageField text='프로필 사진 선택' />
+              <UserProfile text='프로필 사진 선택' />
               <InputField
                 marginBottom={30}
                 label='닉네임'

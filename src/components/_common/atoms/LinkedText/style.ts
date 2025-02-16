@@ -25,7 +25,7 @@ const colorStyles = (theme: Theme, color: LinkedTextColor) => {
 const LinkedWrapper = styled.TouchableOpacity``;
 
 const LinkedText = styled.Text<LinkedTextStyleProps>`
-  ${({ color, theme }) => colorStyles(theme, color)};
+  ${({ theme, color }) => colorStyles(theme, color)};
 
   text-decoration-line: ${({ isUnderlined }) => (isUnderlined ? 'underline' : 'none')};
 `;
