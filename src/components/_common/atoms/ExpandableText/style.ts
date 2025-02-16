@@ -7,13 +7,16 @@ const TextWrapper = styled.TouchableOpacity`
 `;
 
 const Content = styled.Text`
+  ${({ theme }) => theme.font.common.regular};
+  color: ${({ theme }) => theme.color.gray[900]};
+
   flex-shrink: 1;
-  font-size: 13px;
 `;
 
 const ReadMoreText = styled.Text`
-  color: #333333;
-  font-size: 11px;
+  ${({ theme }) => theme.font.common.small};
+  color: ${({ theme }) => theme.color.gray[700]};
+
   margin-left: 1px;
 `;
 
