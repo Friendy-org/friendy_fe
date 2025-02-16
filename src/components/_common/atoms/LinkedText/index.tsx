@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import S, { LinkedTextStyleProps } from './style';
 
 interface LinkedTextProps extends LinkedTextStyleProps {
-  onPress: () => void;
+  onPress?: () => void;
   children: ReactNode;
 }
 
