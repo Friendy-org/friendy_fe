@@ -3,9 +3,9 @@ import S from './style';
 import useEmail from '@hooks/useEmail';
 import ApiError from '@api/ApiError';
 import PinCodeInput from '@components/_common/molecules/PinCodeInput';
-import LinkedButton from '@components/_common/atoms/LinkedButton';
 import Button from '@components/_common/atoms/Button';
 import Timer from '@components/_common/atoms/Timer';
+import LinkedText from '@components/_common/atoms/LinkedText';
 
 interface VerificationCodeStepProps {
   email: string;
@@ -47,7 +47,9 @@ export default function VerificationCodeStep({ email, nextStep }: VerificationCo
           <PinCodeInput pinLength={6} setAuthCode={setAuthCode} />
           {error && <S.ErrorText>{error}</S.ErrorText>}
           <S.InfoWrapper>
-            <LinkedButton onPress={handleResend}>인증 코드가 오지 않나요?</LinkedButton>
+            <LinkedText color='secondary' isUnderlined onPress={handleResend}>
+              인증 코드가 오지 않나요?
+            </LinkedText>
             <Timer />
           </S.InfoWrapper>
         </S.VerificationContainer>
