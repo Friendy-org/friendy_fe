@@ -1,42 +1,20 @@
 import React, { useState } from 'react';
 import S from './style';
+import { extractHashtags } from 'src/utils/parseText';
 import { Text } from 'react-native';
 
-interface ValueInfo {
-  str: string;
-  isHashtag: boolean;
-  idxArr: number[];
+interface ContentInputProps {
+  text: string;
+  onChange: (text: string) => void;
 }
 
-const getValueInfos = (value: string): ValueInfo[] => {
-  if (value.length === 0) {
-    return [];
-  }
-
-  const words = value.split(' '); // 공백을 기준으로 나누기
-  let index = 0;
-
-  return words.map(word => {
-    const idxArr = [index, index + word.length - 1];
-    index += word.length + 1;
-
-    return {
-      str: word,
-      isHashtag: word.startsWith('#'),
-      idxArr,
-    };
-  });
-};
-
-export default function ContentInput() {
-  const [text, setText] = useState<string>('');
-
-  const valueInfos = getValueInfos(text);
+export default function ContentInput({ text, onChange }: ContentInputProps) {
+  const valueInfos = extractHashtags(text);
 
   return (
     <S.ContentInput
       placeholder='내용을 입력하세요...'
-      onChangeText={setText}
+      onChangeText={onChange}
       multiline={true}
       textAlignVertical='top'
     >
