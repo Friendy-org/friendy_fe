@@ -19,7 +19,9 @@
       "@styles/*": ["src/styles/*"],
       "@customTypes/*": ["src/types/*"],
       "@navigation/*": ["src/navigation/*"]
-    }
+    },
+    "types": ["@emotion/react"]
   },
+  "include": ["src", "src/emotion.d.ts"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }
