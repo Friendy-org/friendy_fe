@@ -26,7 +26,14 @@ export default function EmailInputStep({ emailRegister, handlePress }: EmailInpu
     <S.AppContainer>
       <S.Layout>
         <InputField label='이메일을 입력해 주세요.' {...emailRegister} />
-        <Button onPress={() => handlePress(handleSubmit)}>다음</Button>
+        <Button
+          size='fillContainer'
+          color='primary'
+          shape='round'
+          onPress={() => handlePress(handleSubmit)}
+        >
+          다음
+        </Button>
       </S.Layout>
     </S.AppContainer>
   );

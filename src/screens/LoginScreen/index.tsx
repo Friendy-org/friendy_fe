@@ -53,6 +53,9 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
           <LinkedButton onPress={handleForgotPassword}>비밀번호가 기억나지 않나요?</LinkedButton>
         </S.Section>
         <Button
+          size='fillContainer'
+          color='primary'
+          shape='round'
           onPress={() => {
             handlePress(handleLogin);
           }}

@@ -85,7 +85,14 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
               />
               <DateInputField selectedDate={date} onChangeDate={setDate} />
             </S.InnerForm>
-            <Button onPress={() => handlePress(handleSignUp)}>완료</Button>
+            <Button
+              size='fillContainer'
+              color='primary'
+              shape='round'
+              onPress={() => handlePress(handleSignUp)}
+            >
+              완료
+            </Button>
           </S.ProfileSettingsContainer>
         )}
         <S.IndicatorContainer>
