@@ -1,48 +1,46 @@
-import { css } from '@emotion/react';
-
 const typography = {
   heading: {
-    900: css`
+    900: `
       font-weight: 700;
       font-size: 32;
       letter-spacing: 0;
     `,
-    800: css`
+    800: `
       font-weight: 700;
       font-size: 30;
       letter-spacing: 0;
     `,
-    700: css`
+    700: `
       font-weight: 700;
       font-size: 28;
       letter-spacing: 0;
     `,
-    600: css`
+    600: `
       font-weight: 700;
       font-size: 26;
       letter-spacing: 0;
     `,
-    500: css`
+    500: `
       font-weight: 700;
       font-size: 24;
       letter-spacing: 0;
     `,
-    400: css`
+    400: `
       font-weight: 700;
       font-size: 22;
       letter-spacing: 0;
     `,
-    300: css`
+    300: `
       font-weight: 700;
       font-size: 20;
       letter-spacing: 0;
     `,
-    200: css`
+    200: `
       font-weight: 700;
       font-size: 18;
       letter-spacing: 0;
     `,
-    100: css`
+    100: `
       font-weight: 700;
       font-size: 16;
       letter-spacing: 0;
@@ -50,37 +48,37 @@ const typography = {
   },
 
   common: {
-    large: css`
+    large: `
       font-weight: 500;
       font-size: 16;
       letter-spacing: 0;
     `,
-    medium: css`
+    medium: `
       font-weight: 400;
       font-size: 14;
       letter-spacing: 0;
     `,
-    regular: css`
+    regular: `
       font-weight: 500;
       font-size: 12;
       letter-spacing: 0;
     `,
-    regularAccent: css`
+    regularAccent: `
       font-weight: 700;
       font-size: 12;
       letter-spacing: 0;
     `,
-    small: css`
+    small: `
       font-weight: 400;
       font-size: 10;
       letter-spacing: 0;
     `,
-    smallAccent: css`
+    smallAccent: `
       font-weight: 600;
       font-size: 10;
       letter-spacing: 0;
     `,
-    extraSmall: css`
+    extraSmall: `
       font-weight: 400;
       font-size: 8;
       letter-spacing: 0;

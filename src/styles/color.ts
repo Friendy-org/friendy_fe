@@ -46,9 +46,8 @@ export const light = {
     300: '#E1E1E1',
     200: '#EFEFEF',
     100: '#F5F5F5',
-    50: '#FAFAFA',
+    50: '#FDFDFD',
   },
-  white: 'FDFDFD',
 };
 
 export const dark = {
