@@ -31,6 +31,8 @@ module.exports = {
           '@contexts': './src/contexts',
           '@hooks': './src/hooks',
           '@screens': './src/screens',
+          '@styles': './src/styles',
+          '@customTypes': './src/types',
           '@navigation': './src/navigation',
         },
       },
