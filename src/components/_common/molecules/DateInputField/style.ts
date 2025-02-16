@@ -5,30 +5,34 @@ const Wrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 `;
 
-const Label = styled.Text``;
+const Label = styled.Text`
+  ${({ theme }) => theme.font.common.medium};
+  color: ${({ theme }) => theme.color.gray[800]};
+`;
 
 const ChangeDateButton = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 123px;
   height: 34px;
-  background-color: rgba(120, 120, 128, 0.12);
+  background-color: ${({ theme }) => theme.color.gray[300]};
   border-radius: 6px;
 `;
 
-const ButtonText = styled.Text`
-  color: #007aff;
-  font-size: 16px;
+const Text = styled.Text`
+  ${({ theme }) => theme.font.common.large};
+  color: ${({ theme }) => theme.color.secondary[700]};
 `;
+
 const S = {
   Wrapper,
   Label,
   ChangeDateButton,
-  ButtonText,
+  Text,
 };
 
 export default S;

@@ -28,7 +28,7 @@ export default function DateInputField({ selectedDate, onChangeDate }: DateInput
     <S.Wrapper>
       <S.Label>생년월일</S.Label>
       <S.ChangeDateButton onPress={showDatePicker}>
-        <S.ButtonText>{format(selectedDate, 'MMM d, yyyy')}</S.ButtonText>
+        <S.Text>{format(selectedDate, 'MMM d, yyyy')}</S.Text>
       </S.ChangeDateButton>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
