@@ -67,7 +67,7 @@ export default function SignUpScreen({ navigation }: SignUpScreenProps) {
         {step === 3 && (
           <S.ProfileSettingsContainer>
             <S.InnerForm>
-              <ChangeProfileImageField buttonText='프로필 사진 선택' />
+              <ChangeProfileImageField text='프로필 사진 선택' />
               <InputField
                 marginBottom={30}
                 label='닉네임'

@@ -2,7 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from 'src/types/NavigationTypes';
 import S from './style';
 import Button from '@components/_common/atoms/Button';
-import LinkedButton from '@components/_common/atoms/LinkedButton';
+import LinkedText from '@components/_common/atoms/LinkedText';
 
 export type RootScreenProps = StackScreenProps<RootStackParamList, 'Root'>;
 
@@ -27,7 +27,9 @@ export default function RootScreen({ navigation }: RootScreenProps) {
               로그인
             </Button>
           </S.MarginedButton>
-          <LinkedButton onPress={handleSignUpPressed}>회원가입</LinkedButton>
+          <LinkedText color='secondary' isUnderlined onPress={handleSignUpPressed}>
+            회원가입
+          </LinkedText>
         </S.Container>
       </S.Layout>
     </S.AppContainer>

@@ -6,9 +6,9 @@ import { RootStackParamList } from 'src/types/NavigationTypes';
 import S from './style';
 import InputField from '@components/_common/molecules/InputField';
 import PasswordInput from '@components/PasswordInput';
-import LinkedButton from '@components/_common/atoms/LinkedButton';
 import Button from '@components/_common/atoms/Button';
 import { validateNull } from 'src/validations/userValidators';
+import LinkedText from '@components/_common/atoms/LinkedText';
 
 export type LoginScreenProps = StackScreenProps<RootStackParamList, 'Login'>;
 
@@ -26,10 +26,11 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   };
 
   const handleLogin = async () => {
-    await loginMutate.mutateAsync({
-      email: formData.email,
-      password: formData.password,
-    });
+    // await loginMutate.mutateAsync({
+    //   email: formData.email,
+    //   password: formData.password,
+    // });
+    navigation.navigate('Map');
   };
 
   const handleForgotPassword = () => {
@@ -50,7 +51,9 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
             marginBottom={30}
             {...register('password', { validate: validateNull })}
           ></PasswordInput>
-          <LinkedButton onPress={handleForgotPassword}>비밀번호가 기억나지 않나요?</LinkedButton>
+          <LinkedText color='secondary' isUnderlined onPress={handleForgotPassword}>
+            비밀번호가 기억나지 않나요?
+          </LinkedText>
         </S.Section>
         <Button
           size='fillContainer'
