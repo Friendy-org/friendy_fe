@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import S from './style';
 import { extractHashtags } from 'src/utils/parseText';
 import { Text } from 'react-native';
