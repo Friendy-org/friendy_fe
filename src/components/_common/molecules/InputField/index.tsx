@@ -24,12 +24,14 @@ export default function InputField({ type = 'text', label, error, ...props }: In
       <S.InputWrapper>
         <S.Input {...props} secureTextEntry={!isVisible} isError={!!error} />
         {type === 'password' && props.value && (
-          <IconButton
-            iconName={isVisible ? 'eye' : 'eye-off'}
-            size='sm'
-            color='gray'
-            onPress={toggleVisibility}
-          />
+          <S.EyeIcon>
+            <IconButton
+              iconName={isVisible ? 'eye' : 'eye-off'}
+              size='sm'
+              color='gray'
+              onPress={toggleVisibility}
+            />
+          </S.EyeIcon>
         )}
       </S.InputWrapper>
 

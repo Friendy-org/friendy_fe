@@ -27,6 +27,12 @@ const Input = styled.TextInput<{ isError: boolean }>`
   padding: 0 20px;
 `;
 
+const EyeIcon = styled.View`
+  position: absolute;
+  top: 17px;
+  right: 17px;
+`;
+
 const Footer = styled.View`
   display: flex;
   flex-direction: row;
@@ -44,6 +50,7 @@ const S = {
   Label,
   InputWrapper,
   Input,
+  EyeIcon,
   Footer,
   ErrorText,
 };
