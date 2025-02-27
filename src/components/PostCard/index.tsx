@@ -2,7 +2,7 @@ import React from 'react';
 import AuthorInfo from '@components/_common/molecules/AuthorInfo';
 import ImageSlider from '@components/_common/molecules/ImageSlider';
 import S from './style';
-import IconButton from '@components/_common/atoms/IconButton';
+import IconButton from '@components/_common/molecules/IconButton';
 import ExpandableText from '@components/_common/atoms/ExpandableText';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from 'src/types/NavigationTypes';

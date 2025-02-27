@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '@components/_common/atoms/IconButton';
+import IconButton from '@components/_common/molecules/IconButton';
 import S from './style';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from 'src/types/NavigationTypes';

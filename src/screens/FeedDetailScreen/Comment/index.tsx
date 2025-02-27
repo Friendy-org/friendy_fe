@@ -1,4 +1,4 @@
-import IconButton from '@components/_common/atoms/IconButton';
+import IconButton from '@components/_common/molecules/IconButton';
 import AuthorInfo from '@components/_common/molecules/AuthorInfo';
 import S from './style';
 

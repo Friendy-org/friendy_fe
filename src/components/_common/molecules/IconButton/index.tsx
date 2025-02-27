@@ -1,25 +1,22 @@
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from '@components/_common/atoms/Icon';
 import S, { IconButtonStyleProps } from './style';
 
 interface IconButtonProps extends IconButtonStyleProps {
   onPress?: () => void;
   iconName: string;
-  iconSize: number;
-  color?: string;
   label?: string;
 }
 
 export default function IconButton({
-  onPress,
-  iconName,
-  iconSize,
-  color = '#000',
   label,
+  iconName,
   size = 'md',
+  color = 'default',
+  onPress,
 }: IconButtonProps) {
   return (
-    <S.IconButtonWrapper onPress={onPress}>
-      <Icon name={iconName} size={iconSize} color={color} />
+    <S.IconButtonWrapper size={size} onPress={onPress}>
+      <Icon name={iconName} size={size} color={color} />
       {label && (
         <S.Label size={size} color={color}>
           {label}
