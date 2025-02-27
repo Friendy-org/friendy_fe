@@ -30,7 +30,7 @@ const colorStyles = (theme: Theme, color: IconButtonColor) => {
       color: ${theme.color.gray[900]};
     `,
     gray: `
-      color: ${theme.color.gray[500]};
+      color: ${theme.color.gray[700]};
     `,
   };
   return colors[color];

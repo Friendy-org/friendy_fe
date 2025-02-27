@@ -1,13 +1,17 @@
 import styled from '@emotion/native';
 
-const Wrapper = styled.View<{ marginBottom?: number }>`
+const InputContainer = styled.View`
   display: flex;
   flex-direction: column;
+  gap: 5px;
+
   width: 100%;
-  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)}px;
 `;
 
-const Label = styled.Text``;
+const Label = styled.Text`
+  ${({ theme }) => theme.font.common.medium};
+  color: ${({ theme }) => theme.color.gray[800]};
+`;
 
 const InputWrapper = styled.View`
   position: relative;
@@ -16,9 +20,10 @@ const InputWrapper = styled.View`
 const Input = styled.TextInput<{ isError: boolean }>`
   width: 100%;
   height: 46px;
-  border: 1px solid ${({ isError }) => (isError ? '#FF3B30' : '#717d96')};
+  border: 1px solid
+    ${({ isError, theme }) => (isError ? theme.color.tertiary[500] : theme.color.gray[600])};
   border-radius: 25px;
-  margin: 5px 0 5px 0;
+
   padding: 0 20px;
 `;
 
@@ -26,16 +31,16 @@ const Footer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 8px;
 `;
 
 const ErrorText = styled.Text`
-  color: #757575;
-  font-size: 14px;
-  margin-left: 8px;
+  ${({ theme }) => theme.font.common.regular};
+  color: ${({ theme }) => theme.color.gray[700]};
 `;
 
 const S = {
-  Wrapper,
+  InputContainer,
   Label,
   InputWrapper,
   Input,
