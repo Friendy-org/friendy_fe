@@ -1,7 +1,7 @@
 import styled from '@emotion/native';
 import { Theme } from '@emotion/react';
 
-export type IconButtonSize = 'sm' | 'md' | 'fillContainer';
+export type IconButtonSize = 'x_sm' | 'sm' | 'md' | 'fillContainer';
 export type IconButtonColor = 'default' | 'gray';
 
 export interface IconButtonStyleProps {
@@ -11,6 +11,9 @@ export interface IconButtonStyleProps {
 
 const textStyles = (theme: Theme, size: IconButtonSize) => {
   const sizes = {
+    x_sm: `
+      ${theme.font.common.extraSmall};
+    `,
     sm: `
       ${theme.font.common.extraSmall};
     `,

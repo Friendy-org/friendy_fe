@@ -4,11 +4,6 @@ const ImageSliderContainer = styled.View`
   height: 393px;
 `;
 
-const SliderImage = styled.Image`
-  width: 100%;
-  height: 100%;
-`;
-
 const dotStyle = {
   backgroundColor: '#FFFFFF',
   width: 6,
@@ -30,7 +25,6 @@ const paginationStyle = {
 
 const S = {
   ImageSliderContainer,
-  SliderImage,
   dotStyle,
   activeDotStyle,
   paginationStyle,

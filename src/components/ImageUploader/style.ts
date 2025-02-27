@@ -1,17 +1,8 @@
 import styled from '@emotion/native';
 
-const Container = styled.View``;
-
 const ImageWrapper = styled.View`
   position: relative;
   margin-right: 10px;
-`;
-
-const UploadImage = styled.Image`
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  background-color: #ddd;
 `;
 
 const CloseButton = styled.TouchableOpacity`
@@ -21,18 +12,19 @@ const CloseButton = styled.TouchableOpacity`
 `;
 
 const AddImageButton = styled.TouchableOpacity`
-  width: 150px;
-  height: 150px;
-  border: 1px #000 dashed;
+  display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 150px;
+  height: 150px;
+  background-color: ${({ theme }) => theme.color.gray[50]};
+  border: 1px ${({ theme }) => theme.color.gray[700]} dashed;
   border-radius: 8px;
 `;
 
 const S = {
-  Container,
   ImageWrapper,
-  UploadImage,
   CloseButton,
   AddImageButton,
 };
