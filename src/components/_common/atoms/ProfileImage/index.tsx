@@ -1,14 +1,17 @@
-import S from './style';
+import { DEFAULT_PROFILE_IMAGE } from '@constants/common';
+import S, { ProfileImageStyleProps } from './style';
 
-interface ProfileImageProps {
+interface ProfileImageProps extends ProfileImageStyleProps {
   imageUrl?: string;
 }
 
 export default function ProfileImage({
-  imageUrl = 'https://www.studiopeople.kr/common/img/default_profile.png',
+  imageUrl = DEFAULT_PROFILE_IMAGE,
+  size = 'md',
 }: ProfileImageProps) {
   return (
     <S.ProfileImage
+      size={size}
       source={{
         uri: imageUrl,
       }}
