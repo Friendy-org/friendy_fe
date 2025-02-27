@@ -1,24 +1,32 @@
 import React from 'react';
 import S, { AuthorInfoStyleProps } from './style';
+import ProfileImage from '@components/_common/atoms/ProfileImage';
 
 interface AuthorInfoProps extends AuthorInfoStyleProps {
-  profileImageUrl?: string;
+  imageUrl?: string;
   name: string;
-  content: string;
+  content?: string;
+  time?: string;
 }
 
 export default function AuthorInfo({
-  profileImageUrl = 'https://i.namu.wiki/i/w7GkIKr6Qac-0SCYEn7DdYBpkpZed9FaVNTBFE7aIQvm7p39bo7gs2Pb1ZWfX3dPVd0JmA3oX50T5kl-MU7wfw.webp',
+  imageUrl,
   name,
   content,
+  time,
   size = 'md',
 }: AuthorInfoProps) {
+  const profileImageSize = size === 'lg' ? 'sm' : size;
+
   return (
     <S.Container>
-      <S.ProfileImage size={size} source={{ uri: profileImageUrl }} />
+      <ProfileImage size={profileImageSize} imageUrl={imageUrl} />
       <S.InfoWrapper>
-        <S.Name size={size}>{name}</S.Name>
-        <S.Content>{content}</S.Content>
+        <S.Header>
+          <S.Name size={size}>{name}</S.Name>
+          {time && <S.Time>{time}</S.Time>}
+        </S.Header>
+        {content && <S.Content size={size}>{content}</S.Content>}
       </S.InfoWrapper>
     </S.Container>
   );

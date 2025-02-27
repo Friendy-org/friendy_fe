@@ -6,8 +6,8 @@ interface ProfileImageProps extends ProfileImageStyleProps {
 }
 
 export default function ProfileImage({
-  imageUrl = DEFAULT_PROFILE_IMAGE,
   size = 'md',
+  imageUrl = DEFAULT_PROFILE_IMAGE,
 }: ProfileImageProps) {
   return (
     <S.ProfileImage
