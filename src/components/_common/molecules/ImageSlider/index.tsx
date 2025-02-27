@@ -1,6 +1,7 @@
 import React from 'react';
 import Swiper from 'react-native-swiper';
 import S from './style';
+import PostImage from '@components/_common/atoms/PostImage';
 
 interface ImageSliderProps {
   imageUrls: string[];
@@ -16,8 +17,8 @@ export default function ImageSlider({ imageUrls }: ImageSliderProps) {
         paginationStyle={S.paginationStyle}
         loop={false}
       >
-        {imageUrls.map((url, index) => (
-          <S.SliderImage key={index} source={{ uri: url }} resizeMode='cover' />
+        {imageUrls.map((imageUrl, index) => (
+          <PostImage key={index} imageUrl={imageUrl} size='fillContainer' shape='default' />
         ))}
       </Swiper>
     </S.ImageSliderContainer>
