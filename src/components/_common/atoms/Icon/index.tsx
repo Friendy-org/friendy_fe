@@ -8,8 +8,8 @@ interface IconProps {
 }
 
 export default function Icon({ name, size, color }: IconProps) {
-  const iconSize = size === 'sm' ? 18 : 24;
-  const iconColor = color === 'gray' ? '#9F9F9F' : '#333333';
+  const iconSize = size === 'x_sm' ? 13 : size === 'sm' ? 18 : 24;
+  const iconColor = color === 'gray' ? '#626262' : '#333333';
 
   return <FeatherIcon name={name} size={iconSize} color={iconColor} />;
 }

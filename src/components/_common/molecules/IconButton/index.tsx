@@ -2,9 +2,9 @@ import Icon from '@components/_common/atoms/Icon';
 import S, { IconButtonStyleProps } from './style';
 
 interface IconButtonProps extends IconButtonStyleProps {
-  onPress?: () => void;
-  iconName: string;
   label?: string;
+  iconName: string;
+  onPress?: () => void;
 }
 
 export default function IconButton({

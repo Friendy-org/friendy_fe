@@ -1,44 +1,44 @@
-import { ReactNode } from 'react';
+import { useState } from 'react';
+import { TextInputProps } from 'react-native';
+import Icon from '@components/_common/atoms/Icon';
+import IconButton from '../IconButton';
 import S from './style';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
-interface InputFieldProps {
+interface InputFieldProps extends TextInputProps {
+  type?: string;
   label?: string;
-  value: string;
-  onChange: (text: string) => void;
-  marginBottom?: number;
-  isShow?: boolean;
   error?: string;
-  children?: ReactNode;
 }
 
-export default function InputField({
-  label,
-  value,
-  onChange,
-  marginBottom,
-  isShow = true,
-  error,
-  children,
-}: InputFieldProps) {
+export default function InputField({ type = 'text', label, error, ...props }: InputFieldProps) {
+  const [isVisible, setIsVisible] = useState(type !== 'password');
+
+  const toggleVisibility = () => {
+    setIsVisible(prev => !prev);
+  };
+
   return (
-    <S.Wrapper marginBottom={marginBottom ? marginBottom : 0}>
+    <S.InputContainer>
       {label && <S.Label>{label}</S.Label>}
+
       <S.InputWrapper>
-        <S.Input
-          value={value}
-          onChangeText={onChange}
-          secureTextEntry={!isShow}
-          isError={!!error}
-        />
-        {children}
+        <S.Input {...props} secureTextEntry={!isVisible} isError={!!error} />
+        {type === 'password' && props.value && (
+          <IconButton
+            iconName={isVisible ? 'eye' : 'eye-off'}
+            size='sm'
+            color='gray'
+            onPress={toggleVisibility}
+          />
+        )}
       </S.InputWrapper>
+
       {error && (
         <S.Footer>
-          <AntDesign name='exclamationcircleo' size={13} color={'#757575'} />
+          <Icon name='info' size='x_sm' color='gray' />
           <S.ErrorText>{error}</S.ErrorText>
         </S.Footer>
       )}
-    </S.Wrapper>
+    </S.InputContainer>
   );
 }
