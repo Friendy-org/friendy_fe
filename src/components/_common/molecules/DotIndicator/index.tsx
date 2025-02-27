@@ -10,7 +10,7 @@ export default function DotIndicator({ totalStep, step }: DotIndicatorProps) {
   return (
     <S.Wrapper>
       {Array.from({ length: totalStep }).map((_, index) => (
-        <Dot key={index} isActive={index === step} isLast={index === totalStep - 1} />
+        <Dot key={index} isActive={index === step} />
       ))}
     </S.Wrapper>
   );

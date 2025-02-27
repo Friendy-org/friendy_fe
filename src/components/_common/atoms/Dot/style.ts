@@ -1,12 +1,12 @@
 import styled from '@emotion/native';
 
-const Dot = styled.View<{ isActive: boolean; isLast: boolean }>`
+const Dot = styled.View<{ isActive: boolean }>`
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  background-color: black;
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.color.gray[900] : theme.color.gray[600]};
   opacity: ${({ isActive }) => (isActive ? '1' : '0.3')};
-  margin-right: ${({ isLast }) => (isLast ? '0px' : '8px')};
 `;
 
 const S = {
