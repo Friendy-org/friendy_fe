@@ -3,20 +3,22 @@ import styled from '@emotion/native';
 const Wrapper = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 3px;
+
   width: 100%;
   height: 56px;
-  margin: 15px 0;
 `;
 
 const PinInput = styled.TextInput<{ hasValue: boolean; isFocus: boolean }>`
-  flex: 0.15;
-  border-width: 1px;
-  border-radius: 17px;
-  border-color: ${({ hasValue, isFocus }) => (hasValue || isFocus ? '#38A5CD' : '#717d96')};
+  flex: 1;
+
+  ${({ theme }) => theme.font.heading[300]};
+  color: ${({ theme }) => theme.color.gray[800]};
+  border: 1px solid
+    ${({ hasValue, isFocus, theme }) =>
+      hasValue || isFocus ? theme.color.secondary[400] : theme.color.gray[600]};
+  border-radius: 16px;
   text-align: center;
-  font-size: 20px;
-  font-weight: 800;
 `;
 
 const S = {
