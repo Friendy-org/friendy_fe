@@ -1,4 +1,4 @@
-import IconButton from '@components/_common/atoms/IconButton';
+import IconButton from '@components/_common/molecules/IconButton';
 import React from 'react';
 import S from './style';
 import { useNavigation } from '@react-navigation/native';

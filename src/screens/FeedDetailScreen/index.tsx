@@ -7,7 +7,7 @@ import S from './style';
 import CommentList from './CommentList';
 import InputField from '@components/_common/molecules/InputField';
 import { useState } from 'react';
-import IconButton from '@components/_common/atoms/IconButton';
+import IconButton from '@components/_common/molecules/IconButton';
 
 interface FeedDetailScreenProps {
   route: RouteProp<RootStackParamList, 'FeedDetail'>;

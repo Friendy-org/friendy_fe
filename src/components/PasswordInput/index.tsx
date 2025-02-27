@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import S from './style';
 import InputField from '@components/_common/molecules/InputField';
-import IconButton from '@components/_common/atoms/IconButton';
+import IconButton from '@components/_common/molecules/IconButton';
 
 interface PasswordInputProps {
   label: string;
