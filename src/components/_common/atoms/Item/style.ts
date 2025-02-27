@@ -33,11 +33,12 @@ const ItemContainer = styled.TouchableOpacity<{ align: ItemAlign }>`
   justify-content: center;
   ${({ align }) => alignStyles(align)}
 
+  width: 100%;
   white-space: nowrap;
   padding: 8px 11px;
 `;
 
-const Text = styled.View<{ color: ItemColor }>`
+const Text = styled.Text<{ color: ItemColor }>`
   ${({ theme, color }) => colorStyles(theme, color)}
   ${({ theme }) => theme.font.common.medium}
 `;
