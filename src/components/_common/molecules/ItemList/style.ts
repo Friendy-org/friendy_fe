@@ -1,6 +1,6 @@
 import styled from '@emotion/native';
 
-const DropdownList = styled.View`
+const ItemList = styled.View`
   display: flex;
   align-items: center;
 
@@ -16,7 +16,7 @@ const Divider = styled.View`
 `;
 
 const S = {
-  DropdownList,
+  ItemList,
   Divider,
 };
 

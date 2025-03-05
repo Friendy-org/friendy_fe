@@ -8,23 +8,23 @@ interface DropdownItem {
   color: ItemColor;
 }
 
-interface DropdownListProps<T extends readonly DropdownItem[]> {
+interface ItemListProps<T extends readonly DropdownItem[]> {
   items: T;
   onItemSelect: (selectedItem: T[number]['item']) => void;
 }
 
-export default function DropdownList<T extends readonly DropdownItem[]>({
+export default function ItemList<T extends readonly DropdownItem[]>({
   items,
   onItemSelect,
-}: DropdownListProps<T>) {
+}: ItemListProps<T>) {
   return (
-    <S.DropdownList>
+    <S.ItemList>
       {items.map(({ item, color }, index) => (
         <React.Fragment key={item}>
           <Item item={item} color={color} align='left' onPress={() => onItemSelect(item)} />
           {index < items.length - 1 && <S.Divider />}
         </React.Fragment>
       ))}
-    </S.DropdownList>
+    </S.ItemList>
   );
 }
