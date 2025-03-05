@@ -19,3 +19,37 @@ export const DROPDOWN_ITEMS = [
     color: 'default',
   },
 ] as const;
+
+export const LIST_BUTTON_COMMON_ITEMS = [
+  {
+    item: '검색 기록 초기화',
+    color: 'gray',
+    onPress: () => {
+      console.log('검색 기록 초기화 실행');
+    },
+  },
+  {
+    item: '추천 알고리즘 초기화',
+    color: 'default',
+    onPress: () => {
+      console.log('추천 알고리즘 초기화 실행');
+    },
+  },
+] as const;
+
+export const LIST_BUTTON_USER_ITEMS = [
+  {
+    item: '로그아웃',
+    color: 'gray',
+    onPress: () => {
+      console.log('로그아웃 실행');
+    },
+  },
+  {
+    item: '회원 탈퇴',
+    color: 'default',
+    onPress: () => {
+      console.log('회원 탈퇴 실행');
+    },
+  },
+] as const;
