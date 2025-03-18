@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import useForm from '@hooks/utils/useForm';
+
 import { validateEmail, validateNickname, validatePassword } from '@utils/validations/user';
 
 import DotIndicator from '@components/_common/molecules/DotIndicator';

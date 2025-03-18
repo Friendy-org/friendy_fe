@@ -32,25 +32,32 @@ export default function SetProfile<TFieldData>({
 
   return (
     <S.Container>
-      <S.InnerForm>
+      <S.InputForm>
         <UserProfile text='프로필 사진 선택' />
+
         <InputField
           label='닉네임'
           {...nicknameRegister}
         />
+
         <InputField
+          type='password'
           label='비밀번호'
           {...passwordRegister}
         />
+
         <InputField
+          type='password'
           label='비밀번호 확인'
           {...confirmPasswordRegister}
         />
+
         <DateInputField
           selectedDate={date}
           onChangeDate={setDate}
         />
-      </S.InnerForm>
+      </S.InputForm>
+
       <Button
         size='fillContainer'
         color='primary'

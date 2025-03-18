@@ -29,12 +29,14 @@ export default function VerificationCode({ email, nextStep }: VerificationCodePr
 
   return (
     <S.Container>
-      <S.InputWrapper>
+      <S.InputForm>
         <S.Label>{email}으로 전송된 인증 코드 6자리를 입력해 주세요.</S.Label>
+
         <PinCodeInput
           pinLength={6}
           setAuthCode={setAuthCode}
         />
+
         <S.Info>
           <LinkedText
             color='secondary'
@@ -43,9 +45,11 @@ export default function VerificationCode({ email, nextStep }: VerificationCodePr
           >
             인증 코드가 오지 않나요?
           </LinkedText>
+
           <Timer />
         </S.Info>
-      </S.InputWrapper>
+      </S.InputForm>
+
       <Button
         size='fillContainer'
         color='primary'

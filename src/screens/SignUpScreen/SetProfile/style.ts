@@ -7,7 +7,7 @@ const Container = styled.View`
   height: 100%;
 `;
 
-const InnerForm = styled.View`
+const InputForm = styled.View`
   display: flex;
   gap: 18px;
 
@@ -16,7 +16,7 @@ const InnerForm = styled.View`
 
 const S = {
   Container,
-  InnerForm,
+  InputForm,
 };
 
 export default S;
