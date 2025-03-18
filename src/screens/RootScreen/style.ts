@@ -1,35 +1,28 @@
 import styled from '@emotion/native';
 
-const AppContainer = styled.View`
-  background-color: white;
+const Container = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 135px;
+
+  background-color: ${({ theme }) => theme.color.gray[50]};
 
   width: 100%;
   height: 100%;
 `;
 
-const Layout = styled.View`
+const AppInfo = styled.View`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-
-  width: 100%;
-  height: 70%;
-  margin: auto;
+  gap: 19px;
 `;
 
-const Container = styled.View`
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  align-items: center;
-`;
-
-const ImgLogo = styled.Image`
+const Logo = styled.Image`
   width: 206px;
   height: 206px;
   border-radius: 103px;
-  background-color: #dddddd;
 `;
 
 const Title = styled.Text`
@@ -38,18 +31,19 @@ const Title = styled.Text`
   margin-top: 15px;
 `;
 
-const MarginedButton = styled.View<{ margin?: number }>`
-  margin: ${props => (props.margin ? props.margin : 0)}px;
-  width: 100%;
+const ButtonWrapper = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 `;
 
 const S = {
-  AppContainer,
-  Layout,
-  ImgLogo,
   Container,
+  AppInfo,
+  Logo,
   Title,
-  MarginedButton,
+  ButtonWrapper,
 };
 
 export default S;
