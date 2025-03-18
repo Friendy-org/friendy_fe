@@ -9,12 +9,12 @@ import PinCodeInput from '@components/_common/molecules/PinCodeInput';
 
 import S from './style';
 
-interface VerificationCodeStepProps {
+interface VerificationCodeProps {
   email: string;
   nextStep: () => void;
 }
 
-export default function VerificationCodeStep({ email, nextStep }: VerificationCodeStepProps) {
+export default function VerificationCode({ email, nextStep }: VerificationCodeProps) {
   const [authCode, setAuthCode] = useState('');
   const { sendCodeMutate, verifyCodeMutate } = useEmail();
 
