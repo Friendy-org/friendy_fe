@@ -25,12 +25,13 @@ export default function EmailInput<TFieldData>({ emailRegister, handlePress, nex
 
   return (
     <S.Container>
-      <S.InputWrapper>
+      <S.InputForm>
         <InputField
           label='이메일을 입력해 주세요.'
           {...emailRegister}
         />
-      </S.InputWrapper>
+      </S.InputForm>
+
       <Button
         size='fillContainer'
         color='primary'

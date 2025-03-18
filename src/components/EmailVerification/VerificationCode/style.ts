@@ -7,7 +7,7 @@ const Container = styled.View`
   height: 100%;
 `;
 
-const InputWrapper = styled.View`
+const InputForm = styled.View`
   display: flex;
   justify-content: center;
   flex: 1;
@@ -27,7 +27,7 @@ const Info = styled.View`
 
 const S = {
   Container,
-  InputWrapper,
+  InputForm,
   Label,
   Info,
 };
