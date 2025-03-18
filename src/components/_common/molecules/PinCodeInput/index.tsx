@@ -8,68 +8,63 @@ interface PinCodeInputProps {
 }
 
 export default function PinCodeInput({ pinLength, setAuthCode }: PinCodeInputProps) {
-  const [pinValues, setPinValues] = useState(Array(pinLength).fill(''));
+  const [pinValues, setPinValues] = useState<string[]>(Array(pinLength).fill(''));
   const [focusIndex, setFocusIndex] = useState<number | null>(null);
-  const inputRefs = useRef<TextInput[]>([]);
+  const inputRefs = useRef<Array<TextInput | null>>(Array(pinLength).fill(null));
+
+  const updatePinValues = (index: number, value: string) => {
+    const newPinValues = [...pinValues];
+    newPinValues[index] = value;
+    setPinValues(newPinValues);
+    setAuthCode?.(newPinValues.join(''));
+  };
+
+  const handleBackspace = (index: number) => {
+    if (index > 0) {
+      updatePinValues(index, '');
+      inputRefs.current[index - 1]?.focus();
+    }
+  };
+
+  const handlePaste = (value: string) => {
+    const newPinValues = value.slice(0, pinLength).split('').concat(Array(pinLength).fill('')).slice(0, pinLength);
+    setPinValues(newPinValues);
+    setAuthCode?.(newPinValues.join(''));
+  };
 
   const handleChange = (index: number, value: string) => {
     if (value.length > 1) {
       handlePaste(value);
       return;
     }
-
-    const newPinValues = [...pinValues];
-    newPinValues[index] = value;
-    setPinValues(newPinValues);
-
-    if (setAuthCode) {
-      setAuthCode(newPinValues.join(''));
-    }
-
+    updatePinValues(index, value);
     if (value && index < pinLength - 1) {
       inputRefs.current[index + 1]?.focus();
     }
-  };
-
-  const handleBackspace = (index: number) => {
-    if (index > 0) {
-      const newPinValues = [...pinValues];
-      newPinValues[index] = '';
-      setPinValues(newPinValues);
-
-      inputRefs.current[index - 1]?.focus();
-    }
-  };
-
-  const handlePaste = (value: string) => {
-    const newPinValues = value.split('').slice(0, pinLength);
-    while (newPinValues.length < pinLength) {
-      newPinValues.push('');
-    }
-    setPinValues(newPinValues);
-    setAuthCode?.(newPinValues.join(''));
   };
 
   return (
     <S.Wrapper>
       {pinValues.map((value, index) => (
         <S.PinInput
-          key={index}
+          key={`pin-${value + index}`}
           keyboardType='numeric'
-          maxLength={pinLength}
+          maxLength={1}
           value={value}
           hasValue={!!value}
           isFocus={focusIndex === index}
           onFocus={() => setFocusIndex(index)}
           onBlur={() => setFocusIndex(null)}
-          onChangeText={text => handleChange(index, text)}
+          onChangeText={(text) => handleChange(index, text)}
           onKeyPress={({ nativeEvent }) => {
             if (nativeEvent.key === 'Backspace') {
               handleBackspace(index);
             }
           }}
-          ref={el => {
-            if (el) inputRefs.current[index] = el;
+          ref={(el) => {
+            if (el) {
+              inputRefs.current[index] = el;
+            }
           }}
           autoFocus={index === 0}
         />

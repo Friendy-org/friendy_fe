@@ -11,7 +11,11 @@ export default function ChevronButton({ onPress, children }: ChevronButtonProps)
   return (
     <S.Container onPress={onPress}>
       <S.Text>{children}</S.Text>
-      <Icon name='chevron-right' size='sm' color='gray' />
+      <Icon
+        name='chevron-right'
+        size='sm'
+        color='gray'
+      />
     </S.Container>
   );
 }

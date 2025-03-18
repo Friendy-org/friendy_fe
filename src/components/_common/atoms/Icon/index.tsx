@@ -22,5 +22,11 @@ export default function Icon({ name, size, color = 'default' }: IconProps) {
 
   const iconColor = color === 'gray' ? '#626262' : '#333333';
 
-  return <FeatherIcon name={name} size={iconSize} color={iconColor} />;
+  return (
+    <FeatherIcon
+      name={name}
+      size={iconSize}
+      color={iconColor}
+    />
+  );
 }

@@ -14,8 +14,11 @@ export default function SegmentedControl<T extends readonly string[]>({
 }: SegmentedControlProps<T>) {
   return (
     <S.Container>
-      {options.map(option => (
-        <S.SegmentButton key={option} onPress={() => onPress(option)}>
+      {options.map((option) => (
+        <S.SegmentButton
+          key={option}
+          onPress={() => onPress(option)}
+        >
           {selectedValue === option && <S.SelectButton />}
           <S.SegmentText isSelected={selectedValue === option}>{option}</S.SegmentText>
         </S.SegmentButton>

@@ -43,7 +43,7 @@ const Label = styled.Text<IconButtonStyleProps>(
   ({ size, color, theme }) => `
   ${textStyles(theme, size)}
   ${colorStyles(theme, color)}
-`
+`,
 );
 
 const IconButtonWrapper = styled.TouchableOpacity<{ size: IconButtonSize }>`

@@ -34,7 +34,7 @@ const PostImage = styled.Image<PostImageStyleProps>(
   ({ size, shape }) => `
   ${sizeStyles(size)}
   ${shapeStyles(shape)}
-`
+`,
 );
 
 const S = {

@@ -5,5 +5,5 @@ interface DotProps {
 }
 
 export default function Dot({ isActive }: DotProps) {
-  return <S.Dot isActive={isActive}></S.Dot>;
+  return <S.Dot isActive={isActive} />;
 }

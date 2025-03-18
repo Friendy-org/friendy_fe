@@ -14,8 +14,16 @@ export default function Button({
   shape = 'default',
 }: ButtonProps) {
   return (
-    <S.Button size={size} color={color} shape={shape} onPress={onPress}>
-      <S.Text size={size} color={color}>
+    <S.Button
+      size={size}
+      color={color}
+      shape={shape}
+      onPress={onPress}
+    >
+      <S.Text
+        size={size}
+        color={color}
+      >
         {children}
       </S.Text>
     </S.Button>

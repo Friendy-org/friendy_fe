@@ -12,7 +12,7 @@ export default function Timer() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
+      setTimeLeft((prev) => {
         if (prev <= 0) {
           clearInterval(timer);
           return 0;

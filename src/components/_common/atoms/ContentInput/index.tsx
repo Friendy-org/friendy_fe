@@ -1,7 +1,8 @@
 import React from 'react';
-import S from './style';
 import { extractHashtags } from 'src/utils/parseText';
 import { Text } from 'react-native';
+
+import S from './style';
 
 interface ContentInputProps {
   text: string;
@@ -15,26 +16,12 @@ export default function ContentInput({ text, onChange }: ContentInputProps) {
     <S.ContentInput
       placeholder='내용을 입력하세요...'
       onChangeText={onChange}
-      multiline={true}
+      multiline
       textAlignVertical='top'
     >
-      {valueInfos.map(({ str, isHashtag, idxArr }, index) => {
-        const [startIdx, endIdx] = idxArr;
-        let content = text.slice(startIdx, endIdx + 1);
-        const isLast = index === valueInfos.length - 1;
-
-        return isHashtag ? (
-          <Text key={index}>
-            <S.HashtagText>{content}</S.HashtagText>
-            {!isLast && <Text> </Text>}
-          </Text>
-        ) : (
-          <S.NormalText key={index}>
-            {content}
-            {!isLast && <Text> </Text>}
-          </S.NormalText>
-        );
-      })}
+      {valueInfos.map(({ id, str, isHashtag }) => (
+        <Text key={id}>{isHashtag ? <S.HashtagText>{str}</S.HashtagText> : <S.NormalText>{str}</S.NormalText>}</Text>
+      ))}
     </S.ContentInput>
   );
 }

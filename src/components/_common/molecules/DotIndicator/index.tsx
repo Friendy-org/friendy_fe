@@ -7,10 +7,17 @@ interface DotIndicatorProps {
 }
 
 export default function DotIndicator({ totalStep, step }: DotIndicatorProps) {
+  const steps = Array.from({ length: totalStep }).map((_, index) => ({
+    id: `dot-${index}`,
+  }));
+
   return (
     <S.Wrapper>
-      {Array.from({ length: totalStep }).map((_, index) => (
-        <Dot key={index} isActive={index === step} />
+      {steps.map((dot) => (
+        <Dot
+          key={dot.id}
+          isActive={dot.id === `dot-${step}`}
+        />
       ))}
     </S.Wrapper>
   );
