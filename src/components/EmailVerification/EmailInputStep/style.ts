@@ -1,22 +1,21 @@
 import styled from '@emotion/native';
 
-const AppContainer = styled.View`
+const Container = styled.View`
   display: flex;
-  flex-grow: 1;
-  flex-direction: column-reverse;
+
+  width: 100%;
+  height: 100%;
 `;
 
-const Layout = styled.View`
-  width: 100%;
-  height: 65%;
+const InputWrapper = styled.View`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  flex: 1;
 `;
 
 const S = {
-  AppContainer,
-  Layout,
+  Container,
+  InputWrapper,
 };
 
 export default S;
