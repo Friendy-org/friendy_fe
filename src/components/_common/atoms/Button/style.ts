@@ -79,12 +79,10 @@ const Button = styled.TouchableOpacity<ButtonStyleProps>(
   ${sizeStyles(size)}
   ${colorStyles(theme, color)}
   ${shapeStyles[shape]}
-`
+`,
 );
 
-const Text = styled.Text<Omit<ButtonStyleProps, 'shape'>>(({ size, color, theme }) =>
-  textStyles(theme, size, color)
-);
+const Text = styled.Text<Omit<ButtonStyleProps, 'shape'>>(({ size, color, theme }) => textStyles(theme, size, color));
 
 const S = {
   Button,

@@ -3,7 +3,7 @@ import styled from '@emotion/native';
 const InputContainer = styled.View`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
 
   width: 100%;
 `;
@@ -20,8 +20,7 @@ const InputWrapper = styled.View`
 const Input = styled.TextInput<{ isError: boolean }>`
   width: 100%;
   height: 46px;
-  border: 1px solid
-    ${({ isError, theme }) => (isError ? theme.color.tertiary[500] : theme.color.gray[600])};
+  border: 1px solid ${({ isError, theme }) => (isError ? theme.color.tertiary[500] : theme.color.gray[600])};
   border-radius: 25px;
 
   padding: 0 20px;

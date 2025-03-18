@@ -7,18 +7,22 @@ interface IconButtonProps extends IconButtonStyleProps {
   onPress?: () => void;
 }
 
-export default function IconButton({
-  label,
-  iconName,
-  size = 'md',
-  color = 'default',
-  onPress,
-}: IconButtonProps) {
+export default function IconButton({ label, iconName, size = 'md', color = 'default', onPress }: IconButtonProps) {
   return (
-    <S.IconButtonWrapper size={size} onPress={onPress}>
-      <Icon name={iconName} size={size} color={color} />
+    <S.IconButtonWrapper
+      size={size}
+      onPress={onPress}
+    >
+      <Icon
+        name={iconName}
+        size={size}
+        color={color}
+      />
       {label && (
-        <S.Label size={size} color={color}>
+        <S.Label
+          size={size}
+          color={color}
+        >
           {label}
         </S.Label>
       )}

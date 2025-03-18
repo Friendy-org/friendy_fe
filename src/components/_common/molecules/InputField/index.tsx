@@ -14,7 +14,7 @@ export default function InputField({ type = 'text', label, error, ...props }: In
   const [isVisible, setIsVisible] = useState(type !== 'password');
 
   const toggleVisibility = () => {
-    setIsVisible(prev => !prev);
+    setIsVisible((prev) => !prev);
   };
 
   return (
@@ -22,7 +22,11 @@ export default function InputField({ type = 'text', label, error, ...props }: In
       {label && <S.Label>{label}</S.Label>}
 
       <S.InputWrapper>
-        <S.Input {...props} secureTextEntry={!isVisible} isError={!!error} />
+        <S.Input
+          {...props}
+          secureTextEntry={!isVisible}
+          isError={!!error}
+        />
         {type === 'password' && props.value && (
           <S.EyeIcon>
             <IconButton
@@ -37,7 +41,11 @@ export default function InputField({ type = 'text', label, error, ...props }: In
 
       {error && (
         <S.Footer>
-          <Icon name='info' size='x_sm' color='gray' />
+          <Icon
+            name='info'
+            size='x_sm'
+            color='gray'
+          />
           <S.ErrorText>{error}</S.ErrorText>
         </S.Footer>
       )}

@@ -13,7 +13,7 @@ export default function App() {
         retry: 0,
       },
       mutations: {
-        onError: error => {
+        onError: (error) => {
           console.log(error);
         },
       },

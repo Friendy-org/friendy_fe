@@ -13,14 +13,17 @@ interface ListButtonProps<T extends readonly ListButtonItem[]> {
   items: T;
 }
 
-export default function ListButton<T extends readonly ListButtonItem[]>({
-  items,
-}: ListButtonProps<T>) {
+export default function ListButton<T extends readonly ListButtonItem[]>({ items }: ListButtonProps<T>) {
   return (
     <S.ListButton>
       {items.map(({ item, color, onPress }, index) => (
         <React.Fragment key={item}>
-          <Item item={item} color={color} align='left' onPress={onPress} />
+          <Item
+            item={item}
+            color={color}
+            align='left'
+            onPress={onPress}
+          />
           {index < items.length - 1 && <S.Divider />}
         </React.Fragment>
       ))}

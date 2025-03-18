@@ -43,7 +43,11 @@ export default function AppNavigator() {
           animation: 'fade',
         }}
       >
-        <Stack.Screen name='Root' component={RootScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name='Root'
+          component={RootScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name='Login'
           component={LoginScreen}
@@ -65,8 +69,15 @@ export default function AppNavigator() {
             title: '비밀번호 재설정',
           }}
         />
-        <Stack.Screen name='Explore' component={ExploreScreen} />
-        <Stack.Screen name='Feed' component={FeedScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name='Explore'
+          component={ExploreScreen}
+        />
+        <Stack.Screen
+          name='Feed'
+          component={FeedScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name='FeedCreate'
           component={FeedCreateScreen}
@@ -74,8 +85,15 @@ export default function AppNavigator() {
             title: '게시글 생성',
           }}
         />
-        <Stack.Screen name='FeedDetail' component={FeedDetailScreen} />
-        <Stack.Screen name='Map' component={MapScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name='FeedDetail'
+          component={FeedDetailScreen}
+        />
+        <Stack.Screen
+          name='Map'
+          component={MapScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name='DM'
           component={DMScreen}
@@ -83,7 +101,10 @@ export default function AppNavigator() {
             title: 'DM',
           }}
         />
-        <Stack.Screen name='Profile' component={ProfileScreen} />
+        <Stack.Screen
+          name='Profile'
+          component={ProfileScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

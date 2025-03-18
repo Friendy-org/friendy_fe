@@ -78,9 +78,7 @@ const Time = styled.Text`
   ${({ theme }) => theme.color.gray[600]};
 `;
 
-const Content = styled.Text<AuthorInfoStyleProps>(
-  ({ size, theme }) => `${contentStyles(theme, size)}`
-);
+const Content = styled.Text<AuthorInfoStyleProps>(({ size, theme }) => `${contentStyles(theme, size)}`);
 
 const S = {
   Container,

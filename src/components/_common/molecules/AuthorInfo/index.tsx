@@ -1,6 +1,7 @@
 import React from 'react';
-import S, { AuthorInfoStyleProps } from './style';
 import ProfileImage from '@components/_common/atoms/ProfileImage';
+
+import S, { AuthorInfoStyleProps } from './style';
 
 interface AuthorInfoProps extends AuthorInfoStyleProps {
   imageUrl?: string;
@@ -9,18 +10,15 @@ interface AuthorInfoProps extends AuthorInfoStyleProps {
   time?: string;
 }
 
-export default function AuthorInfo({
-  imageUrl,
-  name,
-  content,
-  time,
-  size = 'md',
-}: AuthorInfoProps) {
+export default function AuthorInfo({ imageUrl, name, content, time, size = 'md' }: AuthorInfoProps) {
   const profileImageSize = size === 'lg' ? 'sm' : size;
 
   return (
     <S.Container>
-      <ProfileImage size={profileImageSize} imageUrl={imageUrl} />
+      <ProfileImage
+        size={profileImageSize}
+        imageUrl={imageUrl}
+      />
       <S.InfoWrapper>
         <S.Header>
           <S.Name size={size}>{name}</S.Name>

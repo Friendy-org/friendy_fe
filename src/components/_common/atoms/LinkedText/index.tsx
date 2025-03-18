@@ -6,15 +6,13 @@ interface LinkedTextProps extends LinkedTextStyleProps {
   children: ReactNode;
 }
 
-export default function LinkedText({
-  color = 'primary',
-  isUnderlined,
-  onPress,
-  children,
-}: LinkedTextProps) {
+export default function LinkedText({ color = 'primary', isUnderlined, onPress, children }: LinkedTextProps) {
   return (
     <S.LinkedWrapper onPress={onPress}>
-      <S.LinkedText color={color} isUnderlined={isUnderlined}>
+      <S.LinkedText
+        color={color}
+        isUnderlined={isUnderlined}
+      >
         {children}
       </S.LinkedText>
     </S.LinkedWrapper>
