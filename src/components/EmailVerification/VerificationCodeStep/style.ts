@@ -1,47 +1,35 @@
 import styled from '@emotion/native';
 
-const AppContainer = styled.View`
+const Container = styled.View`
   display: flex;
-  flex-grow: 1;
-  flex-direction: column-reverse;
+
+  width: 100%;
+  height: 100%;
 `;
 
-const Layout = styled.View`
-  width: 100%;
-  height: 70%;
-
+const InputWrapper = styled.View`
   display: flex;
-  justify-content: space-between;
-`;
-
-const VerificationContainer = styled.View`
-  display: flex;
-  width: 100%;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
 `;
 
 const Label = styled.Text`
-  width: 100%;
+  ${({ theme }) => theme.font.common.medium};
+  color: ${({ theme }) => theme.color.gray[800]};
 `;
 
-const ErrorText = styled.Text`
-  color: #ff3b30;
-  font-size: 14px;
-  margin-bottom: 15px;
-`;
-
-const InfoWrapper = styled.View`
+const Info = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
 
 const S = {
-  AppContainer,
-  Layout,
-  ErrorText,
-  VerificationContainer,
+  Container,
+  InputWrapper,
   Label,
-  InfoWrapper,
+  Info,
 };
 
 export default S;
