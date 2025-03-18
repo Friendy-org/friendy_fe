@@ -12,17 +12,7 @@ module.exports = {
       'module-resolver',
       {
         root: ['./'],
-        extensions: [
-          '.ios.ts',
-          '.android.ts',
-          '.ts',
-          '.ios.tsx',
-          '.android.tsx',
-          '.tsx',
-          '.jsx',
-          '.js',
-          '.json',
-        ],
+        extensions: ['.ios.ts', '.android.ts', '.ts', '.ios.tsx', '.android.tsx', '.tsx', '.jsx', '.js', '.json'],
         alias: {
           '@api': './src/api',
           '@assets': './src/assets',
@@ -34,6 +24,7 @@ module.exports = {
           '@styles': './src/styles',
           '@customTypes': './src/types',
           '@navigation': './src/navigation',
+          '@utils': './src/utils',
         },
       },
     ],

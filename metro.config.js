@@ -20,6 +20,7 @@ const config = {
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@customTypes': path.resolve(__dirname, 'src/types'),
       '@navigation': path.resolve(__dirname, 'src/navigation'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
     },
   },
 };
