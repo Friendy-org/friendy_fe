@@ -1,27 +1,21 @@
 import React from 'react';
-import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
+
 import useEmail from '@hooks/useEmail';
+
+import { FormRegister } from '@customTypes/common';
+
 import InputField from '@components/_common/molecules/InputField';
 import Button from '@components/_common/atoms/Button';
 
 import S from './style';
 
-interface EmailInputStepProps<TFieldData> {
-  emailRegister: {
-    value: string;
-    error?: string;
-    onChange: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-    onBlur: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  };
+interface EmailInputProps<TFieldData> {
+  emailRegister: FormRegister;
   handlePress: (callback: () => Promise<void>, excludeFields?: (keyof TFieldData)[]) => void;
   nextStep: () => void;
 }
 
-export default function EmailInputStep<TFieldData>({
-  emailRegister,
-  handlePress,
-  nextStep,
-}: EmailInputStepProps<TFieldData>) {
+export default function EmailInput<TFieldData>({ emailRegister, handlePress, nextStep }: EmailInputProps<TFieldData>) {
   const { sendCodeMutate } = useEmail();
 
   const handleSubmit = async () => {
