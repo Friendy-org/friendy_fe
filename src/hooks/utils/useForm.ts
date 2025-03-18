@@ -1,100 +1,102 @@
-import ApiError from '@api/ApiError';
-import fieldMappings from '@constants/errorFieldMappings';
-import { useState } from 'react';
+import { useState, FormEventHandler } from 'react';
+import { NativeSyntheticEvent, TextInputChangeEventData, TextInputFocusEventData } from 'react-native';
+import ValidationError from '@utils/errors/ValidationError';
+import { useError } from './useError';
+
+interface Field<T> {
+  value: T;
+  validate?: {
+    onChange?: (value: T) => void;
+    onBlur?: (value: T) => void;
+  };
+}
+
+type FormFields<T> = {
+  [K in keyof T]: Field<T[K]>;
+};
 
 interface UseFormProps<T> {
-  initialValues: T;
+  initialValues: FormFields<T>;
 }
 
-interface RegisterOptions {
-  validate?: (value: string) => void;
-}
+export default function useForm<TFieldData>({ initialValues }: UseFormProps<TFieldData>) {
+  const [formState, setFormState] = useState(initialValues);
+  const { errors, setError, clearError, clearAllErrors, hasErrors } = useError<Record<keyof TFieldData, string>>();
 
-export default function useForm<T>({ initialValues }: UseFormProps<T>) {
-  const [formData, setFormData] = useState<T>(initialValues);
-  const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
-  const validations = useState<Partial<Record<keyof T, (value: string) => void>>>({})[0];
-  let hasError = false;
+  const formData = Object.keys(formState).reduce((acc, key) => {
+    const fieldName = key as keyof TFieldData;
+    acc[fieldName] = formState[fieldName].value;
+    return acc;
+  }, {} as TFieldData);
 
-  const validateAndSetErrors = ({
-    value,
-    validate,
-    inputName,
-  }: {
-    value: string;
-    validate?: (data: string) => void;
-    inputName: string;
-  }) => {
-    if (!validate) {
-      return;
-    }
+  const validateAndSetErrors = <T extends keyof TFieldData>(fieldName: T, value: TFieldData[T]) => {
+    const { validate } = formState[fieldName];
 
     try {
-      validate(value);
-      setErrors(prev => ({ ...prev, [inputName]: '' }));
+      validate?.onChange?.(value);
+      clearError(fieldName);
+      return true;
     } catch (err) {
-      console.log(err);
-      if (err instanceof Error) {
-        hasError = true;
-        setErrors(prev => ({ ...prev, [inputName]: err.message }));
-      } else {
-        setErrors(prev => ({
-          ...prev,
-          [inputName]: '유효성 검사 중 오류가 발생했습니다.',
-        }));
-      }
+      if (err instanceof ValidationError) setError(fieldName, err.message);
+      return false;
     }
   };
 
-  const handleChange = (name: keyof T, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  const handleSubmit =
+    (callback: () => Promise<void>, excludeFields: (keyof TFieldData)[] = []): FormEventHandler<HTMLFormElement> =>
+    async (e) => {
+      e.preventDefault();
+      clearAllErrors();
 
-  const handleSubmit = async (onSubmit: () => Promise<void>) => {
-    for (const fieldName in formData) {
-      if (Object.prototype.hasOwnProperty.call(formData, fieldName)) {
-        const name = fieldName as keyof T;
-        validateAndSetErrors({
-          value: formData[name] as string,
-          validate: validations[name],
-          inputName: name as string,
-        });
-      }
-    }
+      let isValid = true;
 
-    if (!hasError) {
-      try {
-        await onSubmit();
-      } catch (error) {
-        hasError = true;
-        if (error instanceof ApiError) {
-          const inputName = fieldMappings[error.message] || 'form';
-          setErrors(prev => ({ ...prev, [inputName]: error.message }));
-        } else {
-          console.error('예상치 못한 에러 발생:', error);
+      Object.keys(formState).forEach((key) => {
+        const fieldName = key as keyof TFieldData;
+
+        if (excludeFields.includes(fieldName)) return;
+
+        const { value, validate } = formState[fieldName];
+
+        try {
+          validate?.onChange?.(value);
+          validate?.onBlur?.(value);
+          clearError(fieldName);
+        } catch (err) {
+          if (err instanceof ValidationError) {
+            setError(fieldName, err.message);
+            isValid = false;
+          }
         }
+      });
+
+      if (isValid) {
+        await callback();
       }
-    }
-
-    return hasError;
-  };
-
-  const register = (name: keyof T, options?: RegisterOptions) => {
-    if (options?.validate) {
-      validations[name] = options.validate;
-    }
-
-    return {
-      value: formData[name],
-      onChange: (value: string) => handleChange(name, value),
-      error: errors[name],
     };
+
+  const updateFormData = <T extends keyof TFieldData>(fieldName: T, value: TFieldData[T]) => {
+    setFormState((prev) => ({
+      ...prev,
+      [fieldName]: { ...prev[fieldName], value },
+    }));
   };
 
-  return {
-    formData,
-    register,
-    errors,
-    handleSubmit,
-  };
+  const register = <T extends keyof TFieldData>(fieldName: T) => ({
+    name: fieldName,
+    value: formState[fieldName].value as string,
+    error: errors[fieldName],
+    onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+      const newValue = e.nativeEvent.text as TFieldData[T];
+      validateAndSetErrors(fieldName, newValue);
+      updateFormData(fieldName, newValue);
+    },
+    onBlur: (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      const newValue = e.nativeEvent.text as TFieldData[T];
+      if (formState[fieldName].validate?.onBlur) {
+        validateAndSetErrors(fieldName, newValue);
+      }
+    },
+  });
+
+  return { formData, errors, register, handleSubmit, hasErrors };
 }
