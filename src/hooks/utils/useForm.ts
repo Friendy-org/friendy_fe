@@ -1,5 +1,5 @@
-import { useState, FormEventHandler } from 'react';
-import { NativeSyntheticEvent, TextInputChangeEventData, TextInputFocusEventData } from 'react-native';
+import { useState } from 'react';
+import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 import ValidationError from '@utils/errors/ValidationError';
 import { useError } from './useError';
 
@@ -29,11 +29,13 @@ export default function useForm<TFieldData>({ initialValues }: UseFormProps<TFie
     return acc;
   }, {} as TFieldData);
 
-  const validateAndSetErrors = <T extends keyof TFieldData>(fieldName: T, value: TFieldData[T]) => {
-    const { validate } = formState[fieldName];
-
+  const validateAndSetErrors = <T extends keyof TFieldData>(
+    fieldName: T,
+    validate: (value: TFieldData[T]) => void,
+    value: TFieldData[T],
+  ) => {
     try {
-      validate?.onChange?.(value);
+      validate(value);
       clearError(fieldName);
       return true;
     } catch (err) {
@@ -43,9 +45,8 @@ export default function useForm<TFieldData>({ initialValues }: UseFormProps<TFie
   };
 
   const handleSubmit =
-    (callback: () => Promise<void>, excludeFields: (keyof TFieldData)[] = []): FormEventHandler<HTMLFormElement> =>
-    async (e) => {
-      e.preventDefault();
+    (callback: () => Promise<void>, excludeFields: (keyof TFieldData)[] = []): (() => Promise<void>) =>
+    async () => {
       clearAllErrors();
 
       let isValid = true;
@@ -87,13 +88,15 @@ export default function useForm<TFieldData>({ initialValues }: UseFormProps<TFie
     error: errors[fieldName],
     onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
       const newValue = e.nativeEvent.text as TFieldData[T];
-      validateAndSetErrors(fieldName, newValue);
+      if (formState[fieldName].validate?.onChange) {
+        validateAndSetErrors(fieldName, formState[fieldName].validate?.onChange, newValue);
+      }
       updateFormData(fieldName, newValue);
     },
-    onBlur: (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-      const newValue = e.nativeEvent.text as TFieldData[T];
+    onBlur: () => {
+      const { value } = formState[fieldName];
       if (formState[fieldName].validate?.onBlur) {
-        validateAndSetErrors(fieldName, newValue);
+        validateAndSetErrors(fieldName, formState[fieldName].validate?.onBlur, value);
       }
     },
   });
