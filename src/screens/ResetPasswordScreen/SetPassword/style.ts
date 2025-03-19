@@ -3,14 +3,18 @@ import styled from '@emotion/native';
 const Container = styled.View`
   display: flex;
   flex: 1;
+`;
 
-  background-color: ${({ theme }) => theme.color.gray[50]};
-
-  padding: 0 40px 50px 40px;
+const InputForm = styled.View`
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
 `;
 
 const S = {
   Container,
+  InputForm,
 };
 
 export default S;
