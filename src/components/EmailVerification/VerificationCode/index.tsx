@@ -19,7 +19,7 @@ export default function VerificationCode({ email, nextStep }: VerificationCodePr
   const { sendCodeMutate, verifyCodeMutate } = useEmail();
 
   const handleSubmit = async () => {
-    verifyCodeMutate.mutate({ email, authCode });
+    // verifyCodeMutate.mutate({ email, authCode });
     nextStep();
   };
 
