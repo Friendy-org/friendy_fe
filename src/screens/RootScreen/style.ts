@@ -3,6 +3,7 @@ import styled from '@emotion/native';
 const Container = styled.View`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 135px;
 
@@ -10,6 +11,7 @@ const Container = styled.View`
 
   width: 100%;
   height: 100%;
+  padding: 40px;
 `;
 
 const AppInfo = styled.View`
@@ -26,9 +28,8 @@ const Logo = styled.Image`
 `;
 
 const Title = styled.Text`
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 15px;
+  ${({ theme }) => theme.font.heading[400]};
+  color: ${({ theme }) => theme.color.gray[900]};
 `;
 
 const ButtonWrapper = styled.View`
@@ -36,6 +37,8 @@ const ButtonWrapper = styled.View`
   flex-direction: column;
   align-items: center;
   gap: 15px;
+
+  width: 100%;
 `;
 
 const S = {
