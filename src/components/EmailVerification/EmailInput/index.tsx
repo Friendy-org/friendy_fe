@@ -1,5 +1,4 @@
 import React from 'react';
-
 import useEmail from '@hooks/useEmail';
 
 import { FormRegister } from '@customTypes/common';
@@ -11,7 +10,7 @@ import S from './style';
 
 interface EmailInputProps<TFieldData> {
   emailRegister: FormRegister;
-  handlePress: (callback: () => Promise<void>, excludeFields?: (keyof TFieldData)[]) => void;
+  handlePress: (callback: () => Promise<void>, excludeFields?: (keyof TFieldData)[]) => () => void;
   nextStep: () => void;
 }
 
@@ -19,7 +18,7 @@ export default function EmailInput<TFieldData>({ emailRegister, handlePress, nex
   const { sendCodeMutate } = useEmail();
 
   const handleSubmit = async () => {
-    sendCodeMutate.mutate({ email: emailRegister.value });
+    // sendCodeMutate.mutate({ email: emailRegister.value });
     nextStep();
   };
 
@@ -36,7 +35,7 @@ export default function EmailInput<TFieldData>({ emailRegister, handlePress, nex
         size='fillContainer'
         color='primary'
         shape='round'
-        onPress={() => handlePress(handleSubmit, ['nickname', 'password', 'confirmPassword'] as (keyof TFieldData)[])}
+        onPress={handlePress(handleSubmit, ['nickname', 'password', 'confirmPassword'] as (keyof TFieldData)[])}
       >
         다음
       </Button>
