@@ -1,12 +1,16 @@
+import React from 'react';
+import { StackScreenProps } from '@react-navigation/stack';
+
 import useLogin from '@hooks/useLogin';
 import useForm from '@hooks/utils/useForm';
-import { StackScreenProps } from '@react-navigation/stack';
-import React from 'react';
+
 import { RootStackParamList } from 'src/types/NavigationTypes';
-import InputField from '@components/_common/molecules/InputField';
+import { validateEmail, validatePassword } from '@utils/validations/user';
+
 import Button from '@components/_common/atoms/Button';
 import LinkedText from '@components/_common/atoms/LinkedText';
-import { validateEmail, validatePassword } from '@utils/validations/user';
+
+import InputField from '@components/_common/molecules/InputField';
 
 import S from './style';
 
@@ -15,18 +19,19 @@ export type LoginScreenProps = StackScreenProps<RootStackParamList, 'Login'>;
 export default function LoginScreen({ navigation }: LoginScreenProps) {
   const { formData, register, handleSubmit } = useForm({
     initialValues: {
-      email: { value: '', validate: validateEmail },
+      email: { value: '', validate: { onBlur: validateEmail.onBlur } },
       password: { value: '', validate: validatePassword },
     },
   });
   const { loginMutate } = useLogin();
 
   const handleLogin = async () => {
-    loginMutate.mutate({
-      email: formData.email,
-      password: formData.password,
-    });
-    navigation.navigate('Map');
+    // loginMutate.mutate({
+    //   email: formData.email,
+    //   password: formData.password,
+    // });
+    // navigation.navigate('Map');
+    console.log('login');
   };
 
   const handleForgotPassword = () => {
@@ -60,7 +65,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
         size='fillContainer'
         color='primary'
         shape='round'
-        onPress={() => handleSubmit(handleLogin)}
+        onPress={handleSubmit(handleLogin)}
       >
         완료
       </Button>
