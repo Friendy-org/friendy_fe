@@ -39,16 +39,18 @@ export default function InputField({ type = 'text', label, error, ...props }: In
         )}
       </S.InputWrapper>
 
-      {error && (
-        <S.Footer>
-          <Icon
-            name='info'
-            size='x_sm'
-            color='gray'
-          />
-          <S.ErrorText>{error}</S.ErrorText>
-        </S.Footer>
-      )}
+      <S.Footer>
+        {error && (
+          <>
+            <Icon
+              name='info'
+              size='x_sm'
+              color='gray'
+            />
+            <S.ErrorText>{error}</S.ErrorText>
+          </>
+        )}
+      </S.Footer>
     </S.InputContainer>
   );
 }
