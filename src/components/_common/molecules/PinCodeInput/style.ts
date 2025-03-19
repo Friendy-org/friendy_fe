@@ -14,9 +14,10 @@ const PinInput = styled.TextInput<{ hasValue: boolean; isFocus: boolean }>`
 
   ${({ theme }) => theme.font.heading[300]};
   color: ${({ theme }) => theme.color.gray[800]};
-  border: 1px solid
-    ${({ hasValue, isFocus, theme }) =>
-      hasValue || isFocus ? theme.color.secondary[400] : theme.color.gray[600]};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${({ hasValue, isFocus, theme }) =>
+    hasValue || isFocus ? theme.color.secondary[400] : theme.color.gray[600]};
   border-radius: 16px;
   text-align: center;
 `;
