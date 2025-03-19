@@ -22,6 +22,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".js", ".tsx", ".ts"] }],
     "react/jsx-uses-react": "off",
     "react/jsx-uses-vars": "warn",
+    "react/no-array-index-key": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-wrap-multilines": "off",
