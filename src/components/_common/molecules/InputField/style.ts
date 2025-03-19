@@ -28,8 +28,8 @@ const Input = styled.TextInput<{ isError: boolean }>`
 
 const EyeIcon = styled.View`
   position: absolute;
-  top: 17px;
-  right: 17px;
+  top: 30%;
+  right: 6%;
 `;
 
 const Footer = styled.View`
@@ -37,6 +37,8 @@ const Footer = styled.View`
   flex-direction: row;
   align-items: center;
   gap: 8px;
+
+  min-height: 16px;
 `;
 
 const ErrorText = styled.Text`
