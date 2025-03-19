@@ -26,8 +26,9 @@ export default function SignUpScreen() {
   const nextStep = () => setStep((prev) => prev + 1);
 
   return (
-    <S.Layout
+    <S.Container
       showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ flexGrow: 1 }}
       bounces={false}
     >
       {step === 1 && (
@@ -51,16 +52,17 @@ export default function SignUpScreen() {
           passwordRegister={register('password')}
           confirmPasswordRegister={register('confirmPassword')}
           handlePress={handleSubmit}
-          nextStep={nextStep}
         />
       )}
 
       {step < 3 && (
-        <DotIndicator
-          totalStep={step + 1}
-          step={step}
-        />
+        <S.IndicatorWrapper>
+          <DotIndicator
+            totalStep={step + 1}
+            step={step}
+          />
+        </S.IndicatorWrapper>
       )}
-    </S.Layout>
+    </S.Container>
   );
 }

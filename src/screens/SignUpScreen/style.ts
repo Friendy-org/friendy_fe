@@ -1,17 +1,21 @@
 import styled from '@emotion/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const Layout = styled(ScrollView)`
+const Container = styled(ScrollView)`
   display: flex;
-  flex-grow: 1;
 
-  width: 100%;
-  height: 100%;
-  padding: 0px 40px;
+  background-color: ${({ theme }) => theme.color.gray[50]};
+
+  padding: 0 40px 50px 40px;
+`;
+
+const IndicatorWrapper = styled.View`
+  margin-top: 12px;
 `;
 
 const S = {
-  Layout,
+  Container,
+  IndicatorWrapper,
 };
 
 export default S;

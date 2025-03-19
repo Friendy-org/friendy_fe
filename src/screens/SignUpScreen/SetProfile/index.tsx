@@ -13,8 +13,7 @@ interface SetProfileProps<TFieldData> {
   nicknameRegister: FormRegister;
   passwordRegister: FormRegister;
   confirmPasswordRegister: FormRegister;
-  handlePress: (callback: () => Promise<void>, excludeFields?: (keyof TFieldData)[]) => void;
-  nextStep: () => void;
+  handlePress: (callback: () => Promise<void>, excludeFields?: (keyof TFieldData)[]) => () => void;
 }
 
 export default function SetProfile<TFieldData>({
@@ -22,47 +21,46 @@ export default function SetProfile<TFieldData>({
   passwordRegister,
   confirmPasswordRegister,
   handlePress,
-  nextStep,
 }: SetProfileProps<TFieldData>) {
   const [date, setDate] = useState(new Date());
 
-  const handleSubmit = async () => {
-    nextStep();
-  };
+  const handleSubmit = async () => {};
 
   return (
     <S.Container>
-      <S.InputForm>
+      <S.SetProfileForm>
         <UserProfile text='프로필 사진 선택' />
 
-        <InputField
-          label='닉네임'
-          {...nicknameRegister}
-        />
+        <S.InputForm>
+          <InputField
+            label='닉네임'
+            {...nicknameRegister}
+          />
 
-        <InputField
-          type='password'
-          label='비밀번호'
-          {...passwordRegister}
-        />
+          <InputField
+            type='password'
+            label='비밀번호'
+            {...passwordRegister}
+          />
 
-        <InputField
-          type='password'
-          label='비밀번호 확인'
-          {...confirmPasswordRegister}
-        />
+          <InputField
+            type='password'
+            label='비밀번호 확인'
+            {...confirmPasswordRegister}
+          />
+        </S.InputForm>
 
         <DateInputField
           selectedDate={date}
           onChangeDate={setDate}
         />
-      </S.InputForm>
+      </S.SetProfileForm>
 
       <Button
         size='fillContainer'
         color='primary'
         shape='round'
-        onPress={() => handlePress(handleSubmit)}
+        onPress={handlePress(handleSubmit)}
       >
         완료
       </Button>

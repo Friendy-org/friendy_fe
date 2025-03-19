@@ -62,11 +62,13 @@ const typography = {
       font-weight: 500;
       font-size: 12px;
       letter-spacing: 0;
+      line-height: 16px;
     `,
     regularAccent: `
       font-weight: 700;
       font-size: 12px;
       letter-spacing: 0;
+      line-height: 16px;
     `,
     small: `
       font-weight: 400;
