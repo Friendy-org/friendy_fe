@@ -57,6 +57,7 @@ const typography = {
       font-weight: 400;
       font-size: 14px;
       letter-spacing: 0;
+      line-height: 20px;
     `,
     regular: `
       font-weight: 500;
