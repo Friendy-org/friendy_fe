@@ -1,10 +1,12 @@
 import React from 'react';
-import useEmail from '@hooks/useEmail';
 
 import { FormRegister } from '@customTypes/common';
 
+import useSendCode from '@hooks/email/useSendCode';
+
 import InputField from '@components/_common/molecules/InputField';
 import Button from '@components/_common/atoms/Button';
+import ToastList from '@components/_common/molecules/ToastList';
 
 import S from './style';
 
@@ -15,11 +17,10 @@ interface EmailInputProps<TFieldData> {
 }
 
 export default function EmailInput<TFieldData>({ emailRegister, handlePress, nextStep }: EmailInputProps<TFieldData>) {
-  const { sendCodeMutate } = useEmail();
+  const { sendCodeMutate } = useSendCode(nextStep);
 
   const handleSubmit = async () => {
-    // sendCodeMutate.mutate({ email: emailRegister.value });
-    nextStep();
+    sendCodeMutate.mutate({ email: emailRegister.value });
   };
 
   return (
@@ -31,6 +32,7 @@ export default function EmailInput<TFieldData>({ emailRegister, handlePress, nex
         />
       </S.InputForm>
 
+      <ToastList />
       <Button
         size='fillContainer'
         color='primary'
