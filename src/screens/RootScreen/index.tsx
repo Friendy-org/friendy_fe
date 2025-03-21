@@ -3,6 +3,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@customTypes/navigation';
 
 import { LOGO_IMAGE } from '@constants/common';
+import { STACK_NAME } from '@constants/navigation';
 
 import Button from '@components/_common/atoms/Button';
 import LinkedText from '@components/_common/atoms/LinkedText';
@@ -12,13 +13,11 @@ import S from './style';
 export type RootScreenProps = StackScreenProps<RootStackParamList, 'Root'>;
 
 export default function RootScreen({ navigation }: RootScreenProps) {
-  const handleLoginPressed = () => {
-    navigation.navigate('Login');
+  const handleLogin = () => {
     navigation.navigate(STACK_NAME.LOGIN);
   };
 
-  const handleSignUpPressed = () => {
-    navigation.navigate('SignUp');
+  const handleSignUp = () => {
     navigation.navigate(STACK_NAME.SIGNUP);
   };
 
@@ -33,14 +32,14 @@ export default function RootScreen({ navigation }: RootScreenProps) {
           size='fillContainer'
           color='primary'
           shape='round'
-          onPress={handleLoginPressed}
+          onPress={handleLogin}
         >
           로그인
         </Button>
         <LinkedText
           color='secondary'
           isUnderlined
-          onPress={handleSignUpPressed}
+          onPress={handleSignUp}
         >
           회원가입
         </LinkedText>
