@@ -2,8 +2,8 @@ import useForm from '@hooks/utils/useForm';
 import { useState } from 'react';
 import { validateEmail, validatePassword } from '@utils/validations/user';
 
-import EmailInput from '@components/EmailVerification/EmailInput';
-import VerificationCode from '@components/EmailVerification/VerificationCode';
+import EmailInput from '@components/EmailVerificationForm/EmailInput';
+import VerificationCode from '@components/EmailVerificationForm/VerificationCode';
 
 import S from './style';
 import SetPassword from './SetPassword';
@@ -38,6 +38,7 @@ export default function ResetPasswordScreen() {
 
       {step === 3 && (
         <SetPassword
+          email={formData.email}
           passwordRegister={register('password')}
           confirmPasswordRegister={register('confirmPassword')}
           handlePress={handleSubmit}
