@@ -23,6 +23,6 @@
     },
     "types": ["@emotion/react"]
   },
-  "include": ["src", "src/emotion.d.ts"],
+  "include": ["src", "src/emotion.d.ts", "env.d.ts"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }
