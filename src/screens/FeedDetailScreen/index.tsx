@@ -2,7 +2,7 @@ import PostCard from '@components/PostCard';
 import { RouteProp } from '@react-navigation/native';
 import MainLayout from '@screens/MainLayout';
 import { FlatList } from 'react-native-gesture-handler';
-import { RootStackParamList } from 'src/types/NavigationTypes';
+import { RootStackParamList } from '@customTypes/navigation';
 import S from './style';
 import CommentList from './CommentList';
 import InputField from '@components/_common/molecules/InputField';
@@ -47,7 +47,7 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
           />
         }
         data={comments}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <S.CommentWrapper>
             <CommentList
@@ -63,10 +63,16 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
       />
       <S.CommentInputWrapper>
         <S.InputWrapper>
-          <InputField value={commentInput} onChange={setCommentInput} />
+          <InputField
+            value={commentInput}
+            onChange={setCommentInput}
+          />
         </S.InputWrapper>
         <S.ButtonWrapper>
-          <IconButton iconName='send' iconSize={26} />
+          <IconButton
+            iconName='send'
+            iconSize={26}
+          />
         </S.ButtonWrapper>
       </S.CommentInputWrapper>
     </MainLayout>

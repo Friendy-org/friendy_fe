@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from '@components/_common/molecules/IconButton';
 import S from './style';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'src/types/NavigationTypes';
+import { RootStackParamList } from '@customTypes/navigation';
 import { useNavigation } from '@react-navigation/native';
 
 type TabName = keyof RootStackParamList;

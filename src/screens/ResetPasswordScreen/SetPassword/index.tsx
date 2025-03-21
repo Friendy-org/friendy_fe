@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { FormRegister } from '@customTypes/common';
-import { RootStackParamList } from 'src/types/NavigationTypes';
+import { RootStackParamList } from '@customTypes/navigation';
 
 import Button from '@components/_common/atoms/Button';
 import InputField from '@components/_common/molecules/InputField';
