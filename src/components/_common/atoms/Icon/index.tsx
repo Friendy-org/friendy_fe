@@ -9,6 +9,7 @@ interface IconProps {
 
 export default function Icon({ name, size, color = 'default' }: IconProps) {
   let iconSize = 24;
+  let iconColor = '#333333';
 
   if (size === 'x_sm') {
     iconSize = 13;
@@ -20,7 +21,15 @@ export default function Icon({ name, size, color = 'default' }: IconProps) {
     iconSize = 32;
   }
 
-  const iconColor = color === 'gray' ? '#626262' : '#333333';
+  if (color === 'gray') {
+    iconColor = '#626262';
+  } else if (color === 'primary') {
+    iconColor = '#00B732';
+  } else if (color === 'secondary') {
+    iconColor = '#198AB9';
+  } else if (color === 'tertiary') {
+    iconColor = '#F02F30';
+  }
 
   return (
     <FeatherIcon
