@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import useEmail from '@hooks/useEmail';
+import useVerifyCode from '@hooks/email/useVerifyCode';
 
 import Button from '@components/_common/atoms/Button';
 import Timer from '@components/_common/atoms/Timer';
@@ -15,17 +15,14 @@ interface VerificationCodeProps {
 }
 
 export default function VerificationCode({ email, nextStep }: VerificationCodeProps) {
+  const { verifyCodeMutate } = useVerifyCode(nextStep);
   const [authCode, setAuthCode] = useState('');
-  const { sendCodeMutate, verifyCodeMutate } = useEmail();
 
   const handleSubmit = async () => {
-    // verifyCodeMutate.mutate({ email, authCode });
-    nextStep();
+    verifyCodeMutate.mutate({ email, authCode });
   };
 
-  const handleResend = async () => {
-    sendCodeMutate.mutate({ email });
-  };
+  const handleResend = async () => {};
 
   return (
     <S.Container>
