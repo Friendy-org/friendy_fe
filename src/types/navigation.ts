@@ -1,3 +1,5 @@
+import { StackNavigationProp } from '@react-navigation/stack';
+
 export type RootStackParamList = {
   Root: undefined;
   Login: undefined;
@@ -11,3 +13,5 @@ export type RootStackParamList = {
   DM: undefined;
   Profile: undefined;
 };
+
+export type NavigationProp = StackNavigationProp<RootStackParamList>;

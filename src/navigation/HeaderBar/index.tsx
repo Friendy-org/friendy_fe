@@ -3,7 +3,7 @@ import React from 'react';
 import S from './style';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'src/types/NavigationTypes';
+import { RootStackParamList } from '@customTypes/navigation';
 
 interface HeaderBarProps {
   showEditButton?: boolean;
@@ -21,11 +21,20 @@ export default function HeaderBar({ showEditButton = false }: HeaderBarProps) {
   return (
     <S.HeaderContainer>
       <S.ButtonWrapper>
-        {showEditButton && <IconButton onPress={handleEditButton} iconName='edit' iconSize={25} />}
+        {showEditButton && (
+          <IconButton
+            onPress={handleEditButton}
+            iconName='edit'
+            iconSize={25}
+          />
+        )}
       </S.ButtonWrapper>
       <S.ImgLogo></S.ImgLogo>
       <S.ButtonWrapper>
-        <IconButton iconName='bell' iconSize={25} />
+        <IconButton
+          iconName='bell'
+          iconSize={25}
+        />
       </S.ButtonWrapper>
     </S.HeaderContainer>
   );

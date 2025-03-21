@@ -4,8 +4,10 @@ import { StackScreenProps } from '@react-navigation/stack';
 import useLogin from '@hooks/useLogin';
 import useForm from '@hooks/utils/useForm';
 
-import { RootStackParamList } from 'src/types/NavigationTypes';
+import { RootStackParamList } from '@customTypes/navigation';
 import { validateEmail, validatePassword } from '@utils/validations/user';
+
+import { STACK_NAME } from '@constants/navigation';
 
 import Button from '@components/_common/atoms/Button';
 import LinkedText from '@components/_common/atoms/LinkedText';
@@ -35,7 +37,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   };
 
   const handleForgotPassword = () => {
-    navigation.navigate('ResetPassword');
+    navigation.navigate(STACK_NAME.RESET_PASSWORD);
   };
 
   return (

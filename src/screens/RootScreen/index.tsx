@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 
-import { RootStackParamList } from 'src/types/NavigationTypes';
+import { RootStackParamList } from '@customTypes/navigation';
 
 import { LOGO_IMAGE } from '@constants/common';
 
@@ -14,10 +14,12 @@ export type RootScreenProps = StackScreenProps<RootStackParamList, 'Root'>;
 export default function RootScreen({ navigation }: RootScreenProps) {
   const handleLoginPressed = () => {
     navigation.navigate('Login');
+    navigation.navigate(STACK_NAME.LOGIN);
   };
 
   const handleSignUpPressed = () => {
     navigation.navigate('SignUp');
+    navigation.navigate(STACK_NAME.SIGNUP);
   };
 
   return (
