@@ -1,21 +1,25 @@
-import ApiClient from '@api/ApiClient';
-import tokenService from '@api/services/tokenService';
+import { axiosInstance } from '@api/axiosInstance';
+import { END_POINTS } from '@constants/api';
+import { LoginData } from '@customTypes/auth';
 
-const apiClient = new ApiClient('/auth');
-
-const authApis = {
-  login: async ({ email, password }: { email: string; password: string }) => {
-    const response = await apiClient.post({
-      path: '/login',
-      body: {
-        email,
-        password,
-      },
-      requiresAuth: false,
+const authApi = {
+  login: async (logInData: LoginData) => {
+    const { data } = await axiosInstance.post(END_POINTS.AUTH.LOGIN, logInData, {
+      useAuth: false,
     });
 
-    await tokenService.saveTokensFromResponse(response.headers);
+    return data.result;
+  },
+
+  withdrawal: async () => {
+    await axiosInstance.post(END_POINTS.AUTH.WITHDRAWAL);
+  },
+
+  reIssue: async () => {
+    const { data } = await axiosInstance.post(END_POINTS.AUTH.REISSUE);
+
+    return data.result;
   },
 };
 
-export default authApis;
+export default authApi;

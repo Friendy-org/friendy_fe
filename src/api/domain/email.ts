@@ -1,21 +1,15 @@
-import ApiClient from '@api/ApiClient';
+import { axiosInstance } from '@api/axiosInstance';
+import { END_POINTS } from '@constants/api';
+import { SendCodeData, VerifyCodeData } from '@customTypes/email';
 
-const apiClient = new ApiClient('/email');
+const emailApi = {
+  sendCode: async (sendCodeData: SendCodeData) => {
+    await axiosInstance.post(END_POINTS.EMAIL.SEND_CODE, sendCodeData, { useAuth: false });
+  },
 
-const emailApis = {
-  sendCode: async ({ email }: { email: string }) =>
-    await apiClient.post({
-      path: '/send-code',
-      body: { email },
-      requiresAuth: false,
-    }),
-
-  verifyCode: async ({ email, authCode }: { email: string; authCode: string }) =>
-    await apiClient.post({
-      path: '/verify-code',
-      body: { email, authCode },
-      requiresAuth: false,
-    }),
+  verifyCode: async (verifyCodeData: VerifyCodeData) => {
+    await axiosInstance.post(END_POINTS.EMAIL.VERIFY_CODE, verifyCodeData, { useAuth: false });
+  },
 };
 
-export default emailApis;
+export default emailApi;
