@@ -1,11 +1,13 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AppNavigator from '@navigation/AppNavigator';
-import ToastProvider from '@contexts/ToastContext';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@styles/theme';
+import { useToastStore } from '@stores/useToastStore';
 
 export default function App() {
+  const { error } = useToastStore();
+
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -13,8 +15,8 @@ export default function App() {
         retry: 0,
       },
       mutations: {
-        onError: (error) => {
-          console.log(error);
+        onError: (err) => {
+          error(err.message);
         },
       },
     },
@@ -23,9 +25,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <ToastProvider>
-          <AppNavigator />
-        </ToastProvider>
+        <AppNavigator />
       </ThemeProvider>
     </QueryClientProvider>
   );
