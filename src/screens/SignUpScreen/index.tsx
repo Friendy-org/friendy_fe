@@ -5,8 +5,8 @@ import useForm from '@hooks/utils/useForm';
 import { validateEmail, validateNickname, validatePassword } from '@utils/validations/user';
 
 import DotIndicator from '@components/_common/molecules/DotIndicator';
-import EmailInput from '@components/EmailVerification/EmailInput';
-import VerificationCode from '@components/EmailVerification/VerificationCode';
+import EmailInput from '@components/EmailVerificationForm/EmailInput';
+import VerificationCode from '@components/EmailVerificationForm/VerificationCode';
 import SetProfile from './SetProfile';
 
 import S from './style';
@@ -48,6 +48,7 @@ export default function SignUpScreen() {
 
       {step === 3 && (
         <SetProfile
+          email={formData.email}
           nicknameRegister={register('nickname')}
           passwordRegister={register('password')}
           confirmPasswordRegister={register('confirmPassword')}
