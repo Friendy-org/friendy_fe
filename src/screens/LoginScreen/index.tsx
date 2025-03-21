@@ -1,13 +1,14 @@
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 
-import useLogin from '@hooks/useLogin';
 import useForm from '@hooks/utils/useForm';
 
 import { RootStackParamList } from '@customTypes/navigation';
 import { validateEmail, validatePassword } from '@utils/validations/user';
 
 import { STACK_NAME } from '@constants/navigation';
+
+import useLogin from '@hooks/auth/useLogin';
 
 import Button from '@components/_common/atoms/Button';
 import LinkedText from '@components/_common/atoms/LinkedText';
@@ -19,21 +20,16 @@ import S from './style';
 export type LoginScreenProps = StackScreenProps<RootStackParamList, 'Login'>;
 
 export default function LoginScreen({ navigation }: LoginScreenProps) {
+  const { loginMutate } = useLogin();
   const { formData, register, handleSubmit } = useForm({
     initialValues: {
       email: { value: '', validate: { onBlur: validateEmail.onBlur } },
       password: { value: '', validate: validatePassword },
     },
   });
-  const { loginMutate } = useLogin();
 
   const handleLogin = async () => {
-    // loginMutate.mutate({
-    //   email: formData.email,
-    //   password: formData.password,
-    // });
-    // navigation.navigate('Map');
-    console.log('login');
+    loginMutate.mutate({ email: formData.email, password: formData.password });
   };
 
   const handleForgotPassword = () => {
