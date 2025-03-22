@@ -9,16 +9,12 @@ import { NavigationProp } from '@customTypes/navigation';
 
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@constants/api';
 import { STACK_NAME } from '@constants/navigation';
-import { LoginData } from '@customTypes/auth';
 
 export default function useLogin() {
   const navigation = useNavigation<NavigationProp>();
 
   const loginMutate = useMutation({
-    mutationFn: async (logInData: LoginData) => {
-      const result = authApi.login(logInData);
-      return result;
-    },
+    mutationFn: authApi.login,
     onSuccess: ({ accessToken, refreshToken }) => {
       EncryptedStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
       EncryptedStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
