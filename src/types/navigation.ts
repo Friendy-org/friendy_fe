@@ -11,7 +11,7 @@ export type RootStackParamList = {
   FeedDetail: { postId: number };
   Map: undefined;
   DM: undefined;
-  Profile: undefined;
+  Profile: { memberId: number };
 };
 
 export type NavigationProp = StackNavigationProp<RootStackParamList>;
