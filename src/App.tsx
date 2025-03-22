@@ -4,6 +4,11 @@ import AppNavigator from '@navigation/AppNavigator';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@styles/theme';
 import { useToastStore } from '@stores/useToastStore';
+import setupMockAPI from './mocks/mock';
+
+if (__DEV__) {
+  setupMockAPI();
+}
 
 export default function App() {
   const { error } = useToastStore();
