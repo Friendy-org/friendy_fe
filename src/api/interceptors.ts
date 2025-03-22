@@ -5,8 +5,6 @@ import { HTTPError } from '@api/HTTPError';
 import { axiosInstance } from '@api/axiosInstance';
 
 import { ACCESS_TOKEN_KEY, ERROR_CODE, HTTP_STATUS_CODE, REFRESH_TOKEN_KEY } from '@constants/api';
-import { NavigationProp } from '@customTypes/navigation';
-import { STACK_NAME } from '@constants/navigation';
 import authApi from './domain/auth';
 
 export interface ErrorResponseData {
@@ -51,7 +49,7 @@ export const handleAPIError = (error: AxiosError<ErrorResponseData>) => {
   throw new HTTPError(status, data.message, data.code);
 };
 
-export const handleResponse = async (response: AxiosResponse, navigation: NavigationProp) => {
+export const handleResponse = async (response: AxiosResponse) => {
   const { status, data, config } = response;
 
   if (status >= 400) {
@@ -67,7 +65,6 @@ export const handleResponse = async (response: AxiosResponse, navigation: Naviga
         EncryptedStorage.removeItem(ACCESS_TOKEN_KEY);
         EncryptedStorage.removeItem(REFRESH_TOKEN_KEY);
 
-        navigation.navigate(STACK_NAME.ROOT);
         throw new HTTPError(status, data?.message, data?.code);
       }
     }
@@ -83,7 +80,6 @@ export const handleResponse = async (response: AxiosResponse, navigation: Naviga
       EncryptedStorage.removeItem(ACCESS_TOKEN_KEY);
       EncryptedStorage.removeItem(REFRESH_TOKEN_KEY);
 
-      navigation.navigate(STACK_NAME.ROOT);
       throw new HTTPError(status, data?.message, data?.code);
     }
 
