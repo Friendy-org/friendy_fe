@@ -1,7 +1,8 @@
-import TabBar from '@navigation/TabBar';
-import S from './style';
 import { ReactNode } from 'react';
+import TabBar from '@navigation/TabBar';
 import { RootStackParamList } from '@customTypes/navigation';
+
+import S from './style';
 
 interface MainLayoutProps {
   children: ReactNode;
