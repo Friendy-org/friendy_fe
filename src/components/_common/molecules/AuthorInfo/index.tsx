@@ -1,29 +1,34 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+
+import { STACK_NAME } from '@constants/navigation';
+
+import { MemberData } from '@customTypes/member';
+import { NavigationProp } from '@customTypes/navigation';
+
 import ProfileImage from '@components/_common/atoms/ProfileImage';
 
 import S, { AuthorInfoStyleProps } from './style';
 
-interface AuthorInfoProps extends AuthorInfoStyleProps {
-  imageUrl?: string;
-  name: string;
+interface AuthorInfoProps extends MemberData, AuthorInfoStyleProps {
   content?: string;
-  time?: string;
 }
 
-export default function AuthorInfo({ imageUrl, name, content, time, size = 'md' }: AuthorInfoProps) {
-  const profileImageSize = size === 'lg' ? 'sm' : size;
+export default function AuthorInfo({ id, nickname, profileImageUrl, content, size = 'md' }: AuthorInfoProps) {
+  const navigation = useNavigation<NavigationProp>();
+
+  const handleNavigate = () => {
+    navigation.navigate(STACK_NAME.PROFILE, { memberId: id });
+  };
 
   return (
-    <S.Container>
+    <S.Container onPress={handleNavigate}>
       <ProfileImage
-        size={profileImageSize}
-        imageUrl={imageUrl}
+        size={size}
+        imageUrl={profileImageUrl}
       />
       <S.InfoWrapper>
-        <S.Header>
-          <S.Name size={size}>{name}</S.Name>
-          {time && <S.Time>{time}</S.Time>}
-        </S.Header>
+        <S.Name size={size}>{nickname}</S.Name>
         {content && <S.Content size={size}>{content}</S.Content>}
       </S.InfoWrapper>
     </S.Container>

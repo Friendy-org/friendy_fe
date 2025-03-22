@@ -1,86 +1,51 @@
 import React from 'react';
-import AuthorInfo from '@components/_common/molecules/AuthorInfo';
-import ImageSlider from '@components/_common/molecules/ImageSlider';
-import S from './style';
-import IconButton from '@components/_common/molecules/IconButton';
-import ExpandableText from '@components/_common/atoms/ExpandableText';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'src/types/NavigationTypes';
-import { useNavigation } from '@react-navigation/native';
 
-interface PostCardProps {
-  profileImageUrl?: string;
-  postId: number;
-  name: string;
-  location: string;
-  imageUrls: string[];
-  content: string;
-  date: string;
-  like: string;
-  comment: string;
-  share: string;
+import { PostData } from '@customTypes/post';
+import { formatRelativeTime } from '@utils/formatDate';
+
+import ImageSlider from '@components/_common/molecules/ImageSlider';
+import PostCardHeader from './PostCardHeader';
+import PostCardFooter from './PostCardFooter';
+
+import S from './style';
+
+interface PostCardProps extends PostData {
   isExpand?: boolean;
-  commentIcon?: boolean;
+  me: boolean;
 }
 
-type NavigationProp = StackNavigationProp<RootStackParamList>;
-
 export default function PostCard({
-  profileImageUrl,
-  postId,
-  name,
-  location,
-  imageUrls,
+  id,
   content,
-  date,
-  like,
-  comment,
-  share,
+  location,
+  createdAt,
+  likeCount,
+  commentCount,
+  shareCount,
+  authorResponse,
+  imageUrls,
   isExpand = false,
-  commentIcon = true,
+  me,
 }: PostCardProps) {
-  const navigation = useNavigation<NavigationProp>();
-
-  const handleNavigateToDetail = () => {
-    if (!isExpand) {
-      navigation.navigate('FeedDetail', {
-        postId: postId,
-      });
-    }
-  };
-
   return (
     <S.PostCardContainer>
-      <S.PostHeader>
-        <AuthorInfo size='md' profileImageUrl={profileImageUrl} name={name} content={location} />
-        <S.ButtonWrapper>
-          <IconButton iconName='more-vertical' iconSize={20} />
-        </S.ButtonWrapper>
-      </S.PostHeader>
+      <PostCardHeader
+        me={me}
+        authorResponse={authorResponse}
+        location={location}
+      />
+
       <ImageSlider imageUrls={imageUrls} />
-      <S.PostFooter>
-        <S.ContentWrapper>
-          <ExpandableText
-            onPress={handleNavigateToDetail}
-            isExpand={isExpand}
-            content={content}
-            maxLines={1}
-          />
-          <S.Date>{date}</S.Date>
-        </S.ContentWrapper>
-        <S.ButtonWrapper>
-          <IconButton iconName='heart' iconSize={26} label={like} />
-          {commentIcon && (
-            <IconButton
-              onPress={handleNavigateToDetail}
-              iconName='message-square'
-              iconSize={26}
-              label={comment}
-            />
-          )}
-          <IconButton iconName='send' iconSize={26} label={share} />
-        </S.ButtonWrapper>
-      </S.PostFooter>
+
+      <PostCardFooter
+        id={id}
+        content={content}
+        createdAt={formatRelativeTime(createdAt)}
+        likeCount={likeCount}
+        commentCount={commentCount}
+        shareCount={shareCount}
+        isExpand={isExpand}
+      />
     </S.PostCardContainer>
   );
 }

@@ -20,6 +20,28 @@ export const DROPDOWN_ITEMS = [
   },
 ] as const;
 
+export const MYPOST_DROPDOWN_ITEMS = [
+  {
+    item: '게시글 수정',
+    color: 'default',
+  },
+  {
+    item: '게시글 삭제',
+    color: 'tertiary',
+  },
+] as const;
+
+export const POST_DROPDOWN_ITEMS = [
+  {
+    item: '알림 받지 않기',
+    color: 'default',
+  },
+  {
+    item: '신고',
+    color: 'tertiary',
+  },
+] as const;
+
 export const LIST_BUTTON_COMMON_ITEMS = [
   {
     item: '검색 기록 초기화',
