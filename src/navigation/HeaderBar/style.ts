@@ -15,16 +15,15 @@ const ButtonWrapper = styled.View`
   min-height: 25px;
 `;
 
-const ImgLogo = styled.Image`
+const Logo = styled.Image`
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  background-color: #dddddd;
 `;
 
 const S = {
   HeaderContainer,
-  ImgLogo,
+  Logo,
   ButtonWrapper,
 };
 
