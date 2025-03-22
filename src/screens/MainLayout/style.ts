@@ -8,7 +8,7 @@ const MainContainer = styled.View`
 const ContentWrapper = styled.View`
   display: flex;
   flex: 1;
-  background-color: #ffff;
+  background-color: ${({ theme }) => theme.color.gray[50]};
 `;
 
 const S = {
