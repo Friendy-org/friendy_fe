@@ -1,5 +1,6 @@
 import { axiosInstance } from '@api/axiosInstance';
 import { END_POINTS } from '@constants/api';
+import { CreatePostData } from '@customTypes/post';
 
 const postApi = {
   getList: async (lastPostId: string | null) => {
@@ -8,6 +9,10 @@ const postApi = {
     });
 
     return data.result;
+  },
+
+  create: async (createPostData: CreatePostData) => {
+    await axiosInstance.post(END_POINTS.POST.CREATE, createPostData);
   },
 };
 
