@@ -2,34 +2,44 @@ import styled from '@emotion/native';
 
 const Layout = styled.View`
   display: flex;
-  justify-content: space-between;
-  padding: 40px 0px;
-  background-color: #fff;
+
+  padding: 40px 30px;
+  background-color: ${({ theme }) => theme.color.gray[50]};
+
   width: 100%;
   height: 100%;
 `;
 
-const FeedCreateContainer = styled.View``;
+const FeedCreateContainer = styled.View`
+  display: flex;
+  flex: 1;
+  gap: 14px;
+`;
+
+const ImageWrapper = styled.View`
+  display: flex;
+  gap: 6px;
+`;
 
 const ImageForm = styled.View<{ hasImages: boolean }>`
-  padding-right: 30px;
-  padding-left: ${({ hasImages }) => (hasImages ? '0px' : '30px')};
-  margin: 5px 0;
+  padding-left: ${({ hasImages }) => (hasImages ? '-30px' : '0px')};
 `;
 
 const ImageLabel = styled.Text`
-  margin-left: 30px;
-  font-size: 13px;
+  ${({ theme }) => theme.font.common.medium};
+  color: ${({ theme }) => theme.color.gray[950]};
 `;
 
 const ContentWrapper = styled.View`
-  padding: 0 30px;
-  margin-top: 15px;
+  display: flex;
+  gap: 6px;
+
   max-height: 265px;
 `;
 
 const ContentLabel = styled.Text`
-  margin-bottom: 5px;
+  ${({ theme }) => theme.font.common.medium};
+  color: ${({ theme }) => theme.color.gray[950]};
 `;
 
 const ButtonWrapper = styled.View`
@@ -39,6 +49,7 @@ const ButtonWrapper = styled.View`
 const S = {
   FeedCreateContainer,
   Layout,
+  ImageWrapper,
   ImageForm,
   ImageLabel,
   ContentWrapper,
