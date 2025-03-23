@@ -1,7 +1,6 @@
 import React from 'react';
-import { launchImageLibrary } from 'react-native-image-picker';
 
-import useUploadImage from '@hooks/upload/useUploadImage';
+import useSelectImage from '@hooks/utils/useSelectImage';
 
 import ProfileImage from '@components/_common/atoms/ProfileImage';
 import LinkedText from '@components/_common/atoms/LinkedText';
@@ -15,27 +14,11 @@ interface UserProfileProps extends UserProfileStyleProps {
 }
 
 export default function UserProfile({ size, imageUrl, info, text, onSelectImage }: UserProfileProps) {
-  const { uploadImageMutate, isLoading } = useUploadImage();
+  const { selectAndUpload, isLoading } = useSelectImage();
 
-  const handleSelectImage = async () => {
-    const result = await launchImageLibrary({ mediaType: 'photo' });
-
-    if (result.didCancel || !result.assets || result.assets.length === 0) return;
-
-    const asset = result.assets[0];
-
-    if (!asset.uri || !asset.fileName || !asset.type) return;
-
-    const file = {
-      uri: asset.uri,
-      fileName: asset.fileName,
-      type: asset.type,
-    };
-
-    uploadImageMutate(file, {
-      onSuccess: ({ uploadedImageUrl }) => {
-        onSelectImage?.(uploadedImageUrl);
-      },
+  const handleSelectImage = () => {
+    selectAndUpload((uploadedUrl: string) => {
+      onSelectImage?.(uploadedUrl);
     });
   };
 

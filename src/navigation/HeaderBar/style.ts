@@ -5,8 +5,9 @@ const HeaderContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   height: 70px;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.color.gray[50]};
   padding: 0 28px;
 `;
 
