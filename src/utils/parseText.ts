@@ -1,7 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-
 interface ExtractHashtagText {
-  id: string;
+  id: number;
   str: string;
   isHashtag: boolean;
   startIdx: number;
@@ -17,7 +15,7 @@ export const extractHashtags = (text: string): ExtractHashtagText[] => {
     const endIdx = startIdx + word.length - 1;
 
     parsedText.push({
-      id: uuidv4(),
+      id: index,
       str: word,
       isHashtag: word.startsWith('#'),
       startIdx,
@@ -27,3 +25,9 @@ export const extractHashtags = (text: string): ExtractHashtagText[] => {
 
   return parsedText;
 };
+
+export const getOnlyHashtags = (text: string): string[] =>
+  text
+    .split(' ')
+    .filter((word) => word.startsWith('#') && word.length > 1)
+    .map((word) => word.slice(1));
