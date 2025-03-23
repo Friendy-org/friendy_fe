@@ -12,3 +12,10 @@ export interface PostData {
   authorResponse: MemberData;
   imageUrls: string[];
 }
+
+export interface CreatePostData {
+  content: string;
+  location: string;
+  hashtags: string[];
+  imageUrls: string[];
+}

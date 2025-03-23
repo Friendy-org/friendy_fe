@@ -1,27 +1,34 @@
 import { useState } from 'react';
 
+import useCreatePost from '@hooks/post/useCreatePost';
+
 import Button from '@components/_common/atoms/Button';
 import ContentInput from '@components/_common/atoms/ContentInput';
 import ImageUploader from '@components/ImageUploader';
 
+import { getOnlyHashtags } from '@utils/parseText';
+
 import S from './style';
 
 export default function FeedCreateScreen() {
-  const [images, setImages] = useState<string[]>([]);
+  const { createPostMutate } = useCreatePost();
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [content, setContent] = useState<string>('');
   const [location, setLocation] = useState<string>('');
 
-  const handlePress = () => {};
+  const handlePress = () => {
+    createPostMutate.mutate({ content, location, hashtags: getOnlyHashtags(content), imageUrls });
+  };
 
   return (
     <S.Layout>
       <S.FeedCreateContainer>
         <S.ImageWrapper>
           <S.ImageLabel>선택한 이미지</S.ImageLabel>
-          <S.ImageForm hasImages={images.length > 0}>
+          <S.ImageForm hasImages={imageUrls.length > 0}>
             <ImageUploader
-              images={images}
-              setImages={setImages}
+              images={imageUrls}
+              setImages={setImageUrls}
             />
           </S.ImageForm>
         </S.ImageWrapper>
