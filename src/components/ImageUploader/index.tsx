@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import * as ImagePicker from 'react-native-image-picker';
 
 import useSelectImage from '@hooks/utils/useSelectImage';
 
@@ -13,11 +12,11 @@ interface ImageUploaderProps {
 }
 
 export default function ImageUploader({ images, setImages }: ImageUploaderProps) {
+  const { selectAndUpload, isLoading } = useSelectImage();
+
   const selectImage = () => {
-    ImagePicker.launchImageLibrary({ mediaType: 'photo', quality: 1 }, response => {
-      if (response.assets && response.assets[0]?.uri) {
-        setImages([...images, response.assets[0].uri]);
-      }
+    selectAndUpload((uploadedUrl: string) => {
+      setImages([...images, uploadedUrl]);
     });
   };
 
