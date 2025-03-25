@@ -1,5 +1,6 @@
 import { axiosInstance } from '@api/axiosInstance';
 import { END_POINTS } from '@constants/api';
+import { CreateCommentData, CreateReplyData } from '@customTypes/comment';
 
 const commentApi = {
   getList: async (postId: string, lastCommentId: string | null) => {
@@ -16,6 +17,14 @@ const commentApi = {
     });
 
     return data.result;
+  },
+
+  create: async (createCommentData: CreateCommentData) => {
+    await axiosInstance.post(END_POINTS.COMMENT.CREATE, createCommentData);
+  },
+
+  createReply: async (createReplyData: CreateReplyData) => {
+    await axiosInstance.post(END_POINTS.COMMENT.REPLY_CREATE, createReplyData);
   },
 };
 
