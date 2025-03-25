@@ -11,6 +11,7 @@ import S from './style';
 
 interface PostCardProps extends PostData {
   isExpand?: boolean;
+  showComment?: boolean;
   me: boolean;
 }
 
@@ -25,6 +26,7 @@ export default function PostCard({
   authorResponse,
   imageUrls,
   isExpand = false,
+  showComment = true,
   me,
 }: PostCardProps) {
   return (
@@ -45,6 +47,7 @@ export default function PostCard({
         commentCount={commentCount}
         shareCount={shareCount}
         isExpand={isExpand}
+        showComment={showComment}
       />
     </S.PostCardContainer>
   );
