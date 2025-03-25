@@ -1,28 +1,34 @@
 import styled from '@emotion/native';
 
-const CommentWrapper = styled.View`
+const Container = styled.View`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  gap: 7px;
+
+  width: 100%;
 `;
 
-const CommentActions = styled.View`
+const More = styled.TouchableOpacity`
   display: flex;
-  flex-direction: row;
-  gap: 12px;
+  align-items: center;
+
+  width: 100%;
 `;
 
-const ButtonWrapper = styled.View`
+const MoreText = styled.View`
+  ${({ theme }) => theme.font.common.extraSmall};
+  color: ${({ theme }) => theme.color.gray[700]};
+`;
+
+const Replies = styled.View`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 6px;
+  padding-left: 20px;
 `;
 
 const S = {
-  CommentWrapper,
-  CommentActions,
-  ButtonWrapper,
+  Container,
+  More,
+  MoreText,
+  Replies,
 };
 
 export default S;
