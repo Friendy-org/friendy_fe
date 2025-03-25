@@ -21,12 +21,12 @@ interface FeedDetailScreenProps {
 }
 
 export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
-  const postId = route.params.postId.toString();
+  const { postId } = route.params;
   const {
     postQuery: { data: postData, isLoading: isPostLoading },
     commentQuery: { isLoading: isCommentLoading, fetchNextPage, hasNextPage, isFetchingNextPage },
     comments,
-  } = usePostDetailData(postId);
+  } = usePostDetailData(String(postId));
 
   const { inputRef, inputValue, setInputValue, replyToId, replyToNickname, handleReplyPress, handleCancelReply } =
     useReplyInput();
