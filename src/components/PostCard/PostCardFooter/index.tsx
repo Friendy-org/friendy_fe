@@ -18,6 +18,7 @@ interface PostCardFooter {
   commentCount: number;
   shareCount: number;
   isExpand?: boolean;
+  showComment?: boolean;
 }
 
 export default function PostCardFooter({
@@ -28,6 +29,7 @@ export default function PostCardFooter({
   commentCount,
   shareCount,
   isExpand = false,
+  showComment = true,
 }: PostCardFooter) {
   const navigation = useNavigation<NavigationProp>();
 
@@ -57,7 +59,7 @@ export default function PostCardFooter({
           color='default'
           label={String(likeCount)}
         />
-        {(commentCount ?? null) !== null && (
+        {showComment && (
           <IconButton
             onPress={handleNavigateToDetail}
             iconName='message-square'
