@@ -8,5 +8,7 @@ import { pathToRegex } from '../utils/mockApiHelper';
 export default function postHandler(mock: MockAdapter) {
   mock.onGet(MOCK_ENDPOINTS.POST.LIST).reply(200, getPostListResponse);
 
+  mock.onGet(pathToRegex(MOCK_ENDPOINTS.POST.DETAIL)).reply(200, getPostDetailResponse);
+
   mock.onPost(MOCK_ENDPOINTS.POST.CREATE).reply(200, createPostResponse);
 }
