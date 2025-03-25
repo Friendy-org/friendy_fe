@@ -31,14 +31,16 @@ export const END_POINTS = {
     CREATE: BASE_PATH.POST,
     UPDATE: (postId: string) => `${BASE_PATH.POST}/${postId}`,
     DELETE: (postId: string) => `${BASE_PATH.POST}/${postId}`,
-    INFO: (postId: string) => `${BASE_PATH.POST}/${postId}`,
+    DETAIL: (postId: string) => `${BASE_PATH.POST}/${postId}`,
     LIST: `${BASE_PATH.POST}/list`,
   },
   COMMENT: {
     CREATE: BASE_PATH.COMMENT,
     UPDATE: (commentId: string) => `${BASE_PATH.COMMENT}/${commentId}`,
+    LIST: (postId: string) => `${BASE_PATH.COMMENT}/list/${postId}`,
     REPLY_CREATE: `${BASE_PATH.COMMENT}/reply`,
     REPLY_UPDATE: (replyId: string) => `${BASE_PATH.COMMENT}/reply/${replyId}`,
+    REPLY_LIST: (commentId: string) => `${BASE_PATH.COMMENT}/reply/list/${commentId}`,
   },
   FOLLOW: {
     APPLY: (targetId: string) => `${BASE_PATH.FOLLOW}/${targetId}`,
