@@ -18,9 +18,7 @@ const memberApi = {
   },
 
   getInfo: async (memberId: string) => {
-    const { data } = await axiosInstance.get(END_POINTS.MEMBER.INFO(memberId), {
-      useAuth: false,
-    });
+    const { data } = await axiosInstance.get(END_POINTS.MEMBER.INFO(memberId));
 
     return data.result;
   },
