@@ -30,5 +30,6 @@ export const getReplyListResponse = {
     ],
     hasNext: false,
     lastReplyId: 1,
+    replyCount: 0,
   },
 };

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+
 import { CommentItemData } from '@customTypes/comment';
 import useGetReplyList from '@hooks/comment/useGetReplyList';
+
 import CommentItem from './CommentItem';
 import S from './style';
 
@@ -13,7 +14,7 @@ export default function Comment({
   id,
   content,
   createdAt,
-  replyCount,
+  replyCount = 0,
   likeCount,
   authorResponse,
   onReplyPress,
@@ -25,10 +26,28 @@ export default function Comment({
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
+    isLoading,
   } = useGetReplyList(id.toString(), showReplies);
 
   const handleToggleReplies = () => {
-    setShowReplies((prev) => !prev);
+    if (!showReplies) {
+      setShowReplies(true);
+      return;
+    }
+
+    if (hasNextPage) {
+      fetchNextPage();
+      return;
+    }
+
+    setShowReplies(false);
+  };
+
+  const getMoreButtonText = () => {
+    if (isLoading || isFetchingNextPage) return '읽어들이는 중...';
+    if (!showReplies) return `${authorResponse.nickname}에 대한 답글 ${replyCount}개 보기`;
+    if (hasNextPage) return `${authorResponse.nickname}에 대한 답글 ${replyData?.pages?.[0].replyCount}개 보기`;
+    return '답글 숨기기';
   };
 
   return (
@@ -42,20 +61,10 @@ export default function Comment({
         onReplyPress={onReplyPress}
       />
 
-      {(replyCount ?? 0) > 0 && (
-        <S.More onPress={handleToggleReplies}>
-          <S.MoreText>
-            {showReplies
-              ? `${authorResponse.nickname}에 대한 답글 숨기기`
-              : `${authorResponse.nickname}에 대한 답글 ${replyCount}개 보기`}
-          </S.MoreText>
-        </S.More>
-      )}
-
-      {showReplies && (
+      {showReplies && !isLoading && (
         <S.Replies>
-          {replyData?.pages.map((page) =>
-            page.replies.map((reply: CommentItemData) => (
+          {replyData?.pages.flatMap((page) =>
+            page.comments?.map((reply: CommentItemData) => (
               <CommentItem
                 key={reply.id}
                 {...reply}
@@ -66,19 +75,11 @@ export default function Comment({
         </S.Replies>
       )}
 
-      {showReplies &&
-        (isFetchingNextPage ? (
-          <ActivityIndicator
-            size='small'
-            color='#1BD15E'
-          />
-        ) : (
-          hasNextPage && (
-            <S.More onPress={() => fetchNextPage()}>
-              <S.MoreText>더보기</S.MoreText>
-            </S.More>
-          )
-        ))}
+      {replyCount > 0 && (
+        <S.More onPress={handleToggleReplies}>
+          <S.MoreText>{getMoreButtonText()}</S.MoreText>
+        </S.More>
+      )}
     </S.Container>
   );
 }
