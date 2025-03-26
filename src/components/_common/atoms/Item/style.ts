@@ -35,7 +35,7 @@ const ItemContainer = styled.TouchableOpacity<{ align: ItemAlign }>`
 
   width: 100%;
   white-space: nowrap;
-  padding: 8px 11px;
+  padding: 6px 11px;
 `;
 
 const Text = styled.Text<{ color: ItemColor }>`

@@ -10,9 +10,9 @@ const ItemList = styled.View`
 `;
 
 const Divider = styled.View`
-  width: 95%;
-  height: 1px;
-  background-color: ${({ theme }) => theme.color.gray[400]};
+  width: 90%;
+  height: 0.5px;
+  background-color: ${({ theme }) => theme.color.gray[900]};
 `;
 
 const S = {
