@@ -1,7 +1,7 @@
 import styled from '@emotion/native';
 
 const CommentWrapper = styled.View`
-  padding: 12px 20px;
+  padding: 10px 20px;
 `;
 
 const S = {

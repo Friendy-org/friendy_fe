@@ -75,16 +75,19 @@ const typography = {
       font-weight: 400;
       font-size: 10px;
       letter-spacing: 0;
+      line-height: 16px;
     `,
     smallAccent: `
       font-weight: 600;
       font-size: 10px;
       letter-spacing: 0;
+      line-height: 16px;
     `,
     extraSmall: `
       font-weight: 400;
       font-size: 8px;
       letter-spacing: 0;
+      line-height: 14px;
     `,
   },
 };
