@@ -14,14 +14,16 @@ const More = styled.TouchableOpacity`
   width: 100%;
 `;
 
-const MoreText = styled.View`
+const MoreText = styled.Text`
   ${({ theme }) => theme.font.common.extraSmall};
   color: ${({ theme }) => theme.color.gray[700]};
 `;
 
 const Replies = styled.View`
   display: flex;
-  padding-left: 20px;
+  gap: 16px;
+
+  padding: 12px 0 0 20px;
 `;
 
 const S = {
