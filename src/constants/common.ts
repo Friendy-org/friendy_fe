@@ -9,14 +9,17 @@ export const DROPDOWN_ITEMS = [
   {
     item: '선택 없음',
     color: 'gray',
+    align: 'left',
   },
   {
     item: '버그',
     color: 'default',
+    align: 'left',
   },
   {
     item: '계정 관련',
     color: 'default',
+    align: 'left',
   },
 ] as const;
 
@@ -24,10 +27,12 @@ export const MYPOST_DROPDOWN_ITEMS = [
   {
     item: '게시글 수정',
     color: 'default',
+    align: 'center',
   },
   {
     item: '게시글 삭제',
     color: 'tertiary',
+    align: 'center',
   },
 ] as const;
 
@@ -35,10 +40,12 @@ export const POST_DROPDOWN_ITEMS = [
   {
     item: '알림 받지 않기',
     color: 'default',
+    align: 'center',
   },
   {
     item: '신고',
     color: 'tertiary',
+    align: 'center',
   },
 ] as const;
 
