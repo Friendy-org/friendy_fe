@@ -1,11 +1,18 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+
 import IconButton from '@components/_common/molecules/IconButton';
 import ProfileImage from '@components/_common/atoms/ProfileImage';
-import { CommentItemData } from '@customTypes/comment';
-import { useNavigation } from '@react-navigation/native';
-import { NavigationProp } from '@customTypes/navigation';
+
 import { STACK_NAME } from '@constants/navigation';
+
+import { CommentItemData } from '@customTypes/comment';
+import { NavigationProp } from '@customTypes/navigation';
+
+import { formatRelativeTime } from '@utils/formatDate';
+
 import S from './style';
 
 interface CommentItemProps extends CommentItemData {
@@ -37,7 +44,7 @@ export default function CommentItem({
         <S.InfoWrapper>
           <S.InfoHeader>
             <S.Name>{authorResponse.nickname}</S.Name>
-            <S.Time>{createdAt}</S.Time>
+            <S.Time>{formatRelativeTime(createdAt)}</S.Time>
           </S.InfoHeader>
           <S.Content>{content}</S.Content>
           <TouchableOpacity onPress={() => onReplyPress(id, authorResponse.nickname)}>

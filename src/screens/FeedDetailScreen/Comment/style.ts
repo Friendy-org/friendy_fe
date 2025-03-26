@@ -23,7 +23,7 @@ const Replies = styled.View`
   display: flex;
   gap: 16px;
 
-  padding: 12px 0 0 20px;
+  padding: 10px 0 0 20px;
 `;
 
 const S = {
