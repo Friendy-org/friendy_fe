@@ -29,7 +29,7 @@ export default function CommentInput({
 }: CommentInputProps) {
   const internalRef = useRef<TextInput>(null);
   const { createCommentMutate } = useCreateComment(String(postId));
-  const { createReplyMutate } = useCreateReply(String(postId));
+  const { createReplyMutate } = useCreateReply(String(replyToId));
 
   useImperativeHandle(inputRef, () => internalRef.current as TextInput);
 
