@@ -3,9 +3,12 @@ import { MOCK_ENDPOINTS } from '../mockEndpoints';
 import { pathToRegex } from '../utils/mockApiHelper';
 import { getCommentListResponse } from '../data/comment/getCommentListData';
 import { getReplyListResponse } from '../data/comment/getReplyListData';
+import { createCommentResponse } from '../data/comment/createCommentData';
 
 export default function commentHandler(mock: MockAdapter) {
   mock.onGet(pathToRegex(MOCK_ENDPOINTS.COMMENT.LIST)).reply(200, getCommentListResponse);
 
   mock.onGet(pathToRegex(MOCK_ENDPOINTS.COMMENT.REPLY_LIST)).reply(200, getReplyListResponse);
+
+  mock.onPost(MOCK_ENDPOINTS.COMMENT.CREATE).reply(200, createCommentResponse);
 }
