@@ -9,7 +9,7 @@ export default function useCreateReply(commentId: string) {
   const createReplyMutate = useMutation({
     mutationFn: commentApi.createReply,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.COMMENT_LIST, commentId] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.REPLY_LIST, commentId] });
     },
   });
 
