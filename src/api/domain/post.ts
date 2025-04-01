@@ -1,6 +1,6 @@
 import { axiosInstance } from '@api/axiosInstance';
 import { END_POINTS } from '@constants/api';
-import { CreatePostData } from '@customTypes/post';
+import { PostFormData } from '@customTypes/post';
 
 const postApi = {
   getDetail: async (postId: string) => {
@@ -17,8 +17,14 @@ const postApi = {
     return data.result;
   },
 
-  create: async (createPostData: CreatePostData) => {
+  create: async (createPostData: PostFormData) => {
     await axiosInstance.post(END_POINTS.POST.CREATE, createPostData);
+  },
+
+  update: async (postId: string, editPostData: PostFormData) => {
+    const { data } = await axiosInstance.post(END_POINTS.POST.UPDATE(postId), editPostData);
+
+    return data.result;
   },
 };
 
