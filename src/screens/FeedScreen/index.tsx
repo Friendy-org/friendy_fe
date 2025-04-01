@@ -14,7 +14,7 @@ export default function FeedScreen() {
   if (isLoading) {
     return (
       <MainLayout location='Feed'>
-        <HeaderBar showEditButton />
+        <HeaderBar showUpdateButton />
         <Loading />
       </MainLayout>
     );
@@ -26,7 +26,7 @@ export default function FeedScreen() {
 
   return (
     <MainLayout location='Feed'>
-      <HeaderBar showEditButton />
+      <HeaderBar showUpdateButton />
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}

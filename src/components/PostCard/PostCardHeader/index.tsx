@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { MemberData } from '@customTypes/member';
+import { NavigationProp } from '@customTypes/navigation';
+import { PostGetUpdateData } from '@customTypes/post';
 
 import { MYPOST_DROPDOWN_ITEMS, POST_DROPDOWN_ITEMS } from '@constants/common';
+import { STACK_NAME } from '@constants/navigation';
 
 import AuthorInfo from '@components/_common/molecules/AuthorInfo';
 import IconButton from '@components/_common/molecules/IconButton';
@@ -13,10 +17,11 @@ import S from './style';
 interface PostCardHeaderProps {
   me: boolean;
   authorResponse: MemberData;
-  location: string;
+  postData: PostGetUpdateData;
 }
 
-export default function PostCardHeader({ me, authorResponse, location }: PostCardHeaderProps) {
+export default function PostCardHeader({ me, authorResponse, postData }: PostCardHeaderProps) {
+  const navigation = useNavigation<NavigationProp>();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDropdown = () => setIsOpen((prev) => !prev);
@@ -24,7 +29,7 @@ export default function PostCardHeader({ me, authorResponse, location }: PostCar
   const handleSelect = (item: string) => {
     setIsOpen(false);
     if (item === MYPOST_DROPDOWN_ITEMS[0].item) {
-      console.log(item);
+      navigation.navigate(STACK_NAME.FEED_UPDATE, { postData });
     } else if (item === MYPOST_DROPDOWN_ITEMS[1].item) {
       console.log(item);
     } else if (item === POST_DROPDOWN_ITEMS[0].item) {
@@ -42,7 +47,7 @@ export default function PostCardHeader({ me, authorResponse, location }: PostCar
         <AuthorInfo
           size='md'
           {...authorResponse}
-          content={location}
+          content={postData.location}
         />
         <S.DropdownWrapper>
           <IconButton
