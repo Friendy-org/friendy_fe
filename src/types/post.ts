@@ -13,7 +13,7 @@ export interface PostData {
   imageUrls: string[];
 }
 
-export interface CreatePostData {
+export interface PostFormData {
   content: string;
   location: string;
   hashtags: string[];
