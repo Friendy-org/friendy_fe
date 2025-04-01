@@ -6,6 +6,7 @@ export const STACK_NAME = {
   EXPLORE: 'Explore',
   FEED: 'Feed',
   FEED_CREATE: 'FeedCreate',
+  FEED_UPDATE: 'FeedUpdate',
   FEED_DETAIL: 'FeedDetail',
   MAP: 'Map',
   DM: 'DM',

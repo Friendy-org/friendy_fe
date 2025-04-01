@@ -19,3 +19,10 @@ export interface PostFormData {
   hashtags: string[];
   imageUrls: string[];
 }
+
+export interface PostGetUpdateData {
+  id: number;
+  content: string;
+  location: string;
+  imageUrls: string[];
+}
