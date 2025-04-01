@@ -12,24 +12,24 @@ import IconButton from '@components/_common/molecules/IconButton';
 import S from './style';
 
 interface HeaderBarProps {
-  showEditButton?: boolean;
+  showUpdateButton?: boolean;
 }
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 
-export default function HeaderBar({ showEditButton = false }: HeaderBarProps) {
+export default function HeaderBar({ showUpdateButton = false }: HeaderBarProps) {
   const navigation = useNavigation<NavigationProp>();
 
-  const handleEditButton = () => {
+  const handleUpdateButton = () => {
     navigation.navigate(STACK_NAME.FEED_CREATE);
   };
 
   return (
     <S.HeaderContainer>
       <S.ButtonWrapper>
-        {showEditButton && (
+        {showUpdateButton && (
           <IconButton
-            onPress={handleEditButton}
+            onPress={handleUpdateButton}
             iconName='edit'
             size='md'
             color='default'

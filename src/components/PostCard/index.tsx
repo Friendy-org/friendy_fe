@@ -34,7 +34,7 @@ export default function PostCard({
       <PostCardHeader
         me={me}
         authorResponse={authorResponse}
-        location={location}
+        postData={{ id, content, location, imageUrls }}
       />
 
       <ImageSlider imageUrls={imageUrls} />
