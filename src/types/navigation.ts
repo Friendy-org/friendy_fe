@@ -1,4 +1,5 @@
 import { StackNavigationProp } from '@react-navigation/stack';
+import { PostGetUpdateData } from './post';
 
 export type RootStackParamList = {
   Root: undefined;
@@ -8,6 +9,7 @@ export type RootStackParamList = {
   Explore: undefined;
   Feed: undefined;
   FeedCreate: undefined;
+  FeedUpdate: { postData: PostGetUpdateData };
   FeedDetail: { postId: number };
   Map: undefined;
   DM: undefined;
