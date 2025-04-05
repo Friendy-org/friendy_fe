@@ -39,7 +39,7 @@ export default function TabBar({ activeTab }: TabBarProps) {
     }
 
     if (tabName === 'Post') {
-      navigation.navigate(STACK_NAME.FEED);
+      navigation.navigate(STACK_NAME.POST);
     }
 
     if (tabName === 'Map') {

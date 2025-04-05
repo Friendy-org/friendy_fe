@@ -62,26 +62,26 @@ export default function AppNavigator() {
           component={ExploreScreen}
         />
         <Stack.Screen
-          name={STACK_NAME.FEED}
+          name={STACK_NAME.POST}
           component={PostScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name={STACK_NAME.FEED_CREATE}
+          name={STACK_NAME.POST_CREATE}
           component={PostCreateScreen}
           options={{
             title: '게시글 생성',
           }}
         />
         <Stack.Screen
-          name={STACK_NAME.FEED_UPDATE}
+          name={STACK_NAME.POST_UPDATE}
           component={PostUpdateScreen}
           options={{
             title: '게시글 생성',
           }}
         />
         <Stack.Screen
-          name={STACK_NAME.FEED_DETAIL}
+          name={STACK_NAME.POST_DETAIL}
           component={PostDetailScreen}
         />
         <Stack.Screen

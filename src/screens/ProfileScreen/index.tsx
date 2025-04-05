@@ -52,7 +52,7 @@ export default function ProfileScreen({ route }: ProfileScreenProps) {
   const posts = data?.pages.flatMap((page) => page.posts) ?? [];
 
   const renderItem = ({ item }: { item: PostTumbnailData }) => (
-    <S.Thumbnail onPress={() => navigation.navigate(STACK_NAME.FEED_DETAIL, { postId: item.id })}>
+    <S.Thumbnail onPress={() => navigation.navigate(STACK_NAME.POST_DETAIL, { postId: item.id })}>
       <PostImage
         size='fillContainer'
         shape='default'

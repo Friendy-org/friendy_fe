@@ -35,7 +35,7 @@ export default function PostCardFooter({
 
   const handleNavigateToDetail = () => {
     if (!isExpand) {
-      navigation.navigate(STACK_NAME.FEED_DETAIL, { postId: id });
+      navigation.navigate(STACK_NAME.POST_DETAIL, { postId: id });
     }
   };
 
