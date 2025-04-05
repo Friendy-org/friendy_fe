@@ -1,28 +1,21 @@
-import { useState } from 'react';
-
-import useCreatePost from '@hooks/post/useCreatePost';
-
-import Button from '@components/_common/atoms/Button';
 import ContentInput from '@components/_common/atoms/ContentInput';
 import ImageUploader from '@components/ImageUploader';
-
-import { getOnlyHashtags } from '@utils/parseText';
+import Button from '@components/_common/atoms/Button';
 
 import S from './style';
 
-export default function FeedCreateScreen() {
-  const { createPostMutate } = useCreatePost();
-  const [imageUrls, setImageUrls] = useState<string[]>([]);
-  const [content, setContent] = useState<string>('');
-  const [location, setLocation] = useState<string>('');
+interface PostFormProps {
+  imageUrls: string[];
+  setImageUrls: (urls: string[]) => void;
+  content: string;
+  setContent: (content: string) => void;
+  onSubmit: () => void;
+}
 
-  const handlePress = () => {
-    createPostMutate.mutate({ content, location, hashtags: getOnlyHashtags(content), imageUrls });
-  };
-
+export default function PostForm({ imageUrls, setImageUrls, content, setContent, onSubmit }: PostFormProps) {
   return (
     <S.Layout>
-      <S.FeedCreateContainer>
+      <S.PostCreateContainer>
         <S.ImageWrapper>
           <S.ImageLabel>선택한 이미지</S.ImageLabel>
           <S.ImageForm hasImages={imageUrls.length > 0}>
@@ -40,13 +33,13 @@ export default function FeedCreateScreen() {
             onChange={setContent}
           />
         </S.ContentWrapper>
-      </S.FeedCreateContainer>
+      </S.PostCreateContainer>
 
       <Button
         size='fillContainer'
         color='primary'
         shape='round'
-        onPress={handlePress}
+        onPress={onSubmit}
       >
         완료
       </Button>

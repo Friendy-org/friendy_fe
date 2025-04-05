@@ -7,10 +7,10 @@ export type RootStackParamList = {
   SignUp: undefined;
   ResetPassword: undefined;
   Explore: undefined;
-  Feed: undefined;
-  FeedCreate: undefined;
-  FeedUpdate: { postData: PostGetUpdateData };
-  FeedDetail: { postId: number };
+  Post: undefined;
+  PostCreate: undefined;
+  PostUpdate: { postData: PostGetUpdateData };
+  PostDetail: { postId: number };
   Map: undefined;
   DM: undefined;
   Profile: { memberId: number };
