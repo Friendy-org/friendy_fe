@@ -9,6 +9,7 @@ export const MOCK_ENDPOINTS = {
     SIGNUP: '/signup',
     RESET_PASSWORD: '/password',
     INFO: '/member/:memberId',
+    MY_POST_LIST: '/member/:memberId/posts',
   },
   EMAIL: {
     SEND_CODE: '/email/send-code',
