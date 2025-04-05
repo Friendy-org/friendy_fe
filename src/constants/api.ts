@@ -71,3 +71,4 @@ export const ERROR_CODE = {
 
 export const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN';
 export const REFRESH_TOKEN_KEY = 'REFRESH_TOKEN';
+export const MEMBER_ID_KEY = 'MEMBER_ID';

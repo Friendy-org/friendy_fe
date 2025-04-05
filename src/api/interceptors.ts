@@ -4,7 +4,7 @@ import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axio
 import { HTTPError } from '@api/HTTPError';
 import { axiosInstance } from '@api/axiosInstance';
 
-import { ACCESS_TOKEN_KEY, ERROR_CODE, HTTP_STATUS_CODE, REFRESH_TOKEN_KEY } from '@constants/api';
+import { ACCESS_TOKEN_KEY, ERROR_CODE, HTTP_STATUS_CODE, MEMBER_ID_KEY, REFRESH_TOKEN_KEY } from '@constants/api';
 import authApi from './domain/auth';
 
 export interface ErrorResponseData {
@@ -64,6 +64,7 @@ export const handleResponse = async (response: AxiosResponse) => {
       } catch (error) {
         EncryptedStorage.removeItem(ACCESS_TOKEN_KEY);
         EncryptedStorage.removeItem(REFRESH_TOKEN_KEY);
+        EncryptedStorage.removeItem(MEMBER_ID_KEY);
 
         throw new HTTPError(status, data?.message, data?.code);
       }
@@ -79,6 +80,7 @@ export const handleResponse = async (response: AxiosResponse) => {
     ) {
       EncryptedStorage.removeItem(ACCESS_TOKEN_KEY);
       EncryptedStorage.removeItem(REFRESH_TOKEN_KEY);
+      EncryptedStorage.removeItem(MEMBER_ID_KEY);
 
       throw new HTTPError(status, data?.message, data?.code);
     }
