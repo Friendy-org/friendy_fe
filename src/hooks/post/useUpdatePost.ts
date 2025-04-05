@@ -14,8 +14,8 @@ export default function useUpdatePost() {
   const queryClient = useQueryClient();
 
   const updatePostMutate = useMutation({
-    mutationFn: ({ postId, editPostData }: { postId: string; editPostData: PostFormData }) =>
-      postApi.update(postId, editPostData),
+    mutationFn: ({ postId, updatePostData }: { postId: string; updatePostData: PostFormData }) =>
+      postApi.update(postId, updatePostData),
     onSuccess: ({ id }: { id: string }) => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.POST_DETAIL, id] });
       navigation.replace(STACK_NAME.FEED_DETAIL, { postId: Number(id) });

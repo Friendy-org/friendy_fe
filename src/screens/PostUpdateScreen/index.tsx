@@ -22,7 +22,7 @@ export default function PostUpdateScreen({ route }: PostUpdateScreenProps) {
   const handleSubmit = () => {
     updatePostMutate.mutate({
       postId: String(postData.id),
-      editPostData: { content, location, hashtags: getOnlyHashtags(content), imageUrls },
+      updatePostData: { content, location, hashtags: getOnlyHashtags(content), imageUrls },
     });
   };
 
