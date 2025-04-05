@@ -21,8 +21,8 @@ const postApi = {
     await axiosInstance.post(END_POINTS.POST.CREATE, createPostData);
   },
 
-  update: async (postId: string, editPostData: PostFormData) => {
-    const { data } = await axiosInstance.post(END_POINTS.POST.UPDATE(postId), editPostData);
+  update: async (postId: string, updatePostData: PostFormData) => {
+    const { data } = await axiosInstance.post(END_POINTS.POST.UPDATE(postId), updatePostData);
 
     return data.result;
   },
