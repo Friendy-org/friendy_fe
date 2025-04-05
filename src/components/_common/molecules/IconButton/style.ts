@@ -2,7 +2,7 @@ import styled from '@emotion/native';
 import { Theme } from '@emotion/react';
 
 export type IconButtonSize = 'x_sm' | 'sm' | 'md' | 'fillContainer';
-export type IconButtonColor = 'default' | 'gray';
+export type IconButtonColor = 'default' | 'gray' | 'primary';
 
 export interface IconButtonStyleProps {
   size: IconButtonSize;
@@ -34,6 +34,9 @@ const colorStyles = (theme: Theme, color: IconButtonColor) => {
     `,
     gray: `
       color: ${theme.color.gray[700]};
+    `,
+    primary: `
+      color: ${theme.color.primary[800]};
     `,
   };
   return colors[color];
