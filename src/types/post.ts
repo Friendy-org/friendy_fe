@@ -26,3 +26,8 @@ export interface PostGetUpdateData {
   location: string;
   imageUrls: string[];
 }
+
+export interface PostTumbnailData {
+  id: number;
+  thumbnail: string;
+}

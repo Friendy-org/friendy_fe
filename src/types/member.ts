@@ -16,3 +16,12 @@ export interface MemberData {
   nickname: string;
   profileImageUrl: string;
 }
+
+export interface MemberDetailData {
+  me: boolean;
+  email: string;
+  nickname: string;
+  profileImageUrl: string;
+  followerCount: number;
+  followingCount: number;
+}

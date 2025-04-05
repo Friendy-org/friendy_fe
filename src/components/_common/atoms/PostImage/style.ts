@@ -26,9 +26,7 @@ const sizeStyles = (size: PostImageSize) => {
   return sizes[size];
 };
 
-const shapeStyles = (shape?: PostImageShape) => {
-  return shape === 'round' ? `border-radius: 8px;` : '';
-};
+const shapeStyles = (shape?: PostImageShape) => (shape === 'round' ? `border-radius: 8px;` : '');
 
 const PostImage = styled.Image<PostImageStyleProps>(
   ({ size, shape }) => `

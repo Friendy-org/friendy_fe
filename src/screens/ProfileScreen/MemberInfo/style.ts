@@ -2,8 +2,8 @@ import styled from '@emotion/native';
 
 const Container = styled.View`
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 14px;
 
   width: 100%;
 `;
@@ -13,14 +13,15 @@ const MemberInfoContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 
   width: 100%;
 `;
 
 const FollowInfo = styled.View`
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 3px;
 `;
 
 const FollowCount = styled.Text`
