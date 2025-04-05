@@ -14,6 +14,8 @@ export type RootStackParamList = {
   Map: undefined;
   DM: undefined;
   Profile: { memberId: number };
+  ProfileUpdate: { email: string };
+  Setting: undefined;
 };
 
 export type NavigationProp = StackNavigationProp<RootStackParamList>;

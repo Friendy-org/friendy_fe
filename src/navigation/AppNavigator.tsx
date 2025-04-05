@@ -16,6 +16,7 @@ import PostDetailScreen from '@screens/PostDetailScreen';
 import PostUpdateScreen from '@screens/PostUpdateScreen';
 import { STACK_NAME } from '@constants/navigation';
 import ProfileUpdateScreen from '@screens/ProfileUpdateScreen';
+import SettingScreen from '@screens/SettingScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -103,6 +104,10 @@ export default function AppNavigator() {
         <Stack.Screen
           name={STACK_NAME.PROFILE_UPDATE}
           component={ProfileUpdateScreen}
+        />
+        <Stack.Screen
+          name={STACK_NAME.SETTING}
+          component={SettingScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
