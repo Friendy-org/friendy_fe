@@ -15,6 +15,7 @@ import PostCreateScreen from '@screens/PostCreateScreen';
 import PostDetailScreen from '@screens/PostDetailScreen';
 import PostUpdateScreen from '@screens/PostUpdateScreen';
 import { STACK_NAME } from '@constants/navigation';
+import ProfileUpdateScreen from '@screens/ProfileUpdateScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -97,6 +98,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name={STACK_NAME.PROFILE}
           component={ProfileScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={STACK_NAME.PROFILE_UPDATE}
+          component={ProfileUpdateScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
