@@ -1,4 +1,3 @@
-import { TouchableOpacity } from 'react-native';
 import { DEFAULT_PROFILE_IMAGE } from '@constants/common';
 import S, { ProfileImageStyleProps } from './style';
 
@@ -9,7 +8,10 @@ interface ProfileImageProps extends ProfileImageStyleProps {
 
 export default function ProfileImage({ size = 'md', imageUrl = DEFAULT_PROFILE_IMAGE, onPress }: ProfileImageProps) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <S.Container
+      disabled={!onPress}
+      onPress={onPress}
+    >
       <S.ProfileImage
         size={size}
         source={{
@@ -17,6 +19,6 @@ export default function ProfileImage({ size = 'md', imageUrl = DEFAULT_PROFILE_I
         }}
         resizeMode='cover'
       />
-    </TouchableOpacity>
+    </S.Container>
   );
 }

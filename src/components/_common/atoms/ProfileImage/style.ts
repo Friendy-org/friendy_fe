@@ -32,9 +32,14 @@ const sizeStyles = (size: ProfileImageSize) => {
   return sizes[size];
 };
 
+const Container = styled.TouchableOpacity<{ disabled: boolean }>`
+  ${({ disabled }) => disabled && 'pointer-events: none;'}
+`;
+
 const ProfileImage = styled.Image<ProfileImageStyleProps>(({ size }) => `${sizeStyles(size)}`);
 
 const S = {
+  Container,
   ProfileImage,
 };
 
