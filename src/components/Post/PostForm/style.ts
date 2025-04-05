@@ -10,7 +10,7 @@ const Layout = styled.View`
   height: 100%;
 `;
 
-const FeedCreateContainer = styled.View`
+const PostCreateContainer = styled.View`
   display: flex;
   flex: 1;
   gap: 14px;
@@ -47,7 +47,7 @@ const ButtonWrapper = styled.View`
 `;
 
 const S = {
-  FeedCreateContainer,
+  PostCreateContainer,
   Layout,
   ImageWrapper,
   ImageForm,

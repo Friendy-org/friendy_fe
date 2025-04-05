@@ -9,7 +9,7 @@ type TabName = keyof RootStackParamList;
 
 const tabs: { name: TabName; icon: string }[] = [
   { name: 'Explore', icon: 'search' },
-  { name: 'Feed', icon: 'heart' },
+  { name: 'Post', icon: 'heart' },
   { name: 'Map', icon: 'globe' },
   { name: 'DM', icon: 'send' },
   { name: 'Profile', icon: 'user' },

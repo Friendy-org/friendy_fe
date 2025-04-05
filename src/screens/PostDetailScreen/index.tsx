@@ -8,7 +8,7 @@ import { CommentItemData } from '@customTypes/comment';
 import usePostDetailData from '@hooks/post/usePostDetailData';
 import useReplyInput from '@hooks/utils/useReplyInput';
 
-import PostCard from '@components/PostCard';
+import PostCard from '@components/Post/PostCard';
 import MainLayout from '@screens/MainLayout';
 import Loading from '@screens/Loading';
 
@@ -16,11 +16,11 @@ import Comment from './Comment';
 import CommentInput from './CommentInput';
 import S from './style';
 
-interface FeedDetailScreenProps {
-  route: RouteProp<RootStackParamList, 'FeedDetail'>;
+interface PostDetailScreenProps {
+  route: RouteProp<RootStackParamList, 'PostDetail'>;
 }
 
-export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
+export default function PostDetailScreen({ route }: PostDetailScreenProps) {
   const { postId } = route.params;
   const {
     postQuery: { data: postData, isLoading: isPostLoading },
@@ -45,7 +45,7 @@ export default function FeedDetailScreen({ route }: FeedDetailScreenProps) {
   );
 
   return (
-    <MainLayout location='Feed'>
+    <MainLayout location='Post'>
       <FlatList
         data={comments}
         keyExtractor={(item) => item.id.toString()}

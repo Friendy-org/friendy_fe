@@ -1,19 +1,19 @@
 import React from 'react';
 import { FlatList, ActivityIndicator } from 'react-native';
 
-import PostCard from '@components/PostCard';
+import PostCard from '@components/Post/PostCard';
 import HeaderBar from '@navigation/HeaderBar';
 import MainLayout from '@screens/MainLayout';
 import useGetPostList from '@hooks/post/useGetPostList';
 import { PostData } from '@customTypes/post';
 import Loading from '@screens/Loading';
 
-export default function FeedScreen() {
+export default function PostScreen() {
   const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } = useGetPostList();
 
   if (isLoading) {
     return (
-      <MainLayout location='Feed'>
+      <MainLayout location='Post'>
         <HeaderBar showUpdateButton />
         <Loading />
       </MainLayout>
@@ -25,7 +25,7 @@ export default function FeedScreen() {
   const renderItem = ({ item }: { item: PostData }) => <PostCard {...item} />;
 
   return (
-    <MainLayout location='Feed'>
+    <MainLayout location='Post'>
       <HeaderBar showUpdateButton />
       <FlatList
         data={posts}
