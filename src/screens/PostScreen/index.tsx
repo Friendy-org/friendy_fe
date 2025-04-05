@@ -14,7 +14,10 @@ export default function PostScreen() {
   if (isLoading) {
     return (
       <MainLayout location='Post'>
-        <HeaderBar showUpdateButton />
+        <HeaderBar
+          showUpdateButton
+          showLogo
+        />
         <Loading />
       </MainLayout>
     );
@@ -26,7 +29,10 @@ export default function PostScreen() {
 
   return (
     <MainLayout location='Post'>
-      <HeaderBar showUpdateButton />
+      <HeaderBar
+        showUpdateButton
+        showLogo
+      />
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
