@@ -22,6 +22,7 @@ export const END_POINTS = {
     SIGNUP: '/signup',
     RESET_PASSWORD: '/password',
     INFO: (memberId: string) => `${BASE_PATH.MEMBER}/${memberId}`,
+    MY_POST_LIST: (memberId: string) => `${BASE_PATH.MEMBER}/${memberId}/posts`,
   },
   EMAIL: {
     SEND_CODE: `${BASE_PATH.EMAIL}/send-code`,

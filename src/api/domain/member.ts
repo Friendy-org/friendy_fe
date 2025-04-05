@@ -9,6 +9,14 @@ const memberApi = {
     return data.result;
   },
 
+  getMyPostList: async (memberId: string, lastPostId: string | null) => {
+    const { data } = await axiosInstance.get(END_POINTS.MEMBER.MY_POST_LIST(memberId), {
+      params: { lastPostId },
+    });
+
+    return data.result;
+  },
+
   signup: async (signupData: SignupData) => {
     const { data } = await axiosInstance.post(END_POINTS.MEMBER.SIGNUP, signupData, {
       useAuth: false,
