@@ -11,4 +11,5 @@ export const STACK_NAME = {
   MAP: 'Map',
   DM: 'DM',
   PROFILE: 'Profile',
+  PROFILE_UPDATE: 'ProfileUpdate',
 } as const;
