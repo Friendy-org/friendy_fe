@@ -4,5 +4,6 @@ export const loginResponse = {
   result: {
     accessToken: 'cocomuAccessToken',
     refreshToken: 'cocomuRefreshToken',
+    memberId: 1,
   },
 };
