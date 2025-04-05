@@ -23,7 +23,7 @@ export default function HeaderBar({ showUpdateButton, showLogo, showSetting }: H
   const navigation = useNavigation<NavigationProp>();
 
   const handleUpdate = () => {
-    navigation.navigate(STACK_NAME.FEED_CREATE);
+    navigation.navigate(STACK_NAME.POST_CREATE);
   };
 
   const handleSetting = () => {

@@ -16,7 +16,7 @@ export default function useCreatePost() {
     mutationFn: postApi.create,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.POST_LIST] });
-      navigation.replace(STACK_NAME.FEED);
+      navigation.replace(STACK_NAME.POST);
     },
   });
 

@@ -18,7 +18,7 @@ export default function useUpdatePost() {
       postApi.update(postId, updatePostData),
     onSuccess: ({ id }: { id: string }) => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.POST_DETAIL, id] });
-      navigation.replace(STACK_NAME.FEED_DETAIL, { postId: Number(id) });
+      navigation.replace(STACK_NAME.POST_DETAIL, { postId: Number(id) });
     },
   });
 

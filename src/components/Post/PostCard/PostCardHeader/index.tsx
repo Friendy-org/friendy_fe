@@ -29,7 +29,7 @@ export default function PostCardHeader({ me, authorResponse, postData }: PostCar
   const handleSelect = (item: string) => {
     setIsOpen(false);
     if (item === MYPOST_DROPDOWN_ITEMS[0].item) {
-      navigation.navigate(STACK_NAME.FEED_UPDATE, { postData });
+      navigation.navigate(STACK_NAME.POST_UPDATE, { postData });
     } else if (item === MYPOST_DROPDOWN_ITEMS[1].item) {
       console.log(item);
     } else if (item === POST_DROPDOWN_ITEMS[0].item) {
