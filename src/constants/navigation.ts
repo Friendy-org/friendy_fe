@@ -12,4 +12,5 @@ export const STACK_NAME = {
   DM: 'DM',
   PROFILE: 'Profile',
   PROFILE_UPDATE: 'ProfileUpdate',
+  SETTING: 'Setting',
 } as const;

@@ -27,9 +27,11 @@ export default function HeaderBar({ showUpdateButton, showLogo, showSetting }: H
   };
 
   const handleSetting = () => {
+    navigation.navigate(STACK_NAME.SETTING);
   };
 
   const handleAlarm = () => {
+    console.log('alarm');
   };
 
   return (
