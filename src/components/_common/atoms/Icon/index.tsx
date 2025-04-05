@@ -24,7 +24,7 @@ export default function Icon({ name, size, color = 'default' }: IconProps) {
   if (color === 'gray') {
     iconColor = '#626262';
   } else if (color === 'primary') {
-    iconColor = '#00B732';
+    iconColor = '#009315';
   } else if (color === 'secondary') {
     iconColor = '#198AB9';
   } else if (color === 'tertiary') {

@@ -1,9 +1,16 @@
 import React from 'react';
-import IconButton from '@components/_common/molecules/IconButton';
-import S from './style';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '@customTypes/navigation';
 import { useNavigation } from '@react-navigation/native';
+import EncryptedStorage from 'react-native-encrypted-storage';
+
+import IconButton from '@components/_common/molecules/IconButton';
+
+import { STACK_NAME } from '@constants/navigation';
+import { MEMBER_ID_KEY } from '@constants/api';
+
+import { RootStackParamList } from '@customTypes/navigation';
+
+import S from './style';
 
 type TabName = keyof RootStackParamList;
 
@@ -24,9 +31,33 @@ interface TabBarProps {
 export default function TabBar({ activeTab }: TabBarProps) {
   const navigation = useNavigation<NavigationProp>();
 
-  const handlePress = (tabName: TabName) => {
-    if (activeTab !== tabName) {
-      navigation.navigate(tabName);
+  const handlePress = async (tabName: TabName) => {
+    if (activeTab === tabName) return;
+
+    if (tabName === 'Explore') {
+      navigation.navigate(STACK_NAME.EXPLORE);
+    }
+
+    if (tabName === 'Post') {
+      navigation.navigate(STACK_NAME.FEED);
+    }
+
+    if (tabName === 'Map') {
+      navigation.navigate(STACK_NAME.MAP);
+    }
+
+    if (tabName === 'DM') {
+      navigation.navigate(STACK_NAME.DM);
+    }
+
+    if (tabName === 'Profile') {
+      const memberId = await EncryptedStorage.getItem(MEMBER_ID_KEY);
+
+      if (!memberId) {
+        Error('사용자 ID가 없습니다.');
+      }
+
+      navigation.navigate(STACK_NAME.PROFILE, { memberId: Number(memberId) });
     }
   };
 
@@ -37,8 +68,8 @@ export default function TabBar({ activeTab }: TabBarProps) {
           key={name}
           onPress={() => handlePress(name)}
           iconName={icon}
-          iconSize={25}
-          color={activeTab === name ? '#009235' : '#000000'}
+          size='md'
+          color={activeTab === name ? 'primary' : 'gray'}
           label={name}
         />
       ))}
