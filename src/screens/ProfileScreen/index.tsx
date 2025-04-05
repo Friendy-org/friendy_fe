@@ -42,6 +42,7 @@ export default function ProfileScreen({ route }: ProfileScreenProps) {
       <MainLayout location='Profile'>
         <HeaderBar
           showUpdateButton
+          showSetting
         />
         <Loading />
       </MainLayout>
@@ -64,6 +65,7 @@ export default function ProfileScreen({ route }: ProfileScreenProps) {
     <MainLayout location='Profile'>
       <HeaderBar
         showUpdateButton
+        showSetting
       />
 
       <FlatList

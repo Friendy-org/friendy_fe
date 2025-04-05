@@ -13,15 +13,23 @@ import S from './style';
 
 interface HeaderBarProps {
   showUpdateButton?: boolean;
+  showLogo?: boolean;
+  showSetting?: boolean;
 }
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 
-export default function HeaderBar({ showUpdateButton = false }: HeaderBarProps) {
+export default function HeaderBar({ showUpdateButton, showLogo, showSetting }: HeaderBarProps) {
   const navigation = useNavigation<NavigationProp>();
 
-  const handleUpdateButton = () => {
+  const handleUpdate = () => {
     navigation.navigate(STACK_NAME.FEED_CREATE);
+  };
+
+  const handleSetting = () => {
+  };
+
+  const handleAlarm = () => {
   };
 
   return (
@@ -29,18 +37,19 @@ export default function HeaderBar({ showUpdateButton = false }: HeaderBarProps) 
       <S.ButtonWrapper>
         {showUpdateButton && (
           <IconButton
-            onPress={handleUpdateButton}
+            onPress={handleUpdate}
             iconName='edit'
             size='md'
             color='default'
           />
         )}
       </S.ButtonWrapper>
-      <S.Logo src={LOGO_IMAGE} />
+      {showLogo && <S.Logo src={LOGO_IMAGE} />}
       <IconButton
-        iconName='bell'
+        iconName={showSetting ? 'settings' : 'bell'}
         size='md'
         color='default'
+        onPress={showSetting ? handleSetting : handleAlarm}
       />
     </S.HeaderContainer>
   );

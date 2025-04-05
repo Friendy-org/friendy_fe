@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 export default function MapScreen() {
   return (
     <MainLayout location='Map'>
-      <HeaderBar />
+      <HeaderBar showLogo />
       <Text>MapScreen</Text>
     </MainLayout>
   );
